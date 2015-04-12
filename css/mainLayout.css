@@ -1,0 +1,10 @@
+body{
+	margin: 20px;
+}
+
+.class{
+	width: 30%;
+	height: 30%;
+	border-radius: 10px;
+	font-size: 30px;
+}
