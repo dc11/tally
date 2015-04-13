@@ -17,6 +17,7 @@ body{
 	background-color: #3385D6;
 	color: white;
 	box-shadow: 2px 2px 2px #888888;
+	margin-bottom: 25px;
 }
 
 .buttons{
@@ -31,7 +32,9 @@ body{
 }
 
 .right{
-	float: right;
+	position: absolute;
+	margin-left: 75%;
+	margin-top: 15%;
 	}
 
 .trash{
