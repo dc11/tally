@@ -10,19 +10,13 @@ var loadQuestion = function(template, data) {
 
 var sendQuestion = function(template, data) {
 	data = data || {};
-	$('#current-question-drafts').html(Handlebars.templates[template](data));
-}
-
-var saveQuestion = function(template, data) {
-	console.log('here');
-	data = data || {};
-	$('#all-questions-drafts').html(Handlebars.templates[template](data));
-	$('#current-question-drafts').empty();
+	$('#sent-container').prepend(Handlebars.templates[template](data));
 }
 
 var createTable = function(template, data) {
 	data = data || {};
 	$('#all-questions-drafts').prepend(Handlebars.templates[template](data));
+	$('#current-question-drafts').empty();
 }
 
 var addQuestionContent = function(template, data) {
@@ -34,16 +28,6 @@ var addAnswers = function(template, data, element) {
 	data = data || {};
 	$('.' + element).html(Handlebars.templates[template](data));
 }
-
-// var addAnswers2 = function(template, data) {
-// 	data = data || {};
-// 	$('#saved-answer-tr-2').html(Handlebars.templates[template](data));
-// }
-
-// var addAnswers = function(template, data) {
-// 	data = data || {};
-// 	$('#current-question-drafts').prepend(Handlebars.templates[template](data));
-// }
 
 $(document).on('click', '#add', function (e) {
 	e.preventDefault();
@@ -67,12 +51,7 @@ $(document).on('click', '#send', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('textarea');
 	var contents = grabContents(t);
-	createTable('createTable');
-	addQuestionContent('questionContent', { content : contents[0] });
-	addAnswers('addAnswers', { content : [ contents[1], contents[2] ] }, 'saved-answer-tr-1');
-	if (contents.length > 3) {
-		addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2');
-	}
+	sendQuestion('sendQuestion', { content : contents[0] });
 });
 
 var grabContents = function(elements) {

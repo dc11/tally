@@ -34,4 +34,10 @@ templates['saveQuestion'] = template({"1":function(depth0,helpers,partials,data)
   if (stack1 != null) { buffer += stack1; }
   return buffer + "	</table>\n</div>";
 },"useData":true});
+templates['sendQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "<div class='sent-answer'>\n	<div class='sent-answer-content'>\n		"
+    + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
+    + "\n	</div>\n	<div>\n		View Results\n	</div>\n</div>";
+},"useData":true});
 })();
