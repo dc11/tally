@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tally</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <script type="text/javascript" src="jquery/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="javascripts/handlebars.runtime.js"></script>
+        <script src="javascripts/templates.js"></script>
+        <script src="javascripts/question.js"></script>
+    </head>
+    <body>
+        <div id="main-container">
+            <div id='drafts' class='col-md-6'>
+                <h1 class='section-header'>Drafts</h1>
+                <div id='drafts-container'></div>
+                <div id='draft-buttons'>
+                    <button type='button' class='btn btn-default' id='add'>Add</button>
+                    <button type='button' class='btn btn-default'>Send All</button>
+                    <button type='button' class='btn btn-default'>Delete All</button>
+                </div>
+            </div>
+            <div id='sent' class='col-md-6'>
+                <h1 class='section-header'>Sent</h1>
+                <div id='sent-container'></div>
+                <div id='sent-buttons'>
+                    <button type='button' class='btn btn-default'>Hide All</button>
+                    <button type='button' class='btn btn-default'>Delete All</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
