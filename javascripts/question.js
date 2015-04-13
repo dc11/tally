@@ -55,6 +55,16 @@ $(document).on('click', '#send', function (e) {
 	sendQuestion('sendQuestion', { content : contents[0] });
 });
 
+$(document).on('click', '#delete-sent', function (e) {
+	e.preventDefault();
+	$('#sent-container').empty();
+});
+
+$(document).on('click', '#delete-drafts', function (e) {
+	e.preventDefault();
+	$('#all-questions-drafts').empty();
+});
+
 var grabContents = function(elements) {
 	console.log(elements)
 	var question = [];
