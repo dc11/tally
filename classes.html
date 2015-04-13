@@ -5,16 +5,61 @@
 		<title>Classes</title>
 
 		<!-- Load style sheets -->
-		<link rel='stylesheet' href='bootstrap/bootstrap.css' />
+		<script type="text/javascript" src="jquery/jquery-1.11.1.min.js"></script>
+		<link rel='stylesheet' href='bootstrap/css/bootstrap.css' />
 		<link rel="stylesheet" type="text/css" href="css/mainLayout.css" />
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="bootstrap/js/bootbox.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+            $(".trash").click(function(evt) {
+            	console.log(evt.currentTarget.parents());
+				bootbox.confirm("Are you sure you want to delete this class and all associated contents?", function(result) {
+					if (result === null) {   
+					}else{                                       
+						evt.currentTarget.parent();                         
+					}
+				});
+	        });
+
+	        $("#add").click(function(evt) {
+				bootbox.prompt("What is the name of the new class?", function(result) {
+					if (result === null) {
+					} else {
+    					$('#bottomRow').append("<td class='tableCells'><div class='class'>English<img class='trash' src='images/trash.png'></div></td>");
+    				}
+				});
+	        });
+        });
+		</script>
 	</head>
 	<body>
-		<div id='header'>
+		<div class='header'>
 		</div>
-		<div id='buttons'>
-			<button class="btn btn-default class">Math</button>
-			<button class="btn btn-default class">History</button>
-			<button class="btn btn-default class">Spanish</button>
+		<div class='buttons'>
+			<table class='largeTable'>
+			  <tr>
+			  	<td class='tableCells'>
+			  		<div class="class">Math
+			  			 <img class='trash' src="images/trash.png">
+			  		</div>
+			  	</td>
+			  	<td class='tableCells'>
+			  		<div class="class">History
+						<img class='trash' src="images/trash.png">
+			  		</div>
+			  	</td>
+              </tr>
+              <tr id='bottomRow'>
+			  	<td id='Spanish' class='tableCells'>
+			  		<div class="class">Spanish
+			  			<img id='trash' class='trash' src="images/trash.png">
+			  		</div>
+			  	</td>
+              </tr>
+            </table>
+            <img class='right' id='add' src="images/add.png" height="40" width="40"></a>
 		<div/>
+		
 	</body>
 </html>
