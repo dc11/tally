@@ -13,8 +13,9 @@
 		<script src="bootstrap/js/bootbox.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function() {
-            $('.buttons').on('click', '.trash', function(evt) {
+            $('.row').on('click', '.trash', function(evt) {
 				bootbox.confirm("Are you sure you want to delete this class and all associated contents?", function(result) {
+					console.log('result');
 					if (result === null) {   
 					}else{                                       
 						$(evt.target).parent().parent().remove();                         
@@ -27,7 +28,7 @@
 					console.log(result);
 					if (result === null) {
 					} else {
-    					$('#bottomRow').append("<td class='tableCells'><div class='class'>"+result+"<img class='trash' src='images/trash.png'></div></td>");
+    					$('.row').append("<div class='col-sm-6'><div class='class'>"+result+"<img class='trash' src='images/trash.png'></div></div>");
     				}
 				});
 	        });
@@ -58,37 +59,17 @@
 
 
 		<div class='row' style="padding-top:75px">
-			<div class="col-sm-4">
+			<div class="col-sm-6">
 				<div class="class">Math
 			  	<img class='trash' src="images/trash.png">
 			  </div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-6">
 				<div class="class">History
 			  	<img class='trash' src="images/trash.png">
 			  </div>
 			</div>
-			<div class="col-sm-4">
-				<div class="class">Spanish
-			  	<img class='trash' src="images/trash.png">
-			  </div>
-			</div>
-			<div class="col-sm-4">
-				<div class="class">Spanish
-			  	<img class='trash' src="images/trash.png">
-			  </div>
-			</div>
-			<div class="col-sm-4">
-				<div class="class">Spanish
-			  	<img class='trash' src="images/trash.png">
-			  </div>
-			</div>
-			<div class="col-sm-4">
-				<div class="class">Spanish
-			  	<img class='trash' src="images/trash.png">
-			  </div>
-			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-6">
 				<div class="class">Spanish
 			  	<img class='trash' src="images/trash.png">
 			  </div>
