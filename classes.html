@@ -8,6 +8,7 @@
 		<script type="text/javascript" src="jquery/jquery-1.11.1.min.js"></script>
 		<link rel='stylesheet' href='bootstrap/css/bootstrap.css' />
 		<link rel="stylesheet" type="text/css" href="css/mainLayout.css" />
+		<link type="text/css" href="css/navbar.css" rel="stylesheet"/>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<script src="bootstrap/js/bootbox.min.js"></script>
 		<script type="text/javascript">
@@ -34,32 +35,67 @@
 		</script>
 	</head>
 	<body>
-		<div class='header'>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header page-scroll">
+          <a class="navbar-brand page-scroll" href="#page-top">Tally</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <ol class="breadcrumb">
+              <li><a href="#">Classes</a></li>
+              <li><a href="#">Lectures</a></li>
+              <li class="active">Class Name</li>
+            </ol>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+		<div class='row' style="padding-top:75px">
+			<div class="col-sm-4">
+				<div class="class">Math
+			  	<img class='trash' src="images/trash.png">
+			  </div>
+			</div>
+			<div class="col-sm-4">
+				<div class="class">History
+			  	<img class='trash' src="images/trash.png">
+			  </div>
+			</div>
+			<div class="col-sm-4">
+				<div class="class">Spanish
+			  	<img class='trash' src="images/trash.png">
+			  </div>
+			</div>
+			<div class="col-sm-4">
+				<div class="class">Spanish
+			  	<img class='trash' src="images/trash.png">
+			  </div>
+			</div>
+			<div class="col-sm-4">
+				<div class="class">Spanish
+			  	<img class='trash' src="images/trash.png">
+			  </div>
+			</div>
+			<div class="col-sm-4">
+				<div class="class">Spanish
+			  	<img class='trash' src="images/trash.png">
+			  </div>
+			</div>
+			<div class="col-sm-4">
+				<div class="class">Spanish
+			  	<img class='trash' src="images/trash.png">
+			  </div>
+			</div>
 		</div>
-		<div class='buttons'>
-			<table class='largeTable'>
-			  <tr>
-			  	<td class='tableCells'>
-			  		<div class="class">Math
-			  			 <img class='trash' src="images/trash.png">
-			  		</div>
-			  	</td>
-			  	<td class='tableCells'>
-			  		<div class="class">History
-						<img class='trash' src="images/trash.png">
-			  		</div>
-			  	</td>
-              </tr>
-              <tr id='bottomRow'>
-			  	<td id='Spanish' class='tableCells'>
-			  		<div class="class">Spanish
-			  			<img id='trash' class='trash' src="images/trash.png">
-			  		</div>
-			  	</td>
-              </tr>
-            </table>
-            <img class='right' id='add' src="images/add.png" height="40" width="40"></a>
-		<div/>
+
+		<img class='right' id='add' src="images/add.png" height="40" width="40"></a>
 		
 	</body>
 </html>
