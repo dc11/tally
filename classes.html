@@ -20,12 +20,22 @@
 					}
 				});
 	     });
+        $('.row').on('click', '.edit', function(evt) {
+        evt.preventDefault();
+				bootbox.prompt("What would you like to call the class?", function(result) {
+					if (result === null) {
+					} else {
+						console.log($(evt.target).parent().outerText);
+    					// $(evt.target).parent().innerText(result);
+    				}
+				});
+	     });
 
 	    $("#add").click(function(evt) {
 				bootbox.prompt("What is the name of the new class?", function(result) {
 					if (result === null) {
 					} else {
-    					$('.row').append("<div class='col-sm-6'><div class='class'>"+result+"<img class='trash' src='images/trash.png'></div></div>");
+    					$('.row').append("<div class='col-sm-6'><div class='class'>"+result+"<img class='trash' src='images/trash.png'><img class='edit' src='images/edit.png'></div></div>");
     			}
 				});
 	    });
@@ -58,16 +68,19 @@
 			<div class="col-sm-6">
 				<div class="class">Math
 			  	<img class='trash' src="images/trash.png">
+			  	<img class='edit' src="images/edit.png">
 			  </div>
 			</div>
 			<div class="col-sm-6">
 				<div class="class">History
 			  	<img class='trash' src="images/trash.png">
+			  	<img class='edit' src="images/edit.png">
 			  </div>
 			</div>
 			<div class="col-sm-6">
 				<div class="class">Spanish
 			  	<img class='trash' src="images/trash.png">
+			  	<img class='edit' src="images/edit.png">
 			  </div>
 			</div>
 		</div>
