@@ -32,9 +32,7 @@ body{
 }
 
 .right{
-	position: absolute;
-	margin-left: 75%;
-	margin-top: 15%;
+	float: right;
 	}
 
 .trash{
