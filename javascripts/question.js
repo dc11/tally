@@ -11,6 +11,7 @@ var loadQuestion = function(template, data) {
 var sendQuestion = function(template, data) {
 	data = data || {};
 	$('#sent-container').prepend(Handlebars.templates[template](data));
+	$('#current-question-drafts').empty();
 }
 
 var createTable = function(template, data) {
