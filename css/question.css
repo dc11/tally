@@ -1,3 +1,11 @@
+body{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: lightgray;
+	word-wrap: break-word;
+}
+
 .question {
 	border: 10px;
 	width: 100%;
