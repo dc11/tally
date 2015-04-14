@@ -14,30 +14,39 @@
 		$(document).ready(function() {
       $('.row').on('click', '.trash', function(evt) {
         evt.preventDefault();
-				bootbox.confirm("Are you sure you want to delete this class and all associated contents?", function(result) {
-					if (result) {  
-						$(evt.target).parent().parent().remove();  
+				bootbox.confirm({
+					message: "Are you sure you want to delete this class and all associated contents?",
+					backdrop: true,
+					callback: function(result) {
+						if (result) {  
+							$(evt.target).parent().parent().parent().parent().remove();  
+						}
 					}
 				});
-	     });
-        $('.row').on('click', '.edit', function(evt) {
+	    });
+      $('.row').on('click', '.edit', function(evt) {
         evt.preventDefault();
-				bootbox.prompt("What would you like to call the class?", function(result) {
-					if (result === null) {
-					} else {
-						console.log(evt);
-						console.log()
-						$(evt.target).parent().parent().children()[0].innerText = result;
-    				}
+				bootbox.prompt({
+					title: "What would you like to call the class?",
+					backdrop: true,
+					callback: function(result) {
+						if (result !== null && result.length > 0) {
+							console.log(result.length)
+							$(evt.target).parent().parent().children()[2].innerText = result;
+	    			}
+					}	
 				});
-	     });
+	    });
 
 	    $("#add").click(function(evt) {
-				bootbox.prompt("What is the name of the new class?", function(result) {
-					if (result === null) {
-					} else {
-    					$('.row').append("<div class='col-sm-6'><div class='well'><span>"+result+"</span><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p></div></div>");
-    			}
+				bootbox.prompt({
+					title: "What is the name of the new class?",
+					backdrop: true,
+					callback: function(result) {
+						if (result !== null && result.length > 0) {
+	    				$('.row').prepend("<div class='col-sm-6'><a href='lectures.html' style='text-decoration:none'><div class='well'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p><h2>"+result+"</h2></div></a></div>");
+	    			}
+	    		}
 				});
 	    });
     });
@@ -58,7 +67,7 @@
             </ol>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            <li><a href="index.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
           </ul>
         </div>
       </div>
@@ -67,30 +76,35 @@
 
 		<div class='row' style="padding-top:75px">
 			<div class="col-sm-6">
-				<div class="well">
-					<span>Math</span>
-					<p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
-					<p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
-			  </div>
+				<a href="lectures.html" style="text-decoration:none">
+					<div class="well">
+						<p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
+						<p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
+						<h2>Math</h2>
+			  	</div>
+			  </a>
 			</div>
 			<div class="col-sm-6">
-				<div class="well">
-					<span>History</span>
-					<p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
-					<p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
-			  </div>
+				<a href="lectures.html" style="text-decoration:none">
+					<div class="well">
+						<p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
+						<p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
+						<h2>History</h2>
+				  </div>
+				</a>
 			</div>
 			<div class="col-sm-6">
-				<div class="well">
-					<span>Spanish</span>
-					<p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
-					<p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
-			  </div>
+				<a href="lectures.html" style="text-decoration:none">
+					<div class="well">
+						<p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
+						<p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
+						<h2>Spanish</h2>
+				  </div>
+				</a>
 			</div>
 		</div>
 
 		<p class="plus"><span class="glyphicon glyphicon-plus-sign" id="add"></span></p>
-		<!-- <img class='right' id='add' src="images/add.png" height="40" width="40"></a> -->
 		
 	</body>
 </html>

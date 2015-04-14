@@ -3,6 +3,7 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	background-color: lightgray;
+	word-wrap: break-word;
 }
 
 .class{
@@ -31,13 +32,11 @@ body{
 	width: 100%;
 }
 
-.right{
-}
-
 .well {
 	min-height: 30px;
 	height: 100px;
 	padding: 27px;
+	padding-top: 19px;
   	padding-left: 35px;
 	border-radius: 10px;
 	font-size: 30px;
@@ -46,14 +45,19 @@ body{
 	color: #3385D6;
 	border: 0px;
 	box-shadow: 2px 2px 2px #888888;
+	overflow-y: hidden;
+}
+
+.well:hover {
+	background-color: #DDEEFF;
+	cursor: pointer;
+	cursor: hand;
 }
 
 .trash{
-	height: 30px;
-	width: 30px;
+	font-size: 20px;
 	position: relative;
 	float: right;
-	margin: 4px;
 	color: #3385D6;
 }
 
@@ -64,11 +68,9 @@ body{
 }
 
 .edit{
-	height: 30px;
-	width: 30px;
+	font-size: 20px;
 	position: relative;
 	float: right;
-	margin: 4px;
 	margin-right: 8px;
 	color: #3385D6;
 }
@@ -81,11 +83,9 @@ body{
 
 .plus{
 	font-size: 50px;
-	height: 30px;
-	width: 30px;
-	position: relative;
-	float: right;
-	margin: 4px;
+	position: fixed;
+	right: 100px;
+	bottom: 30px;
 	color: black;
 }
 
