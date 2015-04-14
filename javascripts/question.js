@@ -11,6 +11,7 @@ var loadQuestion = function(template, data) {
 var sendQuestion = function(template, data) {
 	data = data || {};
 	$('#sent-container').prepend(Handlebars.templates[template](data));
+	$('#current-question-drafts').empty();
 }
 
 var createTable = function(template, data) {
@@ -83,6 +84,16 @@ $(document).on('click', '#send', function (e) {
 	var t = $('.addQuestion').find('textarea');
 	var contents = grabContents(t);
 	sendQuestion('sendQuestion', { content : contents[0] });
+});
+
+$(document).on('click', '#delete-sent', function (e) {
+	e.preventDefault();
+	$('#sent-container').empty();
+});
+
+$(document).on('click', '#delete-drafts', function (e) {
+	e.preventDefault();
+	$('#all-questions-drafts').empty();
 });
 
 var grabContents = function(elements) {

@@ -65,6 +65,10 @@
   font-size: 23px;
   line-height: 20px;
 }
+
+.breadcrumb {
+    background-color: white;
+}
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #777;

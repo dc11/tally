@@ -2,12 +2,13 @@ body{
 	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: lightGray;
+	background-color: lightgray;
+	word-wrap: break-word;
 }
 
 .class{
 	height: 100px;
-	width: 85%;
+	width: 100%;
 	min-width: 190px;
 	border-radius: 10px;
 	font-size: 30px;
@@ -31,14 +32,73 @@ body{
 	width: 100%;
 }
 
-.right{
-	float: right;
-	}
+.well {
+	min-height: 30px;
+	height: 100px;
+	padding: 27px;
+	padding-top: 19px;
+  	padding-left: 35px;
+	border-radius: 10px;
+	font-size: 30px;
+	font-family: arial;
+	background-color: white;
+	color: #3385D6;
+	border: 0px;
+	box-shadow: 2px 2px 2px #888888;
+	overflow-y: hidden;
+}
+
+.well:hover {
+	background-color: #DDEEFF;
+	cursor: pointer;
+	cursor: hand;
+}
 
 .trash{
-	height: 40px;
-	width: 40px;
+	font-size: 20px;
 	position: relative;
 	float: right;
-	padding: 10px;
+	color: #3385D6;
+}
+
+.trash:hover{
+	color: navy;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.edit{
+	font-size: 20px;
+	position: relative;
+	float: right;
+	margin-right: 8px;
+	color: #3385D6;
+}
+
+.edit:hover{
+	color: navy;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.plus{
+	font-size: 50px;
+	position: fixed;
+	right: 100px;
+	bottom: 30px;
+	color: black;
+}
+
+.plus:hover{
+	color: #5E5E5E;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.modal {
+	outline: none;
+	position: absolute;
+	margin-top: 0;
+	top: 20%;
+	overflow: visible;
 }
