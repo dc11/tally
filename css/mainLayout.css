@@ -2,12 +2,12 @@ body{
 	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: lightGray;
+	background-color: lightgray;
 }
 
 .class{
 	height: 100px;
-	width: 85%;
+	width: 100%;
 	min-width: 190px;
 	border-radius: 10px;
 	font-size: 30px;
@@ -32,21 +32,73 @@ body{
 }
 
 .right{
-	float: right;
-	}
+}
+
+.well {
+	min-height: 30px;
+	height: 100px;
+	padding: 27px;
+  	padding-left: 35px;
+	border-radius: 10px;
+	font-size: 30px;
+	font-family: arial;
+	background-color: white;
+	color: #3385D6;
+	border: 0px;
+	box-shadow: 2px 2px 2px #888888;
+}
 
 .trash{
 	height: 30px;
 	width: 30px;
 	position: relative;
 	float: right;
-	margin: 5px;
+	margin: 4px;
+	color: #3385D6;
+}
+
+.trash:hover{
+	color: navy;
+	cursor: pointer;
+	cursor: hand;
 }
 
 .edit{
-	height: 20px;
-	width: 20px;
+	height: 30px;
+	width: 30px;
 	position: relative;
 	float: right;
-	margin-top: 10px;
+	margin: 4px;
+	margin-right: 8px;
+	color: #3385D6;
+}
+
+.edit:hover{
+	color: navy;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.plus{
+	font-size: 50px;
+	height: 30px;
+	width: 30px;
+	position: relative;
+	float: right;
+	margin: 4px;
+	color: black;
+}
+
+.plus:hover{
+	color: #5E5E5E;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.modal {
+	outline: none;
+	position: absolute;
+	margin-top: 0;
+	top: 20%;
+	overflow: visible;
 }
