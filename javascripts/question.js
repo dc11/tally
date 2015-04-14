@@ -35,6 +35,37 @@ $(document).on('click', '#add', function (e) {
 	loadQuestion('addQuestion');
 });
 
+$(document).on('click', '.glyphicon-ok', function (e) {
+	e.preventDefault();
+	var back=$(e.target).parent().parent();
+	var t=back.find('textarea');
+	if (t.val()!==""){
+		back.css('background', "#94FF94");
+		t.css('background', "#94FF94");
+	}
+});
+
+$(document).on('click', '.glyphicon-remove', function (e) {
+	e.preventDefault();
+	var back=$(e.target).parent().parent();
+	var t=back.find('textarea');
+	if (t.val()!==""){
+		back.css('background', "#FF8080");
+		t.css('background', "#FF8080");
+	}
+});
+
+$(document).on('keyup', ".answer", function(e) {
+    var t=$(e.target);	
+    if(t.val()==""){
+        t.parent().css('background', "#FFFFFF");
+		t.css('background', "#FFFFFF");
+    } else if (t.css("background-color")!="rgb(148, 255, 148)"){
+    	t.parent().css('background', "#FF8080");
+		t.css('background', "#FF8080");
+    }
+});
+
 $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('textarea');
