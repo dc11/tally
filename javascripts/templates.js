@@ -33,7 +33,7 @@ templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n		</tr>\n		<tr class='saved-answer-tr-2-"
     + escapeExpression(lambda(depth0, depth0))
-    + "'>\n		</tr>\n	</table>\n\n\n</div>\n\n";
+    + "'>\n		</tr>\n		<tr class='answer-single-send' style=\"padding-top:20px\">\n			<td class='answer-td-save' colspan=\"2\">\n				<div class=\"sendButton\">\n					<button class='btn btn-default' id='view'><span class=\"glyphicon glyphicon-send\" style=\"margin-top:3px;padding-right:2px;\"></span> Send</button>\n				</div>\n			</td>\n		</tr>\n	</table>\n\n\n</div>\n\n";
 },"useData":true});
 templates['editQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  \n	</div>\n	<div class='save-send'>\n	    <br>\n		<button class='btn btn-default' id='save'>Save</button>\n		<button class='btn btn-default' id='send'>Send</button>\n	</div>\n</div>";

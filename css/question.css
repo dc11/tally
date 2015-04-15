@@ -123,6 +123,15 @@ body{
 	padding-bottom: 15px !important;
 }
 
+.answer-td-save {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+
+.answer-content {
+	border-right: 1px solid lightgray;
+}
+
 /*.saved-question:hover {
      opacity: 0.5;
 }*/

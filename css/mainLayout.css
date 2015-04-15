@@ -53,7 +53,7 @@ h2{
 }
 
 .well:hover {
-	background-color: #DDEEFF;
+	box-shadow: 5px 5px 5px #3385D6;
 	cursor: pointer;
 	cursor: hand;
 }
@@ -90,11 +90,11 @@ h2{
 	position: fixed;
 	right: 100px;
 	bottom: 30px;
-	color: black;
+	color: #3385D6;
 }
 
 .plus:hover{
-	color: #5E5E5E;
+	color: navy;
 	cursor: pointer;
 	cursor: hand;
 }
