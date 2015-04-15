@@ -54,7 +54,7 @@ templates['saveQuestion'] = template({"1":function(depth0,helpers,partials,data)
 },"useData":true});
 templates['sendQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "\n<div class='addQuestion quest sent-question' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style='height:100%;'>\n		<tr class='question-tr-sent-"
+  return "<div class='addQuestion quest sent-question' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style='height:100%;'>\n		<tr class='question-tr-sent-"
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n			\n		</tr>\n		<tr class='answer-tr-sent'>\n			<td class='answer-td-sent' colspan=\"2\">\n				<div class=\"viewButton\" id=\""
     + escapeExpression(lambda(depth0, depth0))

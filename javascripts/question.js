@@ -53,15 +53,28 @@ $(document).on('click', '#add', function (e) {
 $(document).on('click', '#view', function (e) {
 	e.preventDefault();
 	var id = $(this).parent()[0].id;
-	console.log($("answers-" + id).find('input'));
 	viewResults('results', {id: id}, id);
+
+	var questions = [];
+	var answers = [];
+	$('.sent-question').each(function (index) {
+		var q = $(this).find('.question-td-sent')[0].innerText;
+		questions.push(q);
+		var curAnswers = [];
+		var ans = $(this).find('input[type=hidden]');
+		for (i = 0; i < ans.length; i++) {
+			curAnswers.push(ans[i].value);
+		}
+		answers.push(curAnswers);
+	});
+	
 	$(function () {
 	    $('#container-' + id).highcharts({
 	        chart: {
 	            type: 'bar'
 	        },
 	        title: {
-	            text: 'Question'
+	            text: ''
 	        },
 	        xAxis: {
 	            categories: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4']
@@ -72,8 +85,12 @@ $(document).on('click', '#view', function (e) {
 	            }
 	        },
 	        series: [{
-	            data: [7, 8, 4, 5]
+	            data: [7, 8, 4, 5],
+	            name: "Total"
 	        }],
+	        legend: {
+	        	enabled: false
+	        }
 	    });
 	});
 });
