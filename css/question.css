@@ -19,6 +19,14 @@ body{
 	overflow-y: hidden;
 }
 
+.btn{
+	color: #3385D6;
+}
+
+.btn:hover{
+	color: navy;
+}
+
 .mid{
 	width: 95%;
 	margin-left: auto;

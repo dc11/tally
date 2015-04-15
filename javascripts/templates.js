@@ -12,7 +12,7 @@ templates['addAnswers'] = template({"1":function(depth0,helpers,partials,data) {
   else { return ''; }
   },"useData":true});
 templates['addQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  <div class=\"col-lg-12\" style=\"padding-top:15px\">\n	    <div class=\"input-group mid well\" style=\"padding-top:10px;padding-bottom:10px;height:40px\">\n	      <input id=\"question\" type=\"text\" placeholder=\"Enter Question...\" class=\"form-control\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12\">\n	    <div class=\"input-group mid\">\n	      <span class=\"input-group-addon\">\n	        <input type=\"checkbox\" class=\"check\" aria-label=\"...\">\n	      </span>\n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12\">\n	    <div class=\"input-group mid\">\n	      <span class=\"input-group-addon\">\n	        <input type=\"checkbox\" class=\"check\" aria-label=\"...\">\n	      </span>\n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12\">\n	    <div class=\"input-group mid\">\n	      <span class=\"input-group-addon\">\n	        <input type=\"checkbox\" class=\"check\" aria-label=\"...\">\n	      </span>\n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12\">\n	    <div class=\"input-group mid\">\n	      <span class=\"input-group-addon\">\n	        <input type=\"checkbox\" class=\"check\" aria-label=\"...\">\n	      </span>\n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	</div>\n	<div class='save-send'>\n	    <br>\n		<button class='btn btn-default' id='save'>Save</button>\n		<button class='btn btn-default' id='send'>Send</button>\n	</div>\n</div>";
+  return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  <div class=\"col-lg-12\" style=\"padding-top:15px\">\n	    <div class=\"input-group mid well\" style=\"padding-top:10px;padding-bottom:10px;height:40px\">\n	      <input id=\"question\" type=\"text\" placeholder=\"Enter Question...\" class=\"form-control\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12\">\n	    <div class=\"input-group mid\">\n	      <span class=\"input-group-addon\">\n	        <input type=\"checkbox\" class=\"check\" aria-label=\"...\">\n	      </span>\n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12\">\n	    <div class=\"input-group mid\">\n	      <span class=\"input-group-addon\">\n	        <input type=\"checkbox\" class=\"check\" aria-label=\"...\">\n	      </span>\n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12\">\n	    <div class=\"input-group mid\">\n	      <span class=\"input-group-addon\">\n	        <input type=\"checkbox\" class=\"check\" aria-label=\"...\">\n	      </span>\n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12\">\n	    <div class=\"input-group mid\">\n	      <span class=\"input-group-addon\">\n	        <input type=\"checkbox\" class=\"check\" aria-label=\"...\">\n	      </span>\n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	</div>\n	<div class='save-send'>\n	    <br>\n		<button class='btn btn-default' id='save' style=\"margin-right:100px\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n		<button class='btn btn-default' id='send'><span class=\"glyphicon glyphicon-send\" style=\"padding-right:2px;\"></span> Send</button>\n	</div>\n</div>";
   },"useData":true});
 templates['answer'] = template({"1":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
@@ -48,7 +48,7 @@ templates['questionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main"
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "<td class='question-content' id='"
     + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
-    + "'colspan='2' style=\"padding-left:20px;padding-right:20px;border-top:none;\"> "
+    + "'colspan='2' style=\"font-size:20px;padding-left:20px;padding-right:20px;border-top:none;\"> "
     + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
     + " </td>";
 },"useData":true});
@@ -57,7 +57,7 @@ templates['questionError'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":f
   },"useData":true});
 templates['results'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "<button class='btn btn-default' id='closeResults'>Close Results</button>\n<div id=\"container-"
+  return "<button class='btn btn-default' id='closeResults'><span class=\"glyphicon glyphicon-remove\" style=\"padding-right:2px;\"></span> Close Results</button>\n<div id=\"container-"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
     + "\" style=\"height: 300px\"></div>";
 },"useData":true});
@@ -78,7 +78,7 @@ templates['sendQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fu
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n			\n		</tr>\n		<tr class='answer-tr-sent'>\n			<td class='answer-td-sent' colspan=\"2\">\n				<div class=\"viewButton\" id=\""
     + escapeExpression(lambda(depth0, depth0))
-    + "\">\n					<button class='btn btn-default' id='view'>View Results</button>\n				</div>\n				<div class='answers-"
+    + "\">\n					<button class='btn btn-default' id='view'><span class=\"glyphicon glyphicon-stats\" style=\"padding-right:2px;\"></span> View Results</button>\n				</div>\n				<div class='answers-"
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n					<input type='hidden' value='hold'>\n				</div>\n			</td>\n		</tr>\n	</table>\n</div>\n\n";
 },"useData":true});
@@ -95,11 +95,11 @@ templates['sentAnswerContent'] = template({"1":function(depth0,helpers,partials,
   },"useData":true});
 templates['sentQuestionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<td class='question-td-sent' colspan='2' style=\"word-wrap: break-word;padding-left:20px;padding-right:20px;border-top:none;\">\n	"
+  return "<td class='question-td-sent' colspan='2' style=\"font-size: 20px;word-wrap: break-word;padding-left:20px;padding-right:20px;border-top:none;\">\n	"
     + escapeExpression(lambda(depth0, depth0))
     + "\n</td>";
 },"useData":true});
 templates['view'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "<button class='btn btn-default' id='view'>View Results</button>";
+  return "<button class='btn btn-default' id='view'><span class=\"glyphicon glyphicon-stats\" style=\"padding-right:2px;\"></span> View Results</button>";
   },"useData":true});
 })();
