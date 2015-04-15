@@ -70,21 +70,18 @@ $(document).on('keyup', ".form-control", function(e) {
 
 });
 
+var counter = 1;
 $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
-// <<<<<<< HEAD
-// =======
-// 	console.log(contents);
-// >>>>>>> b4bac325dafe054877d1d23c0975c92264eb13e4
 	if (contents.length < 1) {
 		$('.alert').remove();
 		questionError('questionError');
 		$('#question').focus();
 	}
 	else {
-		var id = Math.floor(Math.random() * 100000000000)
+		var id = counter;
 		createTable('createTable', id);
 		addQuestionContent('questionContent', { content : contents[0] }, id);
 		console.log(contents[1]);
@@ -93,6 +90,7 @@ $(document).on('click', '#save', function (e) {
 		if (contents.length > 3) {
 			addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
 		}
+		counter += 1;
 	}
 });
 
