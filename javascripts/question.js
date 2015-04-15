@@ -7,7 +7,6 @@ var loadQuestion = function(template, data) {
 var sendQuestion = function(template, data, question, answers) {
 	data = data || {};
 	$('#sent-container').prepend(Handlebars.templates[template](data));
-	$('#current-question-drafts').empty();
 	var qSelector = '.question-tr-sent-' + data;
 	$(qSelector).html(Handlebars.templates['sentQuestionContent'](question));
 	var aSelector = '.answers-' + data;
@@ -197,6 +196,7 @@ $(document).on('click', '#send', function (e) {
 		var id = Math.floor(Math.random() * 100000000000)
 		sendQuestion('sendQuestion', id, contents[0], { content : contents.splice(1,contents.length) });
 	}
+	$('#current-question-drafts').empty();
 });
 
 $(document).on('click', '#delete-sent', function (e) {
