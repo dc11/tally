@@ -129,7 +129,7 @@ $(document).on('click', '#send-all', function (e) {
 	});
 	$('#all-questions-drafts').empty();
 });
-
+var counter2 = 1;
 $(document).on('click', '#hide-all', function (e) {
 	var questions = [];
 	$('.question-td-sent').each(function (index) {
@@ -137,11 +137,12 @@ $(document).on('click', '#hide-all', function (e) {
 		questions.push(q.innerText);
 	});
 	questions.forEach( function (question) {
-		var id = Math.floor(Math.random() * 100000000000)
+		var id = counter2;
 		createTable('createTable', id);
 		addQuestionContent('questionContent', { content : question }, id);
 		addAnswers('addAnswers', { content : [ '' , '' ] }, 'saved-answer-tr-1', id);
 		addAnswers('addAnswers', { content : [ '' , '' ] }, 'saved-answer-tr-2', id);
+		counter2 += 1;
 		// if (contents.length > 3) {
 		// 	addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
 		// }	
