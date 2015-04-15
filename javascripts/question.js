@@ -186,7 +186,6 @@ $(document).on('click', '#hide-all', function (e) {
 		var curAnswers = [];
 		var ans = $(this).find('input[type=hidden]');
 		for (i = 0; i < ans.length; i++) {
-			// console.log(ans[i].value);
 			curAnswers.push(ans[i].value);
 		}
 		answers.push(curAnswers);
