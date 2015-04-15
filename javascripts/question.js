@@ -42,6 +42,33 @@ $(document).on('click', '#add', function (e) {
 	$('#question').focus();
 });
 
+$(document).on('click', '#view', function (e) {
+	e.preventDefault();
+	var newQuestion = '';
+	loadQuestion('addQuestion');
+	$(function () {
+	    $('#container2').highcharts({
+	        chart: {
+	            type: 'bar'
+	        },
+	        title: {
+	            text: 'Question'
+	        },
+	        xAxis: {
+	            categories: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4']
+	        },
+	        yAxis: {
+	            title: {
+	                text: 'Students'
+	            }
+	        },
+	        series: [{
+	            data: [7, 8, 4, 5]
+	        }],
+	    });
+	});
+});
+
 $(document).on('click', '.check', function (e) {
 	var checked=$(e.target).is(':checked');
 	var back=$(e.target).parent().parent().find(".form-control");
