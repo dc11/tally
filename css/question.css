@@ -65,7 +65,6 @@ body{
 }
 
 .glyphicon-remove{
-	float: right;
 	color: red;
 }
 
@@ -97,6 +96,8 @@ body{
 	padding: 0px;
 }
 
+<<<<<<< HEAD
+=======
 .question-td-sent {
 	padding-top: 15px !important;
 	padding-bottom: 15px !important;
@@ -106,3 +107,4 @@ body{
 	padding-top: 15px !important;
 	padding-bottom: 15px !important;
 }
+>>>>>>> 485e59bb52c6f48d2fc7e1a71a926ca4208ef7e0

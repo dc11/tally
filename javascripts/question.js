@@ -42,35 +42,29 @@ $(document).on('click', '#add', function (e) {
 	$('#question').focus();
 });
 
-$(document).on('click', '.glyphicon-ok', function (e) {
-	e.preventDefault();
-	var back=$(e.target).parent().parent();
-	var t=back.find('textarea');
-	if (t.val()!==""){
-		back.css('background', "#94FF94");
-		t.css('background', "#94FF94");
-	}
+$(document).on('click', '.check', function (e) {
+	var checked=$(e.target).is(':checked');
+	var back=$(e.target).parent().parent().find(".form-control");
+	if (back.val()!=""){
+		if (checked){
+			back.css('background', "#94FF94");
+		} else {
+			back.css('background', "#FF8080");
+		}
+	} 
 });
 
-$(document).on('click', '.glyphicon-remove', function (e) {
-	e.preventDefault();
-	var back=$(e.target).parent().parent();
-	var t=back.find('textarea');
-	if (t.val()!==""){
-		back.css('background', "#FF8080");
-		t.css('background', "#FF8080");
-	}
-});
-
-$(document).on('keyup', ".answer", function(e) {
-    var t=$(e.target);	
+$(document).on('keyup', ".form-control", function(e) {
+    var t=$(e.target);
+    var checked=$(e.target).parent().find(".check").is(':checked');
     if(t.val()==""){
-        t.parent().css('background', "#FFFFFF");
 		t.css('background', "#FFFFFF");
-    } else if (t.css("background-color")!="rgb(148, 255, 148)"){
-    	t.parent().css('background', "#FF8080");
+    } else if (checked){
+    	t.css('background', "#94FF94");
+    } else {
 		t.css('background', "#FF8080");
     }
+
 });
 
 $(document).on('click', '#save', function (e) {
@@ -91,6 +85,10 @@ $(document).on('click', '#save', function (e) {
 			addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
 		}
 	}
+});
+
+$(document).on('mouseover', ".saved-question-tr", function (e) {
+		
 });
 
 $(document).on('click', '#send', function (e) {
