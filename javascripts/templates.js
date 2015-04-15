@@ -16,7 +16,7 @@ templates['addQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
   },"useData":true});
 templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed'>\n		<tr class='saved-question-tr' id='"
+  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style=\"table-layout:fixed\">\n		<tr class='saved-question-tr' id='"
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n		</tr>\n		<tr class='saved-answer-tr-1-"
     + escapeExpression(lambda(depth0, depth0))
@@ -28,7 +28,7 @@ templates['questionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main"
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "<td class='question-content' id='"
     + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
-    + "'colspan='2'> "
+    + "'colspan='2' style=\"padding-left:20px;padding-right:20px\"> "
     + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
     + " </td>";
 },"useData":true});
@@ -36,8 +36,11 @@ templates['questionError'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":f
   return "<div class='alert alert-danger' role='alert' style='display:inline-block;margin-bottom:10px;'>\n	<span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n	<span class=\"sr-only\">Error:</span>\n	Please enter a question.\n</div>";
   },"useData":true});
 templates['results'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "<button class='btn btn-default' id='hideResults'>Hide Results</button>\n<div class=\"container2\" style=\"height: 300px\"></div>";
-  },"useData":true});
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "<button class='btn btn-default' id='closeResults'>Close Results</button>\n<div id=\"container-"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\" style=\"height: 300px\"></div>";
+},"useData":true});
 templates['saveQuestion'] = template({"1":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "		<tr class='question-tr'>\n			<td class='question-td' colspan='2'>\n				"
@@ -51,9 +54,11 @@ templates['saveQuestion'] = template({"1":function(depth0,helpers,partials,data)
 },"useData":true});
 templates['sendQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<div class='addQuestion quest sent-question' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style='height:100%;'>\n		<tr class='question-tr-sent-"
+  return "\n<div class='addQuestion quest sent-question' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style='height:100%;'>\n		<tr class='question-tr-sent-"
     + escapeExpression(lambda(depth0, depth0))
-    + "'>\n			\n		</tr>\n		<tr class='answer-tr-sent'>\n			<td class='answer-td-sent'>\n				<div class=\"viewButton\">\n					<button class='btn btn-default' id='view'>View Results</button>\n				</div>\n				<div class='answers-"
+    + "'>\n			\n		</tr>\n		<tr class='answer-tr-sent'>\n			<td class='answer-td-sent' colspan=\"2\">\n				<div class=\"viewButton\" id=\""
+    + escapeExpression(lambda(depth0, depth0))
+    + "\">\n					<button class='btn btn-default' id='view'>View Results</button>\n				</div>\n				<div class='answers-"
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n					<input type='hidden' value='hold'>\n				</div>\n			</td>\n		</tr>\n	</table>\n</div>\n\n";
 },"useData":true});
@@ -70,7 +75,7 @@ templates['sentAnswerContent'] = template({"1":function(depth0,helpers,partials,
   },"useData":true});
 templates['sentQuestionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<td class='question-td-sent' colspan='2'>\n	"
+  return "<td class='question-td-sent' colspan='2' style=\"word-wrap: break-word;padding-left:20px;padding-right:20px\">\n	"
     + escapeExpression(lambda(depth0, depth0))
     + "\n</td>";
 },"useData":true});

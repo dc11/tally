@@ -37,14 +37,10 @@ var questionError = function(template, data) {
 	$('.save-send').prepend(Handlebars.templates[template](data));
 }
 
-var viewResults = function(template, data) {
+var viewResults = function(template, data, id) {
 	data = data || {};
-	$('.answer-td-sent').html(Handlebars.templates[template](data));
-}
-
-var hideResults = function(template, data) {
-	data = data || {};
-	$('.answer-td-sent').html(Handlebars.templates[template](data));
+	var selector = "#" + id;
+	$(selector).html(Handlebars.templates[template](data));
 }
 
 $(document).on('click', '#add', function (e) {
@@ -56,9 +52,11 @@ $(document).on('click', '#add', function (e) {
 
 $(document).on('click', '#view', function (e) {
 	e.preventDefault();
-	viewResults('results');
+	var id = $(this).parent()[0].id;
+	console.log($("answers-" + id).find('input'));
+	viewResults('results', {id: id}, id);
 	$(function () {
-	    $('.container2').highcharts({
+	    $('#container-' + id).highcharts({
 	        chart: {
 	            type: 'bar'
 	        },
@@ -80,9 +78,10 @@ $(document).on('click', '#view', function (e) {
 	});
 });
 
-$(document).on('click', '#hideResults', function (e) {
+$(document).on('click', '#closeResults', function (e) {
 	e.preventDefault();
-	viewResults('view');
+	var id = $(this).parent()[0].id;
+	viewResults('view', {}, id);
 });
 
 $(document).on('click', '.check', function (e) {
@@ -184,15 +183,33 @@ $(document).on('click', '#hide-all', function (e) {
 	$('.sent-question').each(function (index) {
 		var q = $(this).find('.question-td-sent')[0].innerText;
 		questions.push(q);
-		
+		var curAnswers = [];
+		var ans = $(this).find('input[type=hidden]');
+		for (i = 0; i < ans.length; i++) {
+			// console.log(ans[i].value);
+			curAnswers.push(ans[i].value);
+		}
+		answers.push(curAnswers);
 	});
-	questions.forEach( function (question) {
+	for (i = 0; i < questions.length; i++) {
 		var id = Math.floor(Math.random() * 100000000000);
 		createTable('createTable', id);
-		addQuestionContent('questionContent', { content : question }, id);
-		addAnswers('addAnswers', { content : [ '' , '' ] }, 'saved-answer-tr-1', id);
-		addAnswers('addAnswers', { content : [ '' , '' ] }, 'saved-answer-tr-2', id);
-	});
+		console.log(questions[i]);
+		addQuestionContent('questionContent', { content : questions[i] }, id);
+		var curAns = answers[i];
+		if (curAns.length > 1) {
+			addAnswers('addAnswers', { content : [ curAns[0] , curAns[1] ] }, 'saved-answer-tr-1', id);
+		}
+		else {
+			addAnswers('addAnswers', { content : [ curAns[0] , '' ] }, 'saved-answer-tr-1', id);
+		}
+		if (curAns.length > 3) {
+			addAnswers('addAnswers', { content : [ curAns[2] , curAns[3] ] }, 'saved-answer-tr-2', id);
+		}
+		else {
+			addAnswers('addAnswers', { content : [ curAns[2] , '' ] }, 'saved-answer-tr-2', id);
+		}
+	}
 	$('#sent-container').empty();
 });
 
