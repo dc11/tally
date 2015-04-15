@@ -4,10 +4,15 @@ var loadQuestion = function(template, data) {
 	$('#current-question-drafts').html(Handlebars.templates[template](data));
 };
 
-var sendQuestion = function(template, data) {
+var sendQuestion = function(template, data, question, answers) {
 	data = data || {};
+	console.log(answers);
 	$('#sent-container').prepend(Handlebars.templates[template](data));
 	$('#current-question-drafts').empty();
+	var qSelector = '.question-tr-sent-' + data;
+	$(qSelector).html(Handlebars.templates['sentQuestionContent'](question));
+	var aSelector = '.answers-' + data;
+	$(aSelector).html(Handlebars.templates['sentAnswerContent'](answers));
 }
 
 var createTable = function(template, data) {
@@ -35,6 +40,16 @@ var questionError = function(template, data) {
 	$('.save-send').prepend(Handlebars.templates[template](data));
 }
 
+var viewResults = function(template, data) {
+	data = data || {};
+	$('.answer-td-sent').html(Handlebars.templates[template](data));
+}
+
+var hideResults = function(template, data) {
+	data = data || {};
+	$('.answer-td-sent').html(Handlebars.templates[template](data));
+}
+
 $(document).on('click', '#add', function (e) {
 	e.preventDefault();
 	var newQuestion = '';
@@ -44,10 +59,9 @@ $(document).on('click', '#add', function (e) {
 
 $(document).on('click', '#view', function (e) {
 	e.preventDefault();
-	var newQuestion = '';
-	loadQuestion('addQuestion');
+	viewResults('results');
 	$(function () {
-	    $('#container2').highcharts({
+	    $('.container2').highcharts({
 	        chart: {
 	            type: 'bar'
 	        },
@@ -67,6 +81,11 @@ $(document).on('click', '#view', function (e) {
 	        }],
 	    });
 	});
+});
+
+$(document).on('click', '#hideResults', function (e) {
+	e.preventDefault();
+	viewResults('view');
 });
 
 $(document).on('click', '.check', function (e) {
@@ -130,7 +149,8 @@ $(document).on('click', '#send', function (e) {
 		$('#question').focus();
 	}
 	else {
-		sendQuestion('sendQuestion', { content : contents[0] });
+		var id = Math.floor(Math.random() * 100000000000)
+		sendQuestion('sendQuestion', id, contents[0], { content : contents.splice(1,contents.length) });
 	}
 });
 

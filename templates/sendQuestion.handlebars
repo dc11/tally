@@ -1,13 +1,16 @@
 <div class='addQuestion quest' style='background-color:white;padding-bottom:0px;'>
 	<table class='table table-condensed' style='height:100%;'>
-		<tr class='question-tr-sent'>
-			<td class='question-td-sent' colspan='2'>
-				{{ this.content }}
-			</td>
+		<tr class='question-tr-sent-{{ this }}'>
+			
 		</tr>
 		<tr class='answer-tr-sent'>
 			<td class='answer-td-sent'>
-				<button type='button' class='btn btn-default' id='view'>View Results</button>
+				<div class="viewButton">
+					<button class='btn btn-default' id='view'>View Results</button>
+				</div>
+				<div class='answers-{{ this }}'>
+					<input type='hidden' value='hold'>
+				</div>
 			</td>
 		</tr>
 	</table>
