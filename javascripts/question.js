@@ -54,9 +54,9 @@ $(document).on('click', '#view', function (e) {
 	e.preventDefault();
 	var id = $(this).parent()[0].id;
 	console.log($("answers-" + id).find('input'));
-	viewResults('results', {}, id);
+	viewResults('results', {id: id}, id);
 	$(function () {
-	    $('#container2').highcharts({
+	    $('#container-' + id).highcharts({
 	        chart: {
 	            type: 'bar'
 	        },

@@ -36,8 +36,11 @@ templates['questionError'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":f
   return "<div class='alert alert-danger' role='alert' style='display:inline-block;margin-bottom:10px;'>\n	<span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n	<span class=\"sr-only\">Error:</span>\n	Please enter a question.\n</div>";
   },"useData":true});
 templates['results'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "<button class='btn btn-default' id='closeResults'>Close Results</button>\n<div id=\"container2\" style=\"height: 300px\"></div>";
-  },"useData":true});
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "<button class='btn btn-default' id='closeResults'>Close Results</button>\n<div id=\"container-"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\" style=\"height: 300px\"></div>";
+},"useData":true});
 templates['saveQuestion'] = template({"1":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "		<tr class='question-tr'>\n			<td class='question-td' colspan='2'>\n				"
@@ -55,7 +58,7 @@ templates['sendQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fu
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n			\n		</tr>\n		<tr class='answer-tr-sent'>\n			<td class='answer-td-sent'>\n				<div class=\"viewButton\" id=\""
     + escapeExpression(lambda(depth0, depth0))
-    + "\"\">\n					<button class='btn btn-default' id='view'>View Results</button>\n				</div>\n				<div class='answers-"
+    + "\">\n					<button class='btn btn-default' id='view'>View Results</button>\n				</div>\n				<div class='answers-"
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n					<input type='hidden' value='hold'>\n				</div>\n			</td>\n		</tr>\n	</table>\n</div>\n\n";
 },"useData":true});
