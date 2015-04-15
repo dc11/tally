@@ -37,11 +37,52 @@ var questionError = function(template, data) {
 	$('.save-send').prepend(Handlebars.templates[template](data));
 }
 
+var viewResults = function(template, data) {
+	data = data || {};
+	$('.answer-td-sent').html(Handlebars.templates[template](data));
+}
+
+var hideResults = function(template, data) {
+	data = data || {};
+	$('.answer-td-sent').html(Handlebars.templates[template](data));
+}
+
 $(document).on('click', '#add', function (e) {
 	e.preventDefault();
 	var newQuestion = '';
 	loadQuestion('addQuestion');
 	$('#question').focus();
+});
+
+$(document).on('click', '#view', function (e) {
+	e.preventDefault();
+	viewResults('results');
+	$(function () {
+	    $('.container2').highcharts({
+	        chart: {
+	            type: 'bar'
+	        },
+	        title: {
+	            text: 'Question'
+	        },
+	        xAxis: {
+	            categories: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4']
+	        },
+	        yAxis: {
+	            title: {
+	                text: 'Students'
+	            }
+	        },
+	        series: [{
+	            data: [7, 8, 4, 5]
+	        }],
+	    });
+	});
+});
+
+$(document).on('click', '#hideResults', function (e) {
+	e.preventDefault();
+	viewResults('view');
 });
 
 $(document).on('click', '.check', function (e) {
