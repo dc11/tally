@@ -1,39 +1,43 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['addAnswers'] = template({"1":function(depth0,helpers,partials,data) {
-    return "	<td style='width:50%'> "
-    + this.escapeExpression(this.lambda(depth0, depth0))
-    + " </td>\r\n";
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "	<td style='width:50%'> "
+    + escapeExpression(lambda(depth0, depth0))
+    + " </td>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.content : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
-},"useData":true});
+  var stack1;
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.content : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { return stack1; }
+  else { return ''; }
+  },"useData":true});
 templates['addQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class='addQuestion'>\r\n	<table class='table table-bordered table-condensed'>\r\n		<tr class='question-tr'>\r\n			<td class='question-td' colspan='2'>\r\n			<span>\r\n				<span class=\"glyphicon glyphicon-edit\"></span> \r\n				<span class=\"glyphicon glyphicon-trash\"></span>\r\n			</span>\r\n			<textarea rows='3' class='question' placeholder='Type question...'></textarea>\r\n			</td>\r\n		</tr>\r\n		<tr class='answer-tr'>\r\n			<td class='answer-td'>\r\n			    <span>\r\n					<span class=\"glyphicon glyphicon-ok\"></span> \r\n					<span class=\"glyphicon glyphicon-remove\"></span>\r\n				</span>\r\n				<textarea rows='2' class='answer' placeholder='Answer...'></textarea>\r\n			</td>\r\n			<td class='answer-td'>\r\n				<span>\r\n					<span class=\"glyphicon glyphicon-ok\"></span> \r\n					<span class=\"glyphicon glyphicon-remove\"></span>\r\n				</span>\r\n				<textarea rows='2' class='answer' placeholder='Answer...'></textarea>\r\n			</td>\r\n		</tr>\r\n		<tr class='answer-tr'>\r\n			<td class='answer-td'>\r\n				<span>\r\n					<span class=\"glyphicon glyphicon-ok\"></span> \r\n					<span class=\"glyphicon glyphicon-remove\"></span>\r\n				</span>\r\n				<textarea rows='2' class='answer' placeholder='Answer...'></textarea>\r\n			</td>\r\n			<td class='answer-td'>\r\n				<span>\r\n					<span class=\"glyphicon glyphicon-ok\"></span> \r\n					<span class=\"glyphicon glyphicon-remove\"></span>\r\n				</span>\r\n				<textarea rows='2' class='answer' placeholder='Answer...'></textarea>\r\n			</td>\r\n		</tr>\r\n	</table>\r\n	<div class='save-send'>\r\n		<button class='btn btn-default' id='send'>Send</button>\r\n		<button class='btn btn-default' id='save'>Save</button>\r\n	</div>\r\n</div>";
-},"useData":true});
+  return "<div class='addQuestion' style='background-color:white'>\n	<table class='table table-bordered table-condensed'>\n		<tr class='question-tr'>\n			<td class='question-td' colspan='2'>\n			<span>\n				<span class=\"glyphicon glyphicon-edit\"></span> \n				<span class=\"glyphicon glyphicon-trash\"></span>\n			</span>\n			<textarea rows='3' class='question' placeholder='Type question...'></textarea>\n			</td>\n		</tr>\n		<tr class='answer-tr'>\n			<td class='answer-td'>\n			    <span>\n					<span class=\"glyphicon glyphicon-ok\"></span> \n					<span class=\"glyphicon glyphicon-remove\"></span>\n				</span>\n				<textarea rows='2' class='answer' placeholder='Answer...'></textarea>\n			</td>\n			<td class='answer-td'>\n				<span>\n					<span class=\"glyphicon glyphicon-ok\"></span> \n					<span class=\"glyphicon glyphicon-remove\"></span>\n				</span>\n				<textarea rows='2' class='answer' placeholder='Answer...'></textarea>\n			</td>\n		</tr>\n		<tr class='answer-tr'>\n			<td class='answer-td'>\n				<span>\n					<span class=\"glyphicon glyphicon-ok\"></span> \n					<span class=\"glyphicon glyphicon-remove\"></span>\n				</span>\n				<textarea rows='2' class='answer' placeholder='Answer...'></textarea>\n			</td>\n			<td class='answer-td'>\n				<span>\n					<span class=\"glyphicon glyphicon-ok\"></span> \n					<span class=\"glyphicon glyphicon-remove\"></span>\n				</span>\n				<textarea rows='2' class='answer' placeholder='Answer...'></textarea>\n			</td>\n		</tr>\n	</table>\n	<div class='save-send'>\n		<button class='btn btn-default' id='send'>Send</button>\n		<button class='btn btn-default' id='save'>Save</button>\n	</div>\n</div>";
+  },"useData":true});
 templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<table class='table table-bordered table-condensed'>\r\n	<tr class='saved-question-tr'>\r\n	</tr>\r\n	<tr class='saved-answer-tr-1'>\r\n	</tr>\r\n	<tr class='saved-answer-tr-2'>\r\n	</tr>\r\n</table>";
-},"useData":true});
+  return "<table class='table table-bordered table-condensed'>\n	<tr class='saved-question-tr'>\n	</tr>\n	<tr class='saved-answer-tr-1'>\n	</tr>\n	<tr class='saved-answer-tr-2'>\n	</tr>\n</table>";
+  },"useData":true});
 templates['questionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<td colspan='2'> "
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.content : depth0), depth0))
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "<td colspan='2'> "
+    + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
     + " </td>";
 },"useData":true});
 templates['saveQuestion'] = template({"1":function(depth0,helpers,partials,data) {
-    return "		<tr class='question-tr'>\r\n			<td class='question-td' colspan='2'>\r\n				"
-    + this.escapeExpression(this.lambda(depth0, depth0))
-    + "\r\n			</td>\r\n		</tr>\r\n";
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "		<tr class='question-tr'>\n			<td class='question-td' colspan='2'>\n				"
+    + escapeExpression(lambda(depth0, depth0))
+    + "\n			</td>\n		</tr>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return "<div class='saveQuestion'>\r\n	<table class='table table-bordered table-condensed'>\r\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.content : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "	</table>\r\n</div>";
+  var stack1, buffer = "<div class='saveQuestion'>\n	<table class='table table-bordered table-condensed'>\n";
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.content : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "	</table>\n</div>";
 },"useData":true});
 templates['sendQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class='sent-answer'>\r\n	<div class='sent-answer-content'>\r\n		"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.content : depth0), depth0))
-    + "\r\n	</div>\r\n	<div>\r\n		View Results\r\n	</div>\r\n</div>";
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "<div class='sent-answer'>\n	<div class='sent-answer-content'>\n		"
+    + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
+    + "\n	</div>\n	<div>\n		View Results\n	</div>\n</div>";
 },"useData":true});
 })();
