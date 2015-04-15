@@ -48,8 +48,27 @@ templates['saveQuestion'] = template({"1":function(depth0,helpers,partials,data)
 },"useData":true});
 templates['sendQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<div class='addQuestion quest' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style='height:100%;'>\n		<tr class='question-tr-sent'>\n			<td class='question-td-sent' colspan='2'>\n				"
-    + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
-    + "\n			</td>\n		</tr>\n		<tr class='answer-tr-sent'>\n			<td class='answer-td-sent'>\n				View Results\n			</td>\n		</tr>\n	</table>\n</div>\n\n";
+  return "<div class='addQuestion quest' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style='height:100%;'>\n		<tr class='question-tr-sent-"
+    + escapeExpression(lambda(depth0, depth0))
+    + "'>\n			\n		</tr>\n		<tr class='answer-tr-sent'>\n			<td class='answer-td-sent'>\n				View Results\n				<div class='answers-"
+    + escapeExpression(lambda(depth0, depth0))
+    + "'>\n					<input type='hidden' value='hold'>\n				</div>\n			</td>\n		</tr>\n	</table>\n</div>\n\n";
+},"useData":true});
+templates['sentAnswerContent'] = template({"1":function(depth0,helpers,partials,data) {
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "	<input type='hidden' value='"
+    + escapeExpression(lambda(depth0, depth0))
+    + "'>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var stack1;
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.content : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { return stack1; }
+  else { return ''; }
+  },"useData":true});
+templates['sentQuestionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "<td class='question-td-sent' colspan='2'>\n	"
+    + escapeExpression(lambda(depth0, depth0))
+    + "\n</td>";
 },"useData":true});
 })();

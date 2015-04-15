@@ -4,10 +4,15 @@ var loadQuestion = function(template, data) {
 	$('#current-question-drafts').html(Handlebars.templates[template](data));
 };
 
-var sendQuestion = function(template, data) {
+var sendQuestion = function(template, data, question, answers) {
 	data = data || {};
+	console.log(answers);
 	$('#sent-container').prepend(Handlebars.templates[template](data));
 	$('#current-question-drafts').empty();
+	var qSelector = '.question-tr-sent-' + data;
+	$(qSelector).html(Handlebars.templates['sentQuestionContent'](question));
+	var aSelector = '.answers-' + data;
+	$(aSelector).html(Handlebars.templates['sentAnswerContent'](answers));
 }
 
 var createTable = function(template, data) {
@@ -101,7 +106,8 @@ $(document).on('click', '#send', function (e) {
 		$('#question').focus();
 	}
 	else {
-		sendQuestion('sendQuestion', { content : contents[0] });
+		var id = Math.floor(Math.random() * 100000000000)
+		sendQuestion('sendQuestion', id, contents[0], { content : contents.splice(1,contents.length) });
 	}
 });
 
