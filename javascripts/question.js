@@ -164,15 +164,15 @@ $(document).on('click', '#save', function (e) {
 	}
 });
 
-$(document).on('mouseover', ".saved-question", function (e) {
-	var icons = $(this).find("span");
-	icons.css("visibility","visible");
-});
+// $(document).on('mouseover', ".saved-question", function (e) {
+// 	var icons = $(this).find("span");
+// 	icons.css("visibility","visible");
+// });
 
-$(document).on('mouseout', ".saved-question", function (e) {
-	var icons = $(this).find("span");
-	icons.css("visibility","hidden");
-});
+// $(document).on('mouseout', ".saved-question", function (e) {
+// 	var icons = $(this).find("span");
+// 	icons.css("visibility","hidden");
+// });
 
 $(document).on('click', '.edit', function (e) {
 	var parent = $(this).parent();
