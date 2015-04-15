@@ -54,7 +54,7 @@ templates['saveQuestion'] = template({"1":function(depth0,helpers,partials,data)
 },"useData":true});
 templates['sendQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<div class='addQuestion quest sent-question' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style='height:100%;'>\n		<tr class='question-tr-sent-"
+  return "<div class='addQuestion quest sent-question' style='background-color:white;padding-bottom:0px;'>\n	<p class='hide-eye'>\n		<span class='glyphicon glyphicon-eye-close sent-icon' aria-hidden='true'>\n	</p>\n	<p class='trash'>\n		<span class='glyphicon glyphicon-trash sent-icon' aria-hidden='true'>\n	</p>\n	<table class='table table-condensed' style='height:100%;'>\n		<tr class='question-tr-sent-"
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n			\n		</tr>\n		<tr class='answer-tr-sent'>\n			<td class='answer-td-sent' colspan=\"2\">\n				<div class=\"viewButton\" id=\""
     + escapeExpression(lambda(depth0, depth0))
@@ -75,7 +75,7 @@ templates['sentAnswerContent'] = template({"1":function(depth0,helpers,partials,
   },"useData":true});
 templates['sentQuestionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<td class='question-td-sent' colspan='2' style=\"word-wrap: break-word;padding-left:20px;padding-right:20px\">\n	"
+  return "<td class='question-td-sent' colspan='2' style=\"word-wrap: break-word;padding-left:20px;padding-right:20px;border-top:none;\">\n	"
     + escapeExpression(lambda(depth0, depth0))
     + "\n</td>";
 },"useData":true});
