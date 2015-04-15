@@ -43,6 +43,14 @@ var viewResults = function(template, data, id) {
 	$(selector).html(Handlebars.templates[template](data));
 }
 
+var editQuestion = function(template, question, answers) {
+	// data = data || {};
+	// var selector = "#" + id;
+	$('#current-question-drafts').html(Handlebars.templates[template]());
+	$('.add-question').prepend(Handlebars.templates['answer'](answers));
+	$('.add-question').prepend(Handlebars.templates['question'](question));
+}
+
 $(document).on('click', '#add', function (e) {
 	e.preventDefault();
 	var newQuestion = '';
@@ -128,9 +136,6 @@ $(document).on('keyup', ".form-control", function(e) {
 	    } else if (checked){
 	    	$(inp).css('background-color', "#C5FFC5");
 	    } 
-	  //   else {
-			// $(inp).css('background-color', "#FFBFBF");
-	  //   }
 	}
 });
 
@@ -164,19 +169,19 @@ $(document).on('mouseout', ".saved-question", function (e) {
 	icons.css("visibility","hidden");
 });
 
-$(document).on('click', '.glyphicon-trash', function (e) {
-	e.preventDefault();
-	//delete
-});
-
-$(document).on('click', '.glyphicon-edit', function (e) {
-	e.preventDefault();
-	//edit
-});
-
-$(document).on('click', '.glyphicon-eye-close', function (e) {
-	e.preventDefault();
-	//hide
+$(document).on('click', '.edit', function (e) {
+	var parent = $(this).parent();
+	var question = $(parent).find('.question-content')[0].textContent;
+	var answers = $(parent).find('.answer-content');
+	var ans = [];
+	for (i = 0; i < answers.length; i++) {
+		console.log(answers[i].innerText);
+		ans.push(answers[i].innerText);
+	}
+	var q = question.substring(1);
+	editQuestion('editQuestion', q, { content : ans });
+	$('#question').focus();
+	$(parent).remove();
 });
 
 $(document).on('click', '#send', function (e) {
