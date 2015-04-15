@@ -127,24 +127,25 @@ $(document).on('click', '#send-all', function (e) {
 		var q = $(this).find('.question-content')[0];
 		var question = q.textContent;
 		var ID = $(this).find('.saved-question-tr')[0].id;
-		var fa = '.saved-answer-tr-1-' + ID;
-		var sa = '.saved-answer-tr-2-' + ID;
-		var answersCur = [];
-		var firstAnswers = $(this).find(fa).children('.answer-content');
-		for (j = 0; j < firstAnswers.length; j++) {
-			var curAnswer = firstAnswers[j];
-			var answer = curAnswer.innerText;
-			answersCur.push(answer);
-			console.log(answer)
-		}
-		var secondAnswers = $(this).find(sa).children('.answer-content');
-		for (j = 0; j < secondAnswers.length; j++) {
-			var curAnswer = secondAnswers[j];
-			var answer = curAnswer.innerText;
-			answersCur.push(answer);
-			console.log(answer)
-		}
-		answers.push(answersCur);
+		// var fa = '.saved-answer-tr-1-' + ID;
+		// var sa = '.saved-answer-tr-2-' + ID;
+		// var answersCur = [];
+		// var firstAnswers = $(this).find(fa).children('.answer-content');
+		// for (j = 0; j < firstAnswers.length; j++) {
+		// 	var curAnswer = firstAnswers[j];
+		// 	var answer = curAnswer.innerText;
+		// 	answersCur.push(answer);
+		// 	console.log(answer)
+		// }
+		// var secondAnswers = $(this).find(sa).children('.answer-content');
+		// for (j = 0; j < secondAnswers.length; j++) {
+		// 	var curAnswer = secondAnswers[j];
+		// 	var answer = curAnswer.innerText;
+		// 	answersCur.push(answer);
+		// 	console.log(answer)
+		// }
+		ans = grabAnswers(this, ID);
+		answers.push(ans);
 		questions.push(question);
 		ids.push(ID);
 	});
@@ -188,6 +189,27 @@ var grabContents = function(elements) {
 		}
 	}
 	return question;
+}
+
+var grabAnswers = function(elem, id) {
+	var fa = '.saved-answer-tr-1-' + id;
+	var sa = '.saved-answer-tr-2-' + id;
+	var answersCur = [];
+	var firstAnswers = $(elem).find(fa).children('.answer-content');
+	for (j = 0; j < firstAnswers.length; j++) {
+		var curAnswer = firstAnswers[j];
+		var answer = curAnswer.innerText;
+		answersCur.push(answer);
+		console.log(answer)
+	}
+	var secondAnswers = $(elem).find(sa).children('.answer-content');
+	for (j = 0; j < secondAnswers.length; j++) {
+		var curAnswer = secondAnswers[j];
+		var answer = curAnswer.innerText;
+		answersCur.push(answer);
+		console.log(answer)
+	}
+	return answersCur;
 }
 
 
