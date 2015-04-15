@@ -185,7 +185,13 @@ $(document).on('click', '.edit', function (e) {
 		console.log(answers[i].innerText);
 		ans.push(answers[i].innerText);
 	}
+	console.log(ans);
 	var q = question.substring(1);
+	if (ans.length < 3) {
+		ans[1] = '';
+		ans[2] = '';
+		ans[3] = '';
+	}
 	editQuestion('editQuestion', q, { content : ans });
 	$('#question').focus();
 	$(parent).remove();
@@ -195,7 +201,7 @@ $(document).on('click', '#send', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
-	var q = $('.addQuestion').find('#question')[0].innerText;
+	var q = $('.addQuestion').find('#question')[0].value;
 	if (q == '') {
 		$('.alert').remove();
 		questionError('questionError');
