@@ -37,14 +37,10 @@ var questionError = function(template, data) {
 	$('.save-send').prepend(Handlebars.templates[template](data));
 }
 
-var viewResults = function(template, data) {
+var viewResults = function(template, data, id) {
 	data = data || {};
-	$('.answer-td-sent').html(Handlebars.templates[template](data));
-}
-
-var hideResults = function(template, data) {
-	data = data || {};
-	$('.answer-td-sent').html(Handlebars.templates[template](data));
+	var selector = "#" + id;
+	$(selector).html(Handlebars.templates[template](data));
 }
 
 $(document).on('click', '#add', function (e) {
@@ -56,9 +52,11 @@ $(document).on('click', '#add', function (e) {
 
 $(document).on('click', '#view', function (e) {
 	e.preventDefault();
-	viewResults('results');
+	var id = $(this).parent()[0].id;
+	console.log($("answers-" + id).find('input'));
+	viewResults('results', {}, id);
 	$(function () {
-	    $('.container2').highcharts({
+	    $('#container2').highcharts({
 	        chart: {
 	            type: 'bar'
 	        },
@@ -80,9 +78,10 @@ $(document).on('click', '#view', function (e) {
 	});
 });
 
-$(document).on('click', '#hideResults', function (e) {
+$(document).on('click', '#closeResults', function (e) {
 	e.preventDefault();
-	viewResults('view');
+	var id = $(this).parent()[0].id;
+	viewResults('view', {}, id);
 });
 
 $(document).on('click', '.check', function (e) {
