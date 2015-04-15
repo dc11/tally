@@ -193,7 +193,13 @@ $(document).on('click', '#send', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
-	if (contents.length < 1) {
+	var q = $('.addQuestion').find('#question')[0].innerText;
+	if (q == '') {
+		$('.alert').remove();
+		questionError('questionError');
+		$('#question').focus();
+	}
+	else if (contents.length < 2) {
 		$('.alert').remove();
 		questionError('questionError');
 		$('#question').focus();
@@ -201,8 +207,8 @@ $(document).on('click', '#send', function (e) {
 	else {
 		var id = Math.floor(Math.random() * 100000000000)
 		sendQuestion('sendQuestion', id, contents[0], { content : contents.splice(1,contents.length) });
+		$('#current-question-drafts').empty();
 	}
-	$('#current-question-drafts').empty();
 });
 
 $(document).on('click', '#delete-sent', function (e) {
