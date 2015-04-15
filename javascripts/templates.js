@@ -16,19 +16,19 @@ templates['addQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
   },"useData":true});
 templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style=\"table-layout:fixed\">\n		<span>\n			<span class=\"glyphicon glyphicon-edit\">\n			<span class=\"glyphicon glyphicon-trash\">\n		</span>\n		<tr class='saved-question-tr' id='"
+  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<p class='edit'>\n		<span class=\"glyphicon glyphicon-edit sent-icon\" style=\"visible:hidden\"></span>\n	</p>\n	<p class='trash'>\n		<span class=\"glyphicon glyphicon-trash sent-icon\" style=\"visible:hidden\"></span>\n	</p>\n	<table class='table table-condensed' style=\"table-layout:fixed\">\n		<tr class='saved-question-tr' id='"
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n		</tr>\n		<tr class='saved-answer-tr-1-"
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n		</tr>\n		<tr class='saved-answer-tr-2-"
     + escapeExpression(lambda(depth0, depth0))
-    + "'>\n		</tr>\n	</table>\n\n</div>";
+    + "'>\n		</tr>\n	</table>\n\n\n</div>\n\n";
 },"useData":true});
 templates['questionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "<td class='question-content' id='"
     + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
-    + "'colspan='2' style=\"padding-left:20px;padding-right:20px\"> "
+    + "'colspan='2' style=\"padding-left:20px;padding-right:20px;border-top:none;\"> "
     + escapeExpression(lambda((depth0 != null ? depth0.content : depth0), depth0))
     + " </td>";
 },"useData":true});
