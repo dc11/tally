@@ -64,13 +64,20 @@ body{
 	outline:none;
 }
 
-
 .glyphicon-trash{
 	float: right;
 }
 
+.glyphicon-trash:hover{
+	opacity: .5;
+}
+
 .glyphicon-edit{
 	float: left;
+}
+
+.glyphicon-edit:hover{
+	opacity: .5;
 }
 
 .question-td {
@@ -103,9 +110,9 @@ body{
 	padding-bottom: 15px !important;
 }
 
-.saved-question:hover {
-      opacity: 0.5;
-}
+/*.saved-question:hover {
+     opacity: 0.5;
+}*/
 
 .sent-icon {
 	float:right;
@@ -139,3 +146,4 @@ body{
 	cursor: pointer;
 	cursor: hand;
 }
+
