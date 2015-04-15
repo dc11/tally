@@ -19,6 +19,39 @@ body{
 	overflow-y: hidden;
 }
 
+.option{
+	min-height: 30px;
+	width: 90%;
+	height: 50px;
+	padding: 27px;
+	padding-top: 10px;
+  	margin-left: auto;
+  	margin-right: auto;
+	border-radius: 10px;
+	font-size: 30px;
+	font-family: arial;
+	background-color: lightgray;
+	color: white;
+	border: 0px;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+.quest{
+	padding-bottom: 15px;
+	font-family: arial;
+	font-size: 15px;
+	border-radius: 10px;
+	border: 5px;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+.round{
+	background-color: orange;
+	border-radius: 10px;
+	border: 5px;
+	box-shadow: 2px 2px 2px #888888;
+}
+
 .section{
 	padding-bottom: 50px;
 	height: auto;
@@ -74,3 +107,15 @@ body{
 	padding: 0px;
 }
 
+<<<<<<< HEAD
+=======
+.question-td-sent {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+
+.answer-td-sent {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+>>>>>>> 485e59bb52c6f48d2fc7e1a71a926ca4208ef7e0

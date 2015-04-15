@@ -29,10 +29,17 @@ var addAnswers = function(template, data, element) {
 	$('.' + element).html(Handlebars.templates[template](data));
 }
 
+var questionError = function(template, data) {
+	console.log('qerror');
+	data = data || {};
+	$('.save-send').prepend(Handlebars.templates[template](data));
+}
+
 $(document).on('click', '#add', function (e) {
 	e.preventDefault();
 	var newQuestion = '';
 	loadQuestion('addQuestion');
+	$('.question').focus();
 });
 
 $(document).on('click', '.glyphicon-ok', function (e) {
@@ -70,11 +77,21 @@ $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('textarea');
 	var contents = grabContents(t);
-	createTable('createTable');
-	addQuestionContent('questionContent', { content : contents[0] });
-	addAnswers('addAnswers', { content : [ contents[1], contents[2] ] }, 'saved-answer-tr-1');
-	if (contents.length > 3) {
-		addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2');
+	console.log(contents.length);
+	if (contents.length < 1) {
+		$('.alert').remove();
+		console.log('here');
+		questionError('questionError');
+		$('.question').focus();
+	}
+	else {
+		createTable('createTable');
+		console.log('shouldnt be in here');
+		addQuestionContent('questionContent', { content : contents[0] });
+		addAnswers('addAnswers', { content : [ contents[1], contents[2] ] }, 'saved-answer-tr-1');
+		if (contents.length > 3) {
+			addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2');
+		}
 	}
 });
 
@@ -86,7 +103,15 @@ $(document).on('click', '#send', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('textarea');
 	var contents = grabContents(t);
-	sendQuestion('sendQuestion', { content : contents[0] });
+	if (contents.length < 1) {
+		$('.alert').remove();
+		console.log('here');
+		questionError('questionError');
+		$('.question').focus();
+	}
+	else {
+		sendQuestion('sendQuestion', { content : contents[0] });
+	}
 });
 
 $(document).on('click', '#delete-sent', function (e) {
