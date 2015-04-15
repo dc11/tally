@@ -120,7 +120,6 @@ $(document).on('keyup', ".form-control", function(e) {
 	var t=$(e.target);
 	var inp = $(e.target).parent().children()[0];
 	var click = $(inp).children();
-	console.log(click);
 	if (t.attr("id")!="question"){
 	    var checked=$(e.target).parent().find(".check").is(':checked');
 	    if(t.val()==""){
@@ -240,7 +239,6 @@ $(document).on('click', '#hide-all', function (e) {
 	for (i = 0; i < questions.length; i++) {
 		var id = Math.floor(Math.random() * 100000000000);
 		createTable('createTable', id);
-		console.log(questions[i]);
 		addQuestionContent('questionContent', { content : questions[i] }, id);
 		var curAns = answers[i];
 		if (curAns.length > 1) {
@@ -252,7 +250,7 @@ $(document).on('click', '#hide-all', function (e) {
 		if (curAns.length > 3) {
 			addAnswers('addAnswers', { content : [ curAns[2] , curAns[3] ] }, 'saved-answer-tr-2', id);
 		}
-		else {
+		else if (answers.length == 4) {
 			addAnswers('addAnswers', { content : [ curAns[2] , '' ] }, 'saved-answer-tr-2', id);
 		}
 	}
@@ -266,6 +264,7 @@ $(document).on('click', '.hide-eye', function (e) {
 	var ans = $(parent).find('input[type=hidden]');
 	for (i = 0; i < ans.length; i++) {
 		answers.push(ans[i].value);
+		console.log(ans[i].value);
 	}
 	var id = Math.floor(Math.random() * 100000000000);
 	createTable('createTable', id);
@@ -276,10 +275,11 @@ $(document).on('click', '.hide-eye', function (e) {
 	else {
 		addAnswers('addAnswers', { content : [ answers[0] , '' ] }, 'saved-answer-tr-1', id);
 	}
+	console.log(answers.length);
 	if (answers.length > 3) {
 		addAnswers('addAnswers', { content : [ answers[2] , answers[3] ] }, 'saved-answer-tr-2', id);
 	}
-	else {
+	else if (answers.length == 4) {
 		addAnswers('addAnswers', { content : [ answers[2] , '' ] }, 'saved-answer-tr-2', id);
 	}
 	$(parent).remove();
@@ -293,8 +293,6 @@ $(document).on('click', '.trash', function (e ) {
 var grabContents = function(elements) {
 	var question = $(elements).find('#question');
 	var answers = $(elements).find('.answer-form');
-	// console.log(question);
-	console.log(answers)
 	var question = [];
 	for (i = 0; i < 5; i++) {
 		var element = elements[i];
@@ -314,14 +312,12 @@ var grabAnswers = function(elem, id) {
 		var curAnswer = firstAnswers[j];
 		var answer = curAnswer.innerText;
 		answersCur.push(answer);
-		console.log(answer)
 	}
 	var secondAnswers = $(elem).find(sa).children('.answer-content');
 	for (j = 0; j < secondAnswers.length; j++) {
 		var curAnswer = secondAnswers[j];
 		var answer = curAnswer.innerText;
 		answersCur.push(answer);
-		console.log(answer)
 	}
 	return answersCur;
 }

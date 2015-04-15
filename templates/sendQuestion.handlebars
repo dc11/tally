@@ -1,9 +1,9 @@
 <div class='addQuestion quest sent-question' style='background-color:white;padding-bottom:0px;'>
-	<p class='hide-eye'>
-		<span class='glyphicon glyphicon-eye-close sent-icon' aria-hidden='true'>
-	</p>
 	<p class='trash'>
 		<span class='glyphicon glyphicon-trash sent-icon' aria-hidden='true'>
+	</p>
+	<p class='hide-eye'>
+		<span class='glyphicon glyphicon-eye-close sent-icon' aria-hidden='true'>
 	</p>
 	<table class='table table-condensed' style='height:100%;'>
 		<tr class='question-tr-sent-{{ this }}'>
@@ -12,7 +12,7 @@
 		<tr class='answer-tr-sent'>
 			<td class='answer-td-sent' colspan="2">
 				<div class="viewButton" id="{{ this }}">
-					<button class='btn btn-default' id='view'>View Results</button>
+					<button class='btn btn-default' id='view'><span class="glyphicon glyphicon-stats" style="padding-right:2px;"></span> View Results</button>
 				</div>
 				<div class='answers-{{ this }}'>
 					<input type='hidden' value='hold'>

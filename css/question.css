@@ -19,6 +19,14 @@ body{
 	overflow-y: hidden;
 }
 
+.btn{
+	color: #3385D6;
+}
+
+.btn:hover{
+	color: navy;
+}
+
 .mid{
 	width: 95%;
 	margin-left: auto;
@@ -64,21 +72,21 @@ body{
 	outline:none;
 }
 
-.glyphicon-trash{
+/*.glyphicon-trash{
 	float: right;
-}
+}*/
 
-.glyphicon-trash:hover{
+/*.glyphicon-trash:hover{
 	opacity: .5;
-}
+}*/
 
-.glyphicon-edit{
+/*.glyphicon-edit{
 	float: left;
-}
+}*/
 
-.glyphicon-edit:hover{
+/*.glyphicon-edit:hover{
 	opacity: .5;
-}
+}*/
 
 .question-td {
 	margin: 0px;
@@ -101,7 +109,11 @@ body{
 }
 
 .question-td-sent {
-	padding-top: 15px !important;
+	/*padding-top: 15px !important;*/
+	padding-bottom: 15px !important;
+}
+
+.question-content {
 	padding-bottom: 15px !important;
 }
 
@@ -133,10 +145,24 @@ body{
 	cursor: hand;
 }
 
+.edit {
+	font-size: 20px;
+	position: relative;
+	float: left;
+	color: #3385D6;
+	padding-left: 5px;
+}
+
+.edit:hover {
+	color: navy;
+	cursor: pointer;
+	cursor: hand;
+}
+
 .hide-eye {
 	font-size: 20px;
 	position: relative;
-	float: right;
+	float: left;
 	margin-right: 8px;
 	color: #3385D6;
 }
