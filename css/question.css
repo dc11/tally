@@ -3,7 +3,7 @@ body{
 	word-wrap: break-word;
 }
 
-.well {
+#title.well {
 	min-height: 30px;
 	height: 150px;
 	padding: 27px;
@@ -19,21 +19,10 @@ body{
 	overflow-y: hidden;
 }
 
-.option{
-	min-height: 30px;
-	width: 90%;
-	height: 50px;
-	padding: 27px;
-	padding-top: 10px;
-  	margin-left: auto;
-  	margin-right: auto;
-	border-radius: 10px;
-	font-size: 30px;
-	font-family: arial;
-	background-color: lightgray;
-	color: white;
-	border: 0px;
-	box-shadow: 2px 2px 2px #888888;
+.mid{
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .quest{
