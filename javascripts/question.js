@@ -147,9 +147,29 @@ $(document).on('click', '#save', function (e) {
 	}
 });
 
-$(document).on('mouseover', ".saved-question", function (e) {
-	var table = $(e.target).find("table");
-	
+$(document).on('mouseenter', ".quest", function (e) {
+	var icons = $(e.target).find("span");
+	icons.css("visibility","visible");
+});
+
+$(document).on('mouseleave', ".quest", function (e) {
+	var icons = $(e.target).find("span");
+	icons.css("visibility","hidden");
+});
+
+$(document).on('click', '.glyphicon-trash', function (e) {
+	e.preventDefault();
+	//delete
+});
+
+$(document).on('click', '.glyphicon-edit', function (e) {
+	e.preventDefault();
+	//edit
+});
+
+$(document).on('click', '.glyphicon-eye-close', function (e) {
+	e.preventDefault();
+	//hide
 });
 
 $(document).on('click', '#send', function (e) {
