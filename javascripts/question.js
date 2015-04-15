@@ -239,7 +239,42 @@ $(document).on('click', '#hide-all', function (e) {
 	$('#sent-container').empty();
 });
 
+$(document).on('click', '.hide-eye', function (e) {
+	var parent = $(this).parent();
+	var q = $(parent).find('.question-td-sent')[0].innerText;
+	var answers = [];
+	var ans = $(parent).find('input[type=hidden]');
+	for (i = 0; i < ans.length; i++) {
+		answers.push(ans[i].value);
+	}
+	var id = Math.floor(Math.random() * 100000000000);
+	createTable('createTable', id);
+	addQuestionContent('questionContent', { content : q }, id);
+	if (answers.length > 1) {
+		addAnswers('addAnswers', { content : [ answers[0] , answers[1] ] }, 'saved-answer-tr-1', id);
+	}
+	else {
+		addAnswers('addAnswers', { content : [ answers[0] , '' ] }, 'saved-answer-tr-1', id);
+	}
+	if (answers.length > 3) {
+		addAnswers('addAnswers', { content : [ answers[2] , answers[3] ] }, 'saved-answer-tr-2', id);
+	}
+	else {
+		addAnswers('addAnswers', { content : [ answers[2] , '' ] }, 'saved-answer-tr-2', id);
+	}
+	$(parent).remove();
+});
+
+$(document).on('click', '.trash', function (e ) {
+	var parent = $(this).parent();
+	$(parent).remove();
+})
+
 var grabContents = function(elements) {
+	var question = $(elements).find('#question');
+	var answers = $(elements).find('.answer-form');
+	// console.log(question);
+	console.log(answers)
 	var question = [];
 	for (i = 0; i < 5; i++) {
 		var element = elements[i];
