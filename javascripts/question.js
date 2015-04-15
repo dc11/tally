@@ -43,7 +43,7 @@ $(document).on('click', '#add', function (e) {
 	e.preventDefault();
 	var newQuestion = '';
 	loadQuestion('addQuestion');
-	$('.question').focus();
+	$('#question').focus();
 });
 
 $(document).on('click', '.glyphicon-ok', function (e) {
