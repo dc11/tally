@@ -76,9 +76,10 @@ $(document).on('keyup', ".answer", function(e) {
 
 $(document).on('click', '#save', function (e) {
 	e.preventDefault();
-	var t = $('.addQuestion').find('textarea');
+	var t = $('.addQuestion').find('input[type=text]');
+	console.log(t)
 	var contents = grabContents(t);
-	console.log(contents.length);
+	console.log(contents);
 	if (contents.length < 1) {
 		$('.alert').remove();
 		console.log('here');
