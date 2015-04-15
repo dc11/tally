@@ -79,8 +79,13 @@ $(document).on('keyup', ".answer", function(e) {
 
 $(document).on('click', '#save', function (e) {
 	e.preventDefault();
-	var t = $('.addQuestion').find('textarea');
+	var t = $('.addQuestion').find('input[type=text]');
+	console.log(t)
 	var contents = grabContents(t);
+// <<<<<<< HEAD
+// =======
+// 	console.log(contents);
+// >>>>>>> b4bac325dafe054877d1d23c0975c92264eb13e4
 	if (contents.length < 1) {
 		$('.alert').remove();
 		questionError('questionError');

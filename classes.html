@@ -30,7 +30,7 @@
 					title: "What would you like to call the class?",
 					backdrop: true,
 					callback: function(result) {
-						if (result !== null && result.length > 0) {
+						if (result !== null && result.trim().length > 0) {
 							console.log(result.length)
 							$(evt.target).parent().parent().children()[2].innerText = result;
 	    			}
@@ -43,7 +43,7 @@
 					title: "What is the name of the new class?",
 					backdrop: true,
 					callback: function(result) {
-						if (result !== null && result.length > 0) {
+						if (result !== null && result.trim().length > 0) {
 	    				$('.row').prepend("<div class='col-sm-6'><a href='lectures.html' style='text-decoration:none'><div class='well'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p><h2>"+result+"</h2></div></a></div>");
 	    			}
 	    		}
