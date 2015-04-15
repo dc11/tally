@@ -83,3 +83,13 @@ body{
 	margin: 0px;
 	padding: 0px;
 }
+
+.question-td-sent {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+
+.answer-td-sent {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
