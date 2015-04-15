@@ -128,7 +128,15 @@ $(document).on('click', '#delete-drafts', function (e) {
 });
 
 var grabContents = function(elements) {
+<<<<<<< HEAD
 	console.log(elements)
+=======
+	console.log(elements);
+	var question = $(elements).find('#question');
+	var answers = $(elements).find('.answer-form');
+	console.log(question);
+	console.log(answers)
+>>>>>>> FETCH_HEAD
 	var question = [];
 	for (i = 0; i < 5; i++) {
 		var element = elements[i];
