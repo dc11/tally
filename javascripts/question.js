@@ -56,6 +56,7 @@ $(document).on('click', '.glyphicon-remove', function (e) {
 	}
 });
 
+<<<<<<< HEAD
 $(document).on('keyup', ".answer", function(e) {
     var t=$(e.target);	
     if(t.val()==""){
@@ -65,6 +66,20 @@ $(document).on('keyup', ".answer", function(e) {
     	t.parent().css('background', "#FF8080");
 		t.css('background', "#FF8080");
     }
+=======
+$(document).on('keyup', ".form-control", function(e) {
+	var t=$(e.target);
+	if (t.attr("id")!="question"){
+	    var checked=$(e.target).parent().find(".check").is(':checked');
+	    if(t.val()==""){
+			t.css('background', "#FFFFFF");
+	    } else if (checked){
+	    	t.css('background', "#94FF94");
+	    } else {
+			t.css('background', "#FF8080");
+	    }
+	}
+>>>>>>> FETCH_HEAD
 });
 
 $(document).on('click', '#save', function (e) {
@@ -77,6 +92,22 @@ $(document).on('click', '#save', function (e) {
 	if (contents.length > 3) {
 		addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2');
 	}
+<<<<<<< HEAD
+=======
+	else {
+		var id = Math.floor(Math.random() * 100000000000);
+		createTable('createTable', id);
+		addQuestionContent('questionContent', { content : contents[0] }, id);
+		addAnswers('addAnswers', { content : [ contents[1], contents[2] ] }, 'saved-answer-tr-1', id);
+		if (contents.length > 3) {
+			addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
+		}
+	}
+});
+
+$(document).on('mouseover', ".quest", function (e) {
+		console.log("death");
+>>>>>>> FETCH_HEAD
 });
 
 $(document).on('click', '#send', function (e) {
