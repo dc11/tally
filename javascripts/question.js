@@ -77,14 +77,13 @@ $(document).on('keyup', ".answer", function(e) {
 $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
-	console.log(t)
 	var contents = grabContents(t);
 	console.log(contents);
 	if (contents.length < 1) {
 		$('.alert').remove();
 		console.log('here');
 		questionError('questionError');
-		$('.question').focus();
+		$('#question').focus();
 	}
 	else {
 		createTable('createTable');
@@ -99,13 +98,13 @@ $(document).on('click', '#save', function (e) {
 
 $(document).on('click', '#send', function (e) {
 	e.preventDefault();
-	var t = $('.addQuestion').find('textarea');
+	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
 	if (contents.length < 1) {
 		$('.alert').remove();
 		console.log('here');
 		questionError('questionError');
-		$('.question').focus();
+		$('#question').focus();
 	}
 	else {
 		sendQuestion('sendQuestion', { content : contents[0] });

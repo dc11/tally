@@ -6,6 +6,10 @@ body{
 	word-wrap: break-word;
 }
 
+h2{
+	font-weight: bold;
+}
+
 .class{
 	height: 100px;
 	width: 100%;
