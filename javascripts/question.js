@@ -19,18 +19,21 @@ var createTable = function(template, data) {
 	$('#current-question-drafts').empty();
 }
 
-var addQuestionContent = function(template, data) {
+var addQuestionContent = function(template, data, id) {
 	data = data || {};
-	$('.saved-question-tr').html(Handlebars.templates[template](data));
+	var selector = "#" + id + "";
+	$(selector).html(Handlebars.templates[template](data));
 }
 
-var addAnswers = function(template, data, element) {
+var addAnswers = function(template, data, element, id) {
 	data = data || {};
-	$('.' + element).html(Handlebars.templates[template](data));
+	var selector = "." + element + "-" + id;
+	console.log(selector);
+	console.log($(selector));
+	$(selector).html(Handlebars.templates[template](data));
 }
 
 var questionError = function(template, data) {
-	console.log('qerror');
 	data = data || {};
 	$('.save-send').prepend(Handlebars.templates[template](data));
 }
@@ -39,7 +42,7 @@ $(document).on('click', '#add', function (e) {
 	e.preventDefault();
 	var newQuestion = '';
 	loadQuestion('addQuestion');
-	$('.question').focus();
+	$('#question').focus();
 });
 
 $(document).on('click', '.check', function (e) {
@@ -71,20 +74,24 @@ $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
-	console.log(contents);
+// <<<<<<< HEAD
+// =======
+// 	console.log(contents);
+// >>>>>>> b4bac325dafe054877d1d23c0975c92264eb13e4
 	if (contents.length < 1) {
 		$('.alert').remove();
-		console.log('here');
 		questionError('questionError');
 		$('#question').focus();
 	}
 	else {
-		createTable('createTable');
-		console.log('shouldnt be in here');
-		addQuestionContent('questionContent', { content : contents[0] });
-		addAnswers('addAnswers', { content : [ contents[1], contents[2] ] }, 'saved-answer-tr-1');
+		var id = Math.floor(Math.random() * 100000000000)
+		createTable('createTable', id);
+		addQuestionContent('questionContent', { content : contents[0] }, id);
+		console.log(contents[1]);
+		console.log(contents[2]);
+		addAnswers('addAnswers', { content : [ contents[1], contents[2] ] }, 'saved-answer-tr-1', id);
 		if (contents.length > 3) {
-			addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2');
+			addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
 		}
 	}
 });
@@ -99,7 +106,6 @@ $(document).on('click', '#send', function (e) {
 	var contents = grabContents(t);
 	if (contents.length < 1) {
 		$('.alert').remove();
-		console.log('here');
 		questionError('questionError');
 		$('#question').focus();
 	}
@@ -118,8 +124,20 @@ $(document).on('click', '#delete-drafts', function (e) {
 	$('#all-questions-drafts').empty();
 });
 
+$(document).on('click', '#send-all', function (e) {
+	var questions = [];
+	$('.saved-question').each( function (index) {
+		var q = $(this).find('.question-content')[0];
+		var question = q.textContent;
+		questions.push(question);
+	});
+	questions.forEach( function (question) {
+		sendQuestion('sendQuestion', { content : question });
+	});
+	$('#all-questions-drafts').empty();
+})
+
 var grabContents = function(elements) {
-	console.log(elements)
 	var question = [];
 	for (i = 0; i < 5; i++) {
 		var element = elements[i];
