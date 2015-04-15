@@ -33,6 +33,9 @@ templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
     var alias1=this.lambda, alias2=this.escapeExpression;
 
 <<<<<<< HEAD
+  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\r\n	<table class='table table-condensed' style=\"table-layout:fixed\">\r\n		<span>\r\n			<span class=\"glyphicon glyphicon-edit\">\r\n			<span class=\"glyphicon glyphicon-trash\">\r\n		</span>\r\n		<tr class='saved-question-tr' id='"
+=======
+<<<<<<< HEAD
   return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<table class='table table-condensed' style=\"table-layout:fixed\">\n		<tr class='saved-question-tr' id='"
     + alias2(alias1(depth0, depth0))
     + "'>\n		</tr>\n		<tr class='saved-answer-tr-1-"
@@ -42,11 +45,15 @@ templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
     + "'>\n		</tr>\n	</table>\n</div>";
 =======
   return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\r\n	<table class='table table-condensed' style=\"table-layout:fixed\">\r\n		<tr class='saved-question-tr' id='"
+>>>>>>> d5abd2bfb0c029054a79fab8fa5ba302c976a668
     + alias2(alias1(depth0, depth0))
     + "'>\r\n		</tr>\r\n		<tr class='saved-answer-tr-1-"
     + alias2(alias1(depth0, depth0))
     + "'>\r\n		</tr>\r\n		<tr class='saved-answer-tr-2-"
     + alias2(alias1(depth0, depth0))
+<<<<<<< HEAD
+    + "'>\r\n		</tr>\r\n	</table>\r\n\r\n</div>";
+=======
     + "'>\r\n		</tr>\r\n	</table>\r\n</div>";
 >>>>>>> FETCH_HEAD
 =======
@@ -62,6 +69,7 @@ templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
     + escapeExpression(lambda(depth0, depth0))
     + "'>\n		</tr>\n	</table>\n</div>";
 >>>>>>> FETCH_HEAD
+>>>>>>> d5abd2bfb0c029054a79fab8fa5ba302c976a668
 },"useData":true});
 templates['questionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
