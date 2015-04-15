@@ -1,6 +1,5 @@
 // $(document).ready(function() {
 
-
 // });
 
 var loadQuestion = function(template, data) {
@@ -77,6 +76,10 @@ $(document).on('click', '#save', function (e) {
 	if (contents.length > 3) {
 		addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2');
 	}
+});
+
+$(document).on('mouseover', ".saved-question-tr", function (e) {
+		
 });
 
 $(document).on('click', '#send', function (e) {
