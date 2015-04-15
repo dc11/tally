@@ -102,28 +102,36 @@ $(document).on('click', '#closeResults', function (e) {
 });
 
 $(document).on('click', '.check', function (e) {
+	var inp = $(e.target).parent();
 	var checked=$(e.target).is(':checked');
 	var back=$(e.target).parent().parent().find(".form-control");
 	if (back.val()!=""){
 		if (checked){
-			back.css('background', "#94FF94");
+			inp.css('background', "#C5FFC5");
 		} else {
-			back.css('background', "#FF8080");
+			inp.css('background', "#eee");
 		}
-	} 
+	} else {
+		$(e.target).prop('checked', false);
+	}
 });
 
 $(document).on('keyup', ".form-control", function(e) {
 	var t=$(e.target);
+	var inp = $(e.target).parent().children()[0];
+	var click = $(inp).children();
+	console.log(click);
 	if (t.attr("id")!="question"){
 	    var checked=$(e.target).parent().find(".check").is(':checked');
 	    if(t.val()==""){
-			t.css('background', "#FFFFFF");
+			$(inp).css('background-color', "#eee");
+			click.prop('checked', false);
 	    } else if (checked){
-	    	t.css('background', "#94FF94");
-	    } else {
-			t.css('background', "#FF8080");
-	    }
+	    	$(inp).css('background-color', "#C5FFC5");
+	    } 
+	  //   else {
+			// $(inp).css('background-color', "#FFBFBF");
+	  //   }
 	}
 });
 
