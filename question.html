@@ -34,27 +34,35 @@
             </div>
         </nav>
 
-        <div id="main-container" style="padding-top:75px">
-            <div id='drafts' class='col-md-6'>
-                <h1 class='section-header'>Drafts</h1>
-                <div id='drafts-container'>
-                    <div id='current-question-drafts'></div>
-                    <div id='all-questions-drafts'></div>
-                </div>
-                <div id='draft-buttons'>
-                    <button type='button' class='btn btn-default' id='add'>Add</button>
-                    <button type='button' class='btn btn-default'>Send All</button>
-                    <button type='button' class='btn btn-default' id='delete-drafts'>Delete All</button>
-                </div>
-            </div>
-            <div id='sent' class='col-md-6'>
-                <h1 class='section-header'>Sent</h1>
-                <div id='sent-container'>
+        <div class="overlay">
+            <div class="container" id="main-container" style="padding-top:75px">
+                <div class="row">
+                    <div id='drafts' class='col-md-6 section' style="text-align:center;">
+                        <div class="well">
+                            <h1 class='section-header' style="color:white">Drafts</h1>
+                            <div id='draft-buttons'>
+                                <button type='button' class='btn btn-default' id='add'>Add</button>
+                                <button type='button' class='btn btn-default'>Send All</button>
+                                <button type='button' class='btn btn-default' id='delete-drafts'>Delete All</button>
+                            </div>
+                        </div>
+                        <div id='drafts-container'>
+                            <div id='current-question-drafts'></div>
+                            <div id='all-questions-drafts'></div>
+                        </div>
+                    </div>
+                    <div id='sent' class='col-md-6 section' style="text-align:center">
+                        <div class="well">
+                            <h1 class='section-header' style="color:white">Sent</h1>
+                            <div id='sent-buttons'>
+                                <button type='button' class='btn btn-default'>Hide All</button>
+                                <button type='button' class='btn btn-default' id='delete-sent'>Delete All</button>
+                            </div>
+                        </div>
+                        <div id='sent-container'>
 
-                </div>
-                <div id='sent-buttons'>
-                    <button type='button' class='btn btn-default'>Hide All</button>
-                    <button type='button' class='btn btn-default' id='delete-sent'>Delete All</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
