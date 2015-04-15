@@ -80,7 +80,6 @@ $(document).on('keyup', ".answer", function(e) {
 $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
-	console.log(t)
 	var contents = grabContents(t);
 // <<<<<<< HEAD
 // =======
@@ -89,7 +88,7 @@ $(document).on('click', '#save', function (e) {
 	if (contents.length < 1) {
 		$('.alert').remove();
 		questionError('questionError');
-		$('.question').focus();
+		$('#question').focus();
 	}
 	else {
 		var id = Math.floor(Math.random() * 100000000000)
@@ -106,12 +105,12 @@ $(document).on('click', '#save', function (e) {
 
 $(document).on('click', '#send', function (e) {
 	e.preventDefault();
-	var t = $('.addQuestion').find('textarea');
+	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
 	if (contents.length < 1) {
 		$('.alert').remove();
 		questionError('questionError');
-		$('.question').focus();
+		$('#question').focus();
 	}
 	else {
 		sendQuestion('sendQuestion', { content : contents[0] });
