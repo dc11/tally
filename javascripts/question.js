@@ -58,16 +58,17 @@ $(document).on('click', '.check', function (e) {
 });
 
 $(document).on('keyup', ".form-control", function(e) {
-    var t=$(e.target);
-    var checked=$(e.target).parent().find(".check").is(':checked');
-    if(t.val()==""){
-		t.css('background', "#FFFFFF");
-    } else if (checked){
-    	t.css('background', "#94FF94");
-    } else {
-		t.css('background', "#FF8080");
-    }
-
+	var t=$(e.target);
+	if (t.attr("id")!="question"){
+	    var checked=$(e.target).parent().find(".check").is(':checked');
+	    if(t.val()==""){
+			t.css('background', "#FFFFFF");
+	    } else if (checked){
+	    	t.css('background', "#94FF94");
+	    } else {
+			t.css('background', "#FF8080");
+	    }
+	}
 });
 
 $(document).on('click', '#save', function (e) {
@@ -96,8 +97,8 @@ $(document).on('click', '#save', function (e) {
 	}
 });
 
-$(document).on('mouseover', ".saved-question-tr", function (e) {
-		
+$(document).on('mouseover', ".quest", function (e) {
+		console.log("death");
 });
 
 $(document).on('click', '#send', function (e) {
