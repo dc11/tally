@@ -109,3 +109,41 @@ body{
 	padding-top: 15px !important;
 	padding-bottom: 15px !important;
 }
+
+/*.saved-question:hover {
+     opacity: 0.5;
+}*/
+
+.sent-icon {
+	float:right;
+	padding:5px;
+}
+
+.trash {
+	font-size: 20px;
+	position: relative;
+	float: right;
+	color: #3385D6;
+	padding-left: 5px;
+}
+
+.trash:hover {
+	color: navy;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.hide-eye {
+	font-size: 20px;
+	position: relative;
+	float: right;
+	margin-right: 8px;
+	color: #3385D6;
+}
+
+.hide-eye:hover {
+	color: navy;
+	cursor: pointer;
+	cursor: hand;
+}
+

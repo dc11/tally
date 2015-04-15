@@ -15,7 +15,7 @@ templates['addQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
 templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\r\n	\r\n	\r\n		<span class=\"glyphicon glyphicon-edit\" ></span>\r\n		<span class=\"glyphicon glyphicon-trash\"></span>\r\n		<span class=\"glyphicon glyphicon-eye-close\"></span>\r\n\r\n	<table class='table table-condensed' style=\"table-layout:fixed\">\r\n		<tr class='saved-question-tr' id='"
+  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\r\n	\r\n	<span class=\"glyphicon glyphicon-edit\" style=\"visible:hidden\"></span>\r\n	<span class=\"glyphicon glyphicon-trash\" style=\"visible:hidden\"></span>\r\n\r\n	<table class='table table-condensed' style=\"table-layout:fixed\">\r\n		<tr class='saved-question-tr' id='"
     + alias2(alias1(depth0, depth0))
     + "'>\r\n		</tr>\r\n		<tr class='saved-answer-tr-1-"
     + alias2(alias1(depth0, depth0))
@@ -56,7 +56,7 @@ templates['saveQuestion'] = template({"1":function(depth0,helpers,partials,data)
 templates['sendQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<div class='addQuestion quest sent-question' style='background-color:white;padding-bottom:0px;'>\r\n	<table class='table table-condensed' style='height:100%;'>\r\n		<tr class='question-tr-sent-"
+  return "<div class='addQuestion quest sent-question' style='background-color:white;padding-bottom:0px;'>\r\n	<p class='hide-eye'>\r\n		<span class='glyphicon glyphicon-eye-close sent-icon' aria-hidden='true'>\r\n	</p>\r\n	<p class='trash'>\r\n		<span class='glyphicon glyphicon-trash sent-icon' aria-hidden='true'>\r\n	</p>\r\n	<table class='table table-condensed' style='height:100%;'>\r\n		<tr class='question-tr-sent-"
     + alias2(alias1(depth0, depth0))
     + "'>\r\n			\r\n		</tr>\r\n		<tr class='answer-tr-sent'>\r\n			<td class='answer-td-sent' colspan=\"2\">\r\n				<div class=\"viewButton\" id=\""
     + alias2(alias1(depth0, depth0))
@@ -74,7 +74,7 @@ templates['sentAnswerContent'] = template({"1":function(depth0,helpers,partials,
   return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.content : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
 templates['sentQuestionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<td class='question-td-sent' colspan='2' style=\"word-wrap: break-word;padding-left:20px;padding-right:20px\">\r\n	"
+    return "<td class='question-td-sent' colspan='2' style=\"word-wrap: break-word;padding-left:20px;padding-right:20px;border-top:none;\">\r\n	"
     + this.escapeExpression(this.lambda(depth0, depth0))
     + "\r\n</td>";
 },"useData":true});
