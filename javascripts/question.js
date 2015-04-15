@@ -159,7 +159,6 @@ $(document).on('click', '#delete-drafts', function (e) {
 	$('#all-questions-drafts').empty();
 });
 
-// need to grab ID's
 $(document).on('click', '#send-all', function (e) {
 	var questions = [];
 	var ids = []
@@ -168,45 +167,24 @@ $(document).on('click', '#send-all', function (e) {
 		var q = $(this).find('.question-content')[0];
 		var question = q.textContent;
 		var ID = $(this).find('.saved-question-tr')[0].id;
-		// var fa = '.saved-answer-tr-1-' + ID;
-		// var sa = '.saved-answer-tr-2-' + ID;
-		// var answersCur = [];
-		// var firstAnswers = $(this).find(fa).children('.answer-content');
-		// for (j = 0; j < firstAnswers.length; j++) {
-		// 	var curAnswer = firstAnswers[j];
-		// 	var answer = curAnswer.innerText;
-		// 	answersCur.push(answer);
-		// 	console.log(answer)
-		// }
-		// var secondAnswers = $(this).find(sa).children('.answer-content');
-		// for (j = 0; j < secondAnswers.length; j++) {
-		// 	var curAnswer = secondAnswers[j];
-		// 	var answer = curAnswer.innerText;
-		// 	answersCur.push(answer);
-		// 	console.log(answer)
-		// }
 		ans = grabAnswers(this, ID);
 		answers.push(ans);
 		questions.push(question);
 		ids.push(ID);
 	});
-	console.log(questions);
-	console.log(ids);
-	console.log(answers);
 	for (i = 0; i < questions.length; i++) {
 		sendQuestion('sendQuestion', ids[i], questions[i], { content : answers[i] });
 	}
-	// questions.forEach( function (question) {
-	// 	sendQuestion('sendQuestion', ids[index], question, answers[index]);
-	// });
 	$('#all-questions-drafts').empty();
 });
 
 $(document).on('click', '#hide-all', function (e) {
 	var questions = [];
-	$('.question-td-sent').each(function (index) {
-		var q = $(this)[0];
-		questions.push(q.innerText);
+	var answers = [];
+	$('.sent-question').each(function (index) {
+		var q = $(this).find('.question-td-sent')[0].innerText;
+		questions.push(q);
+		
 	});
 	questions.forEach( function (question) {
 		var id = Math.floor(Math.random() * 100000000000);
@@ -214,9 +192,6 @@ $(document).on('click', '#hide-all', function (e) {
 		addQuestionContent('questionContent', { content : question }, id);
 		addAnswers('addAnswers', { content : [ '' , '' ] }, 'saved-answer-tr-1', id);
 		addAnswers('addAnswers', { content : [ '' , '' ] }, 'saved-answer-tr-2', id);
-		// if (contents.length > 3) {
-		// 	addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
-		// }	
 	});
 	$('#sent-container').empty();
 });
