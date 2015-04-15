@@ -230,6 +230,11 @@ $(document).on('click', '#hide-all', function (e) {
 });
 
 var grabContents = function(elements) {
+	console.log(elements);
+	var question = $(elements).find('#question');
+	var answers = $(elements).find('.answer-form');
+	console.log(question);
+	console.log(answers)
 	var question = [];
 	for (i = 0; i < 5; i++) {
 		var element = elements[i];
