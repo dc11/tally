@@ -142,7 +142,9 @@ $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
-	var q = $('.addQuestion').find('#question')[0].innerText;
+	var q = $('.addQuestion').find('#question')[0].value;
+	console.log(contents.length);
+	console.log(q);
 	if (q == '') {
 		$('.alert').remove();
 		questionError('questionError');
