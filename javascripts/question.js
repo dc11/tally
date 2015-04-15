@@ -147,8 +147,9 @@ $(document).on('click', '#save', function (e) {
 	}
 });
 
-$(document).on('mouseover', ".quest", function (e) {
-		console.log("death");
+$(document).on('mouseover', ".saved-question", function (e) {
+	var table = $(e.target).find("table");
+	
 });
 
 $(document).on('click', '#send', function (e) {

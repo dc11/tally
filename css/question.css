@@ -64,16 +64,13 @@ body{
 	outline:none;
 }
 
-.glyphicon-remove{
-	color: red;
-}
-
-.glyphicon-ok{
-	color: green;
-}
 
 .glyphicon-trash{
 	float: right;
+}
+
+.glyphicon-edit{
+	float: left;
 }
 
 .question-td {
@@ -104,4 +101,8 @@ body{
 .answer-td-sent {
 	padding-top: 15px !important;
 	padding-bottom: 15px !important;
+}
+
+.saved-question:hover {
+      opacity: 0.5;
 }

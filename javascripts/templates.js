@@ -15,13 +15,13 @@ templates['addQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
 templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\r\n	<table class='table table-condensed' style=\"table-layout:fixed\">\r\n		<tr class='saved-question-tr' id='"
+  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\r\n	<table class='table table-condensed' style=\"table-layout:fixed\">\r\n		<span>\r\n			<span class=\"glyphicon glyphicon-edit\">\r\n			<span class=\"glyphicon glyphicon-trash\">\r\n		</span>\r\n		<tr class='saved-question-tr' id='"
     + alias2(alias1(depth0, depth0))
     + "'>\r\n		</tr>\r\n		<tr class='saved-answer-tr-1-"
     + alias2(alias1(depth0, depth0))
     + "'>\r\n		</tr>\r\n		<tr class='saved-answer-tr-2-"
     + alias2(alias1(depth0, depth0))
-    + "'>\r\n		</tr>\r\n	</table>\r\n</div>";
+    + "'>\r\n		</tr>\r\n	</table>\r\n\r\n</div>";
 },"useData":true});
 templates['questionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
