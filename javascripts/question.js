@@ -313,6 +313,11 @@ $(document).on('click', '.trash', function (e) {
 	$(parent).remove();
 });
 
+$(document).on('click', '#cancel', function (e) {
+	var parent = $(this).parent().parent();
+	$(parent).remove();
+});
+
 $(document).on('click', '.sendButton', function (e) {
 	var top = $(this).closest('.saved-question');
 	var q = $(top).find('.question-content')[0].innerText;
