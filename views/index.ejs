@@ -1,11 +1,44 @@
 <!DOCTYPE html>
+
+<!--
+  CREDIT: We used the following.
+
+           Bootstrap: http://getbootstrap.com/ 
+           jQuery: https://jquery.com/
+           Bootbox.js: http://bootboxjs.com/
+           Handlebars.js: http://handlebarsjs.com/
+           Highcharts: http://www.highcharts.com/
+
+  COLLABORATION: We only discussed this project with the people in our group.
+-->
+
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Tally</title>
+		<link type="text/css" href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/login.css" rel="stylesheet"/>
+		<script type="text/javascript" src="/bootstrap/js/bootsrap.min.js"></script>
+		<script type="text/javascript" src="/jquery/jquery-1.11.1.min.js"></script>
+	</head>
+
+	<body>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 style="color:#3385D6;font-weight:bold;margin-bottom:3rem">Tally</h1>
+      <div class="window">
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <a href="classes.html"><button class="btn btn-default login"><span class="glyphicon glyphicon-ok"></span></button></a>
+        <hr>
+        <h2 style="color:green;font-weight:bold;padding-bottom:25px;font-size:40px">Enter Key</h2>
+        <input type="text" placeholder="Class Key">
+        <a href="index.html"><button class="btn btn-default key"><span class="glyphicon glyphicon-ok"></span></button></a>
+      </div>
+      <hr>
+      <p>New to Tally? <a href="signup.html">Sign up</a></p>
+    </div>
+  </div>
   </body>
 </html>
+
