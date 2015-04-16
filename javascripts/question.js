@@ -182,16 +182,19 @@ $(document).on('click', '.edit', function (e) {
 	var answers = $(parent).find('.answer-content');
 	var ans = [];
 	for (i = 0; i < answers.length; i++) {
-		console.log(answers[i].innerText);
 		ans.push(answers[i].innerText);
 	}
 	console.log(ans);
 	var q = question.substring(1);
-	if (ans.length < 3) {
-		ans[1] = '';
-		ans[2] = '';
+	if (ans.length < 4) {
 		ans[3] = '';
 	}
+	if (ans.length < 3) {
+		ans[2] = '';
+	}
+	if (ans.length < 2) {
+		ans[1] = '';
+	} 
 	editQuestion('editQuestion', q, { content : ans });
 	$('#question').focus();
 	$(parent).remove();
@@ -310,9 +313,33 @@ $(document).on('click', '.hide-eye', function (e) {
 	$(parent).remove();
 });
 
-$(document).on('click', '.trash', function (e ) {
+$(document).on('click', '.trash', function (e) {
 	var parent = $(this).parent();
 	$(parent).remove();
+});
+
+$(document).on('click', '.sendButton', function (e) {
+	var top = $(this).closest('.saved-question');
+	var q = $(top).find('.question-content')[0].innerText;
+	var answers = $(top).find('.answer-content');
+	var ans = [];
+	for (i = 0; i < answers.length; i++) {
+		var a = answers[i].innerText;
+		console.log(a);
+		ans.push(a);
+	}
+	// console.log(answers);
+	// var q = $(this).find('.question-content')[0];
+	// var question = q.textContent;
+	var ID = $(top).find('.saved-question-tr')[0].id;
+	// ans = grabAnswers(this, ID);
+	console.log(ID);
+	console.log(ans);
+	// answers.push(ans);
+	// questions.push(question);
+	// ids.push(ID);
+	sendQuestion('sendQuestion', ID, q, { content : ans });
+	$(top).remove();
 })
 
 var grabContents = function(elements) {
