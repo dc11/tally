@@ -1,8 +1,20 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['addAnswers'] = template({"1":function(depth0,helpers,partials,data) {
+  var stack1, helperMissing=helpers.helperMissing, buffer = "";
+  stack1 = ((helpers.countEven || (depth0 && depth0.countEven) || helperMissing).call(depth0, (data && data.index), {"name":"countEven","hash":{},"fn":this.program(2, data),"inverse":this.noop,"data":data}));
+  if (stack1 != null) { buffer += stack1; }
+  stack1 = ((helpers.countOdd || (depth0 && depth0.countOdd) || helperMissing).call(depth0, (data && data.index), {"name":"countOdd","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data}));
+  if (stack1 != null) { buffer += stack1; }
+  return buffer;
+},"2":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "	<td class='answer-content' style='width:50%'> "
+  return "		<td class='answer-content content-left' style='width:50%'> "
+    + escapeExpression(lambda(depth0, depth0))
+    + " </td>\n";
+},"4":function(depth0,helpers,partials,data) {
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "		<td class='answer-content content-right' style='width:50%'> "
     + escapeExpression(lambda(depth0, depth0))
     + " </td>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
