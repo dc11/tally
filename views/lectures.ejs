@@ -4,12 +4,12 @@
     <title>Lectures</title>
 
     <!-- Load style sheets -->
-    <script type="text/javascript" src="jquery/jquery-1.11.1.min.js"></script>
-    <link rel='stylesheet' href='bootstrap/css/bootstrap.css' />
-    <link rel="stylesheet" type="text/css" href="css/mainLayout.css" />
-    <link type="text/css" href="css/navbar.css" rel="stylesheet"/>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="bootstrap/js/bootbox.min.js"></script>
+    <script type="text/javascript" src="/jquery/jquery-1.11.1.min.js"></script>
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+    <link rel="stylesheet" type="text/css" href="/css/mainLayout.css" />
+    <link type="text/css" href="/css/navbar.css" rel="stylesheet"/>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/bootbox.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
       $('.row').on('click', '.trash', function(evt) {
@@ -44,7 +44,7 @@
           backdrop: true,
           callback: function(result) {
             if (result !== null && result.trim().length > 0) {
-              $('.row').prepend("<div class='col-sm-6'><a href='question.html' style='text-decoration:none'><div class='well'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p><h2>"+result+"</h2></div></a></div>");
+              $('.row').prepend("<div class='col-sm-6'><a href='question.ejs' style='text-decoration:none'><div class='well'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p><h2>"+result+"</h2></div></a></div>");
             }
           }
         });
@@ -63,12 +63,12 @@
           <ul class="nav navbar-nav">
             <ol class="breadcrumb">
               <li></li>
-              <li><a href="classes.html">Classes</a></li>
+              <li><a href="classes.ejs">Classes</a></li>
               <li class="active">Lectures</li>
             </ol>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            <li><a href="/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
           </ul>
         </div>
       </div>
@@ -77,7 +77,7 @@
 
     <div class='row' style="padding-top:75px">
       <div class="col-sm-6">
-        <a href="question.html" style="text-decoration:none">
+        <a href="question.ejs" style="text-decoration:none">
           <div class="well">
             <p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
             <p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
