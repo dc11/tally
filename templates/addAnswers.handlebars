@@ -1,3 +1,8 @@
 {{#each content}}
-	<td class='answer-content' style='width:50%'> {{ this }} </td>
+	{{#countEven @index}}
+		<td class='answer-content content-left' style='width:50%'> {{ this }} </td>
+	{{/countEven}}
+	{{#countOdd @index}}
+		<td class='answer-content content-right' style='width:50%'> {{ this }} </td>
+	{{/countOdd}}
 {{/each}}
