@@ -62,18 +62,25 @@ $(document).on('click', '#view', function (e) {
 	var id = $(this).parent()[0].id;
 	viewResults('results', {id: id}, id);
 
-	var questions = [];
 	var answers = [];
-	$('.sent-question').each(function (index) {
-		var q = $(this).find('.question-td-sent')[0].innerText;
-		questions.push(q);
+	var finAns = [];
+
+	$('.answers-' + id).each(function (index) {
 		var curAnswers = [];
+		var onlyReal = [];
 		var ans = $(this).find('input[type=hidden]');
 		for (i = 0; i < ans.length; i++) {
+			if (ans[i].value !== "") {
+				onlyReal.push(ans[i].value);
+			}
 			curAnswers.push(ans[i].value);
 		}
 		answers.push(curAnswers);
+		finAns.push(onlyReal);
 	});
+
+	var arr = finAns[0];
+	var hold = [7, 8, 4, 5].slice(0,arr.length);
 	
 	$(function () {
 	    $('#container-' + id).highcharts({
@@ -84,7 +91,7 @@ $(document).on('click', '#view', function (e) {
 	            text: ''
 	        },
 	        xAxis: {
-	            categories: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4']
+	            categories: arr
 	        },
 	        yAxis: {
 	            title: {
@@ -92,7 +99,7 @@ $(document).on('click', '#view', function (e) {
 	            }
 	        },
 	        series: [{
-	            data: [7, 8, 4, 5],
+	            data: hold,
 	            name: "Total"
 	        }],
 	        legend: {
