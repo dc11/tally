@@ -1,7 +1,16 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['addAnswers'] = template({"1":function(depth0,helpers,partials,data) {
-    return "	<td class='answer-content' style='width:50%'> "
+    var stack1, alias1=helpers.helperMissing;
+
+  return ((stack1 = (helpers.countEven || (depth0 && depth0.countEven) || alias1).call(depth0,(data && data.index),{"name":"countEven","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = (helpers.countOdd || (depth0 && depth0.countOdd) || alias1).call(depth0,(data && data.index),{"name":"countOdd","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"2":function(depth0,helpers,partials,data) {
+    return "		<td class='answer-content content-left' style='width:50%'> "
+    + this.escapeExpression(this.lambda(depth0, depth0))
+    + " </td>\n";
+},"4":function(depth0,helpers,partials,data) {
+    return "		<td class='answer-content content-right' style='width:50%'> "
     + this.escapeExpression(this.lambda(depth0, depth0))
     + " </td>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -30,10 +39,10 @@ templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
     + alias2(alias1(depth0, depth0))
     + "'>\n		</tr>\n		<tr class='saved-answer-tr-2-"
     + alias2(alias1(depth0, depth0))
-    + "'>\n		</tr>\n		<tr class='answer-single-send' style=\"padding-top:20px\">\n			<td class='answer-td-save' colspan=\"2\">\n				<div class=\"sendButton\">\n					<button class='btn btn-default' id='view'><span class=\"glyphicon glyphicon-send\" style=\"margin-top:3px;padding-right:2px;\"></span> Share</button>\n				</div>\n			</td>\n		</tr>\n	</table>\n\n\n</div>\n\n";
+    + "'>\n		</tr>\n		<tr class='answer-single-send' style=\"padding-top:20px\">\n			<td class='answer-td-save' colspan=\"2\">\n				<div class=\"sendButton\">\n					<button class='btn btn-default'><span class=\"glyphicon glyphicon-send\" style=\"margin-top:3px;padding-right:2px;\"></span> Share</button>\n				</div>\n			</td>\n		</tr>\n	</table>\n\n\n</div>\n\n";
 },"useData":true});
 templates['editQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  \n	</div>\n	<div class='save-send'>\n	    <br>\n		<button class='btn btn-default' id='save'>Save</button>\n		<button class='btn btn-default' id='send'>Send</button>\n	</div>\n</div>";
+    return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  \n	</div>\n	<div class='save-send'>\n	    <br>\n		<button class='btn btn-default' id='save' style=\"margin-right:100px\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n		<button class='btn btn-default' id='send'><span class=\"glyphicon glyphicon-send\" style=\"padding-right:2px;\"></span> Share</button>\n	</div>\n</div>";
 },"useData":true});
 templates['question'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"col-lg-12\" style=\"padding-top:15px\">\n	<div class=\"input-group mid well\" style=\"padding-top:10px;padding-bottom:10px;height:40px\">\n		<input id=\"question\" type=\"text\" class=\"form-control\" aria-label=\"...\" value=\""
