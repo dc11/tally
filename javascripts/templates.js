@@ -48,7 +48,7 @@ templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
     + "'>\n		</tr>\n		<tr class='answer-single-send' style=\"padding-top:20px\">\n			<td class='answer-td-save' colspan=\"2\">\n				<div class=\"sendButton\">\n					<button class='btn btn-default'><span class=\"glyphicon glyphicon-send\" style=\"margin-top:3px;padding-right:2px;\"></span> Share</button>\n				</div>\n			</td>\n		</tr>\n	</table>\n\n\n</div>\n\n";
 },"useData":true});
 templates['editQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  \n	</div>\n	<div class='save-send'>\n	    <br>\n		<button class='btn btn-default' id='save' style=\"margin-right:100px\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n		<button class='btn btn-default' id='send'><span class=\"glyphicon glyphicon-send\" style=\"padding-right:2px;\"></span> Share</button>\n	</div>\n</div>";
+  return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  \n	</div>\n	<div class='save-send'>\n	    <br>\n		<button class='btn btn-default' id='save' style=\"margin-right:15%\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n		<button class='btn btn-default' id='send'><span class=\"glyphicon glyphicon-send\" style=\"padding-right:2px;\"></span> Share</button>\n	</div>\n</div>";
   },"useData":true});
 templates['question'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;

@@ -56,5 +56,11 @@ app.use(function(err, req, res, next) {
     });
 });
 
+var port = process.env.OPENSHIFT_NODEJS_PORT;
+var ip = process.env.OPENSHIFT_NODEJS_IP;
+
+app.listen(process.env.OPENSHIFT_NODEJS_PORT || 3000,
+           process.env.OPENSHIFT_NODEJS_IP);
+
 
 module.exports = app;
