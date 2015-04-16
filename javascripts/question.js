@@ -97,6 +97,9 @@ $(document).on('click', '#view', function (e) {
 	        }],
 	        legend: {
 	        	enabled: false
+	        },
+	        credits: {
+	        	enabled: false
 	        }
 	    });
 	});
@@ -270,16 +273,16 @@ $(document).on('click', '#hide-all', function (e) {
 		addQuestionContent('questionContent', { content : questions[i] }, id);
 		var curAns = answers[i];
 		if (curAns.length > 1) {
-			addAnswers('addAnswers', { content : [ curAns[0] , curAns[1] ] }, 'saved-answer-tr-1', id);
+			addAnswers('addAnswers', { content : [ curAns[0] , curAns[1] ], index : [1, 2] }, 'saved-answer-tr-1', id);
 		}
 		else {
-			addAnswers('addAnswers', { content : [ curAns[0] , '' ] }, 'saved-answer-tr-1', id);
+			addAnswers('addAnswers', { content : [ curAns[0] , '' ], index : [1, 2] }, 'saved-answer-tr-1', id);
 		}
 		if (curAns.length > 3) {
-			addAnswers('addAnswers', { content : [ curAns[2] , curAns[3] ] }, 'saved-answer-tr-2', id);
+			addAnswers('addAnswers', { content : [ curAns[2] , curAns[3] ], index : [1, 2] }, 'saved-answer-tr-2', id);
 		}
 		else if (answers.length == 4) {
-			addAnswers('addAnswers', { content : [ curAns[2] , '' ] }, 'saved-answer-tr-2', id);
+			addAnswers('addAnswers', { content : [ curAns[2] , '' ], index : [1, 2] }, 'saved-answer-tr-2', id);
 		}
 	}
 	$('#sent-container').empty();
@@ -301,14 +304,14 @@ $(document).on('click', '.hide-eye', function (e) {
 		addAnswers('addAnswers', { content : [ answers[0] , answers[1] ] }, 'saved-answer-tr-1', id);
 	}
 	else {
-		addAnswers('addAnswers', { content : [ answers[0] , '' ] }, 'saved-answer-tr-1', id);
+		addAnswers('addAnswers', { content : [ answers[0] , ' ' ] }, 'saved-answer-tr-1', id);
 	}
 	console.log(answers.length);
 	if (answers.length > 3) {
 		addAnswers('addAnswers', { content : [ answers[2] , answers[3] ] }, 'saved-answer-tr-2', id);
 	}
 	else if (answers.length == 4) {
-		addAnswers('addAnswers', { content : [ answers[2] , '' ] }, 'saved-answer-tr-2', id);
+		addAnswers('addAnswers', { content : [ answers[2] , ' ' ] }, 'saved-answer-tr-2', id);
 	}
 	$(parent).remove();
 });
@@ -341,6 +344,22 @@ $(document).on('click', '.sendButton', function (e) {
 	sendQuestion('sendQuestion', ID, q, { content : ans });
 	$(top).remove();
 })
+
+Handlebars.registerHelper("countEven", function(index_count, block) {
+  if(parseInt(index_count)%2=== 0){
+  	if (typeof(this[0]) !== "string") {
+  		return block.fn("");
+  	}
+    return block.fn(this);}
+});
+
+Handlebars.registerHelper("countOdd", function(index_count, block) {
+  if(parseInt(index_count)%2!== 0){
+  	if (typeof(this[0]) !== "string") {
+  		return block.fn("");
+  	}
+    return block.fn(this);}
+});
 
 var grabContents = function(elements) {
 	var question = $(elements).find('#question');

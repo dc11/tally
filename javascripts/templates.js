@@ -1,7 +1,16 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['addAnswers'] = template({"1":function(depth0,helpers,partials,data) {
-    return "	<td class='answer-content' style='width:50%'> "
+    var stack1, alias1=helpers.helperMissing;
+
+  return ((stack1 = (helpers.countEven || (depth0 && depth0.countEven) || alias1).call(depth0,(data && data.index),{"name":"countEven","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = (helpers.countOdd || (depth0 && depth0.countOdd) || alias1).call(depth0,(data && data.index),{"name":"countOdd","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"2":function(depth0,helpers,partials,data) {
+    return "		<td class='answer-content content-left' style='width:50%'> "
+    + this.escapeExpression(this.lambda(depth0, depth0))
+    + " </td>\r\n";
+},"4":function(depth0,helpers,partials,data) {
+    return "		<td class='answer-content content-right' style='width:50%'> "
     + this.escapeExpression(this.lambda(depth0, depth0))
     + " </td>\r\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
