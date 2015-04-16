@@ -145,7 +145,15 @@ $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
-	if (contents.length < 1) {
+	var q = $('.addQuestion').find('#question')[0].value;
+	console.log(contents.length);
+	console.log(q);
+	if (q == '') {
+		$('.alert').remove();
+		questionError('questionError');
+		$('#question').focus();
+	}
+	else if (contents.length < 2) {
 		$('.alert').remove();
 		questionError('questionError');
 		$('#question').focus();
@@ -161,15 +169,15 @@ $(document).on('click', '#save', function (e) {
 	}
 });
 
-$(document).on('mouseover', ".saved-question", function (e) {
-	var icons = $(this).find("span");
-	icons.css("visibility","visible");
-});
+// $(document).on('mouseover', ".saved-question", function (e) {
+// 	var icons = $(this).find("span");
+// 	icons.css("visibility","visible");
+// });
 
-$(document).on('mouseout', ".saved-question", function (e) {
-	var icons = $(this).find("span");
-	icons.css("visibility","hidden");
-});
+// $(document).on('mouseout', ".saved-question", function (e) {
+// 	var icons = $(this).find("span");
+// 	icons.css("visibility","hidden");
+// });
 
 $(document).on('click', '.edit', function (e) {
 	var parent = $(this).parent();
@@ -177,10 +185,19 @@ $(document).on('click', '.edit', function (e) {
 	var answers = $(parent).find('.answer-content');
 	var ans = [];
 	for (i = 0; i < answers.length; i++) {
-		console.log(answers[i].innerText);
 		ans.push(answers[i].innerText);
 	}
+	console.log(ans);
 	var q = question.substring(1);
+	if (ans.length < 4) {
+		ans[3] = '';
+	}
+	if (ans.length < 3) {
+		ans[2] = '';
+	}
+	if (ans.length < 2) {
+		ans[1] = '';
+	} 
 	editQuestion('editQuestion', q, { content : ans });
 	$('#question').focus();
 	$(parent).remove();
@@ -190,7 +207,13 @@ $(document).on('click', '#send', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
-	if (contents.length < 1) {
+	var q = $('.addQuestion').find('#question')[0].value;
+	if (q == '') {
+		$('.alert').remove();
+		questionError('questionError');
+		$('#question').focus();
+	}
+	else if (contents.length < 2) {
 		$('.alert').remove();
 		questionError('questionError');
 		$('#question').focus();
@@ -198,8 +221,8 @@ $(document).on('click', '#send', function (e) {
 	else {
 		var id = Math.floor(Math.random() * 100000000000)
 		sendQuestion('sendQuestion', id, contents[0], { content : contents.splice(1,contents.length) });
+		$('#current-question-drafts').empty();
 	}
-	$('#current-question-drafts').empty();
 });
 
 $(document).on('click', '#delete-sent', function (e) {
@@ -293,9 +316,33 @@ $(document).on('click', '.hide-eye', function (e) {
 	$(parent).remove();
 });
 
-$(document).on('click', '.trash', function (e ) {
+$(document).on('click', '.trash', function (e) {
 	var parent = $(this).parent();
 	$(parent).remove();
+});
+
+$(document).on('click', '.sendButton', function (e) {
+	var top = $(this).closest('.saved-question');
+	var q = $(top).find('.question-content')[0].innerText;
+	var answers = $(top).find('.answer-content');
+	var ans = [];
+	for (i = 0; i < answers.length; i++) {
+		var a = answers[i].innerText;
+		console.log(a);
+		ans.push(a);
+	}
+	// console.log(answers);
+	// var q = $(this).find('.question-content')[0];
+	// var question = q.textContent;
+	var ID = $(top).find('.saved-question-tr')[0].id;
+	// ans = grabAnswers(this, ID);
+	console.log(ID);
+	console.log(ans);
+	// answers.push(ans);
+	// questions.push(question);
+	// ids.push(ID);
+	sendQuestion('sendQuestion', ID, q, { content : ans });
+	$(top).remove();
 })
 
 Handlebars.registerHelper("countEven", function(index_count, block) {
