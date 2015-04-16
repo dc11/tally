@@ -62,12 +62,10 @@ $(document).on('click', '#view', function (e) {
 	var id = $(this).parent()[0].id;
 	viewResults('results', {id: id}, id);
 
-	var questions = [];
 	var answers = [];
 	var finAns = [];
-	$('.sent-question').each(function (index) {
-		var q = $(this).find('.question-td-sent')[0].innerText;
-		questions.push(q);
+
+	$('.answers-' + id).each(function (index) {
 		var curAnswers = [];
 		var onlyReal = [];
 		var ans = $(this).find('input[type=hidden]');
@@ -80,6 +78,7 @@ $(document).on('click', '#view', function (e) {
 		answers.push(curAnswers);
 		finAns.push(onlyReal);
 	});
+
 	var arr = finAns[0];
 	var hold = [7, 8, 4, 5].slice(0,arr.length);
 	
