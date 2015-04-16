@@ -64,16 +64,24 @@ $(document).on('click', '#view', function (e) {
 
 	var questions = [];
 	var answers = [];
+	var finAns = [];
 	$('.sent-question').each(function (index) {
 		var q = $(this).find('.question-td-sent')[0].innerText;
 		questions.push(q);
 		var curAnswers = [];
+		var onlyReal = [];
 		var ans = $(this).find('input[type=hidden]');
 		for (i = 0; i < ans.length; i++) {
+			if (ans[i].value !== "") {
+				onlyReal.push(ans[i].value);
+			}
 			curAnswers.push(ans[i].value);
 		}
 		answers.push(curAnswers);
+		finAns.push(onlyReal);
 	});
+	var arr = finAns[0];
+	var hold = [7, 8, 4, 5].slice(0,arr.length);
 	
 	$(function () {
 	    $('#container-' + id).highcharts({
@@ -84,7 +92,7 @@ $(document).on('click', '#view', function (e) {
 	            text: ''
 	        },
 	        xAxis: {
-	            categories: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4']
+	            categories: arr
 	        },
 	        yAxis: {
 	            title: {
@@ -92,7 +100,7 @@ $(document).on('click', '#view', function (e) {
 	            }
 	        },
 	        series: [{
-	            data: [7, 8, 4, 5],
+	            data: hold,
 	            name: "Total"
 	        }],
 	        legend: {
@@ -146,8 +154,6 @@ $(document).on('click', '#save', function (e) {
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
 	var q = $('.addQuestion').find('#question')[0].value;
-	console.log(contents.length);
-	console.log(q);
 	if (q == '') {
 		$('.alert').remove();
 		questionError('questionError');
@@ -169,16 +175,6 @@ $(document).on('click', '#save', function (e) {
 	}
 });
 
-// $(document).on('mouseover', ".saved-question", function (e) {
-// 	var icons = $(this).find("span");
-// 	icons.css("visibility","visible");
-// });
-
-// $(document).on('mouseout', ".saved-question", function (e) {
-// 	var icons = $(this).find("span");
-// 	icons.css("visibility","hidden");
-// });
-
 $(document).on('click', '.edit', function (e) {
 	var parent = $(this).parent();
 	var question = $(parent).find('.question-content')[0].textContent;
@@ -187,7 +183,6 @@ $(document).on('click', '.edit', function (e) {
 	for (i = 0; i < answers.length; i++) {
 		ans.push(answers[i].innerText);
 	}
-	console.log(ans);
 	var q = question.substring(1);
 	if (ans.length < 4) {
 		ans[3] = '';
@@ -295,7 +290,6 @@ $(document).on('click', '.hide-eye', function (e) {
 	var ans = $(parent).find('input[type=hidden]');
 	for (i = 0; i < ans.length; i++) {
 		answers.push(ans[i].value);
-		console.log(ans[i].value);
 	}
 	var id = Math.floor(Math.random() * 100000000000);
 	createTable('createTable', id);
@@ -306,7 +300,6 @@ $(document).on('click', '.hide-eye', function (e) {
 	else {
 		addAnswers('addAnswers', { content : [ answers[0] , ' ' ] }, 'saved-answer-tr-1', id);
 	}
-	console.log(answers.length);
 	if (answers.length > 3) {
 		addAnswers('addAnswers', { content : [ answers[2] , answers[3] ] }, 'saved-answer-tr-2', id);
 	}
@@ -328,19 +321,9 @@ $(document).on('click', '.sendButton', function (e) {
 	var ans = [];
 	for (i = 0; i < answers.length; i++) {
 		var a = answers[i].innerText;
-		console.log(a);
 		ans.push(a);
 	}
-	// console.log(answers);
-	// var q = $(this).find('.question-content')[0];
-	// var question = q.textContent;
 	var ID = $(top).find('.saved-question-tr')[0].id;
-	// ans = grabAnswers(this, ID);
-	console.log(ID);
-	console.log(ans);
-	// answers.push(ans);
-	// questions.push(question);
-	// ids.push(ID);
 	sendQuestion('sendQuestion', ID, q, { content : ans });
 	$(top).remove();
 })
