@@ -289,15 +289,16 @@ $(document).on('click', '#hide-all', function (e) {
 		createTable('createTable', id);
 		addQuestionContent('questionContent', { content : questions[i] }, id);
 		var curAns = answers[i];
-		for (i = 0; i < curAns.length; i = i + 2) {
-			insertRowInTable('insertAnswersToTable', id, i);
-			if ((i + 1) > curAns.length) {
-				addAnswers('addAnswers', { content : [ curAns[i], '' ] }, 'saved-answer-tr', id, i);
+		for (j = 0; j < curAns.length; j = j + 2) {
+			insertRowInTable('insertAnswersToTable', id, j);
+			if ((j + 1) > curAns.length) {
+				addAnswers('addAnswers', { content : [ curAns[j], '' ] }, 'saved-answer-tr', id, j);
 			}
 			else {
-				addAnswers('addAnswers', { content : [ curAns[i], curAns[i + 1] ] }, 'saved-answer-tr', id, i);
+				addAnswers('addAnswers', { content : [ curAns[j], curAns[j + 1] ] }, 'saved-answer-tr', id, j);
 			}
 		}
+		console.log('got here');
 	}
 	$('#sent-container').empty();
 });
