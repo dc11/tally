@@ -5,19 +5,32 @@ body{
 
 #title.well {
 	min-height: 30px;
-	height: 150px;
-	padding: 27px;
+	height: 140px;
+	padding-bottom: 10px;
 	padding-top: 10px;
   	padding-left: 35px;
+  	padding-right: 35px;
 	border-radius: 10px;
 	font-size: 30px;
 	font-family: arial;
 	background-color: #3385D6;
 	color: white;
 	border: 0px;
-	box-shadow: 2px 2px 2px #888888;
+	margin-bottom: 0px;
+	/*box-shadow: 2px 2px 2px #888888;*/
 	overflow-y: hidden;
 }
+
+.scrollable{
+	overflow: scroll;
+    height: calc(100% - 162px);
+    border-radius: 5px;
+    /*border: solid 2px white;*/
+    padding: 10px;
+    padding-bottom: 0px;
+    background-color: #E8E8E8;
+}
+
 
 .btn{
 	color: #3385D6;
@@ -51,8 +64,19 @@ body{
 }
 
 .section{
-	padding-bottom: 50px;
+	padding-bottom: 0px;
 	height: auto;
+	background-color: #3385D6;
+	border-radius: 10px;
+	margin: 20px;
+	margin-top: 10px;
+	height: calc(100vh - 100px);
+}
+
+@media (min-width: 992px){
+.col-md-6 {
+  width: 45%;
+	}
 }
 
 .question {
@@ -183,24 +207,3 @@ body{
 	cursor: hand;
 }
 
-.glyphicon-plus {
-	color: #3385D6;
-}
-
-.glyphicon-plus:hover {
-	cursor: pointer;
-}
-
-.glyphicon-minus {
-	color: #3385D6;
-}
-
-.glyphicon-minus:hover {
-	cursor: pointer;
-}
-
-.add-remove-answer {
-	float: left;
-	margin-bottom: 15px;
-	margin-left: 30px;
-}
