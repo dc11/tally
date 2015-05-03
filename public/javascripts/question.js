@@ -188,9 +188,6 @@ $(document).on('click', '#save', function (e) {
 				addAnswers('addAnswers', { content : [ contents[i], contents[i + 1] ] }, 'saved-answer-tr', id, i);
 			}
 		}
-		// if (contents.length > 3) {
-		// 	addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
-		// }
 	}
 });
 
@@ -203,15 +200,9 @@ $(document).on('click', '.edit', function (e) {
 		ans.push(answers[i].innerText);
 	}
 	var q = question.substring(1);
-	if (ans.length < 4) {
-		ans[3] = '';
+	if (ans.length % 2 == 1) {
+		ans.push('');
 	}
-	if (ans.length < 3) {
-		ans[2] = '';
-	}
-	if (ans.length < 2) {
-		ans[1] = '';
-	} 
 	editQuestion('editQuestion', q, { content : ans });
 	$('#question').focus();
 	$(parent).remove();

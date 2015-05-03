@@ -31,7 +31,7 @@ templates['addQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
   },"useData":true});
 templates['answer'] = template({"1":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "	<div class=\"col-lg-12\">\n		<div class=\"input-group mid\">\n			<span class=\"input-group-addon\">\n			<input type=\"checkbox\" class=\"check\" aria-label=\"...\">\n			</span>\n			<input type=\"text\" class=\"form-control answer-form\" aria-label=\"...\" value=\""
+  return "	<div class=\"col-lg-12\">\n		<div class=\"input-group mid\">\n			<input type=\"text\" class=\"form-control answer-form\" aria-label=\"...\" value=\""
     + escapeExpression(lambda(depth0, depth0))
     + "\">\n		</div>\n	</div>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -64,7 +64,7 @@ templates['question'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":functi
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "<div class=\"col-lg-12\" style=\"padding-top:15px\">\n	<div class=\"input-group mid well\" style=\"padding-top:10px;padding-bottom:10px;height:40px\">\n		<input id=\"question\" type=\"text\" class=\"form-control\" aria-label=\"...\" value=\""
     + escapeExpression(lambda(depth0, depth0))
-    + "\">\n	</div>\n</div>";
+    + "\">\n	</div>\n	<div class='add-remove-answer'>\n		<span class=\"glyphicon glyphicon-plus\" style=\"float:left;\"></span><span class=\"glyphicon glyphicon-minus\" style=\"float:left;margin-left:5px;\"></span>\n	</div>\n</div>";
 },"useData":true});
 templates['questionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
