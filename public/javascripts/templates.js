@@ -58,7 +58,7 @@ templates['insertAnswersToTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "<tr class='saved-answer-tr-"
     + escapeExpression(lambda(depth0, depth0))
-    + "'>\n</tr>";
+    + " saved-answer-tr'>\n</tr>";
 },"useData":true});
 templates['question'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;

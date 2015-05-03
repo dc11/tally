@@ -254,6 +254,7 @@ $(document).on('click', '#send-all', function (e) {
 	var ids = []
 	var answers = [];
 	$('.saved-question').each( function (index) {
+		console.log(this);
 		var q = $(this).find('.question-content')[0];
 		var question = q.textContent;
 		var ID = $(this).find('.saved-question-tr')[0].id;
@@ -400,18 +401,24 @@ var grabAnswers = function(elem, id) {
 	var fa = '.saved-answer-tr-1-' + id;
 	var sa = '.saved-answer-tr-2-' + id;
 	var answersCur = [];
-	var firstAnswers = $(elem).find(fa).children('.answer-content');
-	for (j = 0; j < firstAnswers.length; j++) {
-		var curAnswer = firstAnswers[j];
-		var answer = curAnswer.innerText;
-		answersCur.push(answer);
+	var parent = $(elem).parent();
+	var answers = $(elem).find('.answer-content');
+	for (i = 0; i < answers.length; i++) {
+		console.log(answers[i].innerText);
+		answersCur.push(answers[i].innerText);
 	}
-	var secondAnswers = $(elem).find(sa).children('.answer-content');
-	for (j = 0; j < secondAnswers.length; j++) {
-		var curAnswer = secondAnswers[j];
-		var answer = curAnswer.innerText;
-		answersCur.push(answer);
-	}
+	// var firstAnswers = $(elem).find(fa).children('.answer-content');
+	// for (j = 0; j < firstAnswers.length; j++) {
+	// 	var curAnswer = firstAnswers[j];
+	// 	var answer = curAnswer.innerText;
+	// 	answersCur.push(answer);
+	// }
+	// var secondAnswers = $(elem).find(sa).children('.answer-content');
+	// for (j = 0; j < secondAnswers.length; j++) {
+	// 	var curAnswer = secondAnswers[j];
+	// 	var answer = curAnswer.innerText;
+	// 	answersCur.push(answer);
+	// }
 	return answersCur;
 }
 
