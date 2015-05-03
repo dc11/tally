@@ -84,11 +84,9 @@ h2{
 }
 
 .plus{
-	font-size: 50px;
-	position: fixed;
-	right: 100px;
-	bottom: 30px;
+	font-size: 30px;
 	color: #3385D6;
+	text-align: center;
 }
 
 .className{
