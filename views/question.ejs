@@ -11,6 +11,34 @@
         <script src="javascripts/templates.js"></script>
         <script src="javascripts/question.js"></script>
         <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+          $('.row').on('click', '#delete-sent', function(evt) {
+            evt.preventDefault();
+            bootbox.confirm({
+              message: "Are you sure you want to delete all shared questions?",
+              backdrop: true,
+              callback: function(result) {
+                if (result) {  
+                  $('#sent-container').empty();  
+                }
+              }
+            });
+          });
+           $('.row').on('click', '#delete-drafts', function(evt) {
+            evt.preventDefault();
+            bootbox.confirm({
+              message: "Are you sure you want to delete all hidden questions?",
+              backdrop: true,
+              callback: function(result) {
+                if (result) {  
+                  $('#all-questions-drafts').empty(); 
+                }
+              }
+            });
+          });
+        });
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -47,7 +75,7 @@
                                 <button type='button' class='btn btn-default' id='delete-drafts'><span class="glyphicon glyphicon-trash" style="float:left;padding-right:4px; padding-top:2px"></span> Delete All</button>
                             </div>
                         </div>
-                        <div id='drafts-container'>
+                        <div id='drafts-container' class='scrollable'>
                             <div id='current-question-drafts'></div>
                             <div id='all-questions-drafts'></div>
                         </div>

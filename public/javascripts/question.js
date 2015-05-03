@@ -239,15 +239,15 @@ $(document).on('click', '#send', function (e) {
 	}
 });
 
-$(document).on('click', '#delete-sent', function (e) {
-	e.preventDefault();
-	$('#sent-container').empty();
-});
+// $(document).on('click', '#delete-sent', function (e) {
+// 	e.preventDefault();
+// 	$('#sent-container').empty();
+// });
 
-$(document).on('click', '#delete-drafts', function (e) {
-	e.preventDefault();
-	$('#all-questions-drafts').empty();
-});
+// $(document).on('click', '#delete-drafts', function (e) {
+// 	e.preventDefault();
+// 	$('#all-questions-drafts').empty();
+// });
 
 $(document).on('click', '#send-all', function (e) {
 	var questions = [];
