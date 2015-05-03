@@ -10,6 +10,7 @@
 		<link type="text/css" href="/css/navbar.css" rel="stylesheet"/>
 		<script src="/bootstrap/js/bootstrap.min.js"></script>
 		<script src="/bootstrap/js/bootbox.min.js"></script>
+		<script src="javascripts/cookie.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function() {
       $('.row').on('click', '.trash', function(evt) {
@@ -44,10 +45,15 @@
 					backdrop: true,
 					callback: function(result) {
 						if (result !== null && result.trim().length > 0) {
-	    				$('.row').prepend("<div class='col-sm-6'><a href='lectures.ejs' style='text-decoration:none'><div class='well'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p><h2 class='className'>"+result+"</h2></div></a></div>");
+	    				$('.row').prepend("<div class='col-sm-6 className'><a href='lectures.ejs' style='text-decoration:none'><div class='well'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p><h2 class='className'>"+result+"</h2></div></a></div>");
 	    			}
 	    		}
 				});
+	    });
+
+	    $(".well").click(function(evt) {
+	    		var class = $(evt.target).children().context.innerText;
+				setCookie("class", class)
 	    });
     });
 		</script>
@@ -79,7 +85,7 @@
 
 		<div class='row' style="padding-top:45px">
 			<div class="col-sm-6">
-				<a href="lectures.ejs" style="text-decoration:none">
+				<a class='class' href="lectures.ejs" style="text-decoration:none">
 					<div class="well">
 						<p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
 						<p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
@@ -88,7 +94,7 @@
 			  </a>
 			</div>
 			<div class="col-sm-6">
-				<a href="lectures.ejs" style="text-decoration:none">
+				<a class='class' href="lectures.ejs" style="text-decoration:none">
 					<div class="well">
 						<p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
 						<p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
@@ -97,7 +103,7 @@
 				</a>
 			</div>
 			<div class="col-sm-6">
-				<a href="lectures.ejs" style="text-decoration:none">
+				<a class='class' href="lectures.ejs" style="text-decoration:none">
 					<div class="well">
 						<p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
 						<p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
