@@ -1,7 +1,7 @@
 # tally
 813 Project
 <<<<<<< HEAD
-handlebars templates/ > javascripts/templates.js
+handlebars templates/ > public/javascripts/templates.js
 =======
 
 createTable:

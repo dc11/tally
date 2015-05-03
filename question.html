@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tally</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="css/question.css">
+        <script type="text/javascript" src="jquery/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="javascripts/handlebars.runtime.js"></script>
+        <script src="javascripts/templates.js"></script>
+        <script src="javascripts/question.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <a class="navbar-brand page-scroll" href="#page-top">Tally</a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <ol class="breadcrumb">
+                            <li></li>
+                            <li><a href="classes.html">Classes</a></li>
+                            <li><a href="lectures.html">Lectures</a></li>
+                            <li class="active">Questions</li>
+                        </ol>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="overlay">
+            <div class="container" id="main-container" style="padding-top:75px">
+                <div class="row">
+                    <div id='drafts' class='col-md-6 section' style="text-align:center;">
+                        <div id="title" class="well">
+                            <h1 class='section-header' style="color:white">Hidden</h1>
+                            <div id='draft-buttons'>
+                                <button type='button' class='btn btn-default' id='add'><span class="glyphicon glyphicon-plus"></span> Add</button>
+                                <button type='button' class='btn btn-default' id='send-all'><span class="glyphicon glyphicon-send" style="padding-right:2px"></span>  Share All</button>
+                                <button type='button' class='btn btn-default' id='delete-drafts'><span class="glyphicon glyphicon-trash" style="float:left;padding-right:4px; padding-top:2px"></span> Delete All</button>
+                            </div>
+                        </div>
+                        <div id='drafts-container'>
+                            <div id='current-question-drafts'></div>
+                            <div id='all-questions-drafts'></div>
+                        </div>
+                    </div>
+                    <div id='sent' class='col-md-6 section' style="text-align:center">
+                        <div id="title" class="well">
+                            <h1 class='section-header' style="color:white">Shared</h1>
+                            <div id='sent-buttons'>
+                                <button type='button' class='btn btn-default' id='hide-all'><span class="glyphicon glyphicon-eye-close" style="padding-right:2px;"></span> Hide All</button>
+                                <button type='button' class='btn btn-default' id='delete-sent'><span class="glyphicon glyphicon-trash" style="float:left;padding-right:4px; padding-top:2px"></span> Delete All</button>
+                            </div>
+                        </div>
+                        <div id='sent-container'>
+                            <!-- <div id="container2" style="height: 300px"></div> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
