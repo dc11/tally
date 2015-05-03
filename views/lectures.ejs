@@ -10,8 +10,14 @@
     <link type="text/css" href="/css/navbar.css" rel="stylesheet"/>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/bootstrap/js/bootbox.min.js"></script>
+    <script src="javascripts/cookie.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
+      $.removeCookie("lecture");
+      $('#currentClass').text($.cookie("class"));
+      console.log($.cookie("class"))
+      
+
       $('.row').on('click', '.trash', function(evt) {
         evt.preventDefault();
         bootbox.confirm({
@@ -49,6 +55,12 @@
           }
         });
       });
+
+       $(".well").click(function(evt) {
+          var currentLecture = $(evt.target).children().context.innerText;
+        $.cookie("lecture", currentLecture);
+      });
+
     });
     </script>
   </head>
@@ -63,8 +75,8 @@
           <ul class="nav navbar-nav">
             <ol class="breadcrumb">
               <li></li>
-              <li><a href="classes.ejs">Classes</a></li>
-              <li class="active">Lectures</li>
+              <li><a id='Classes' href="classes.ejs">Classes</a></li>
+              <li id='currentClass' class="active">Lectures</li>
             </ol>
           </ul>
           <ul class="nav navbar-nav navbar-right">

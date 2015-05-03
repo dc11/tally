@@ -13,49 +13,54 @@
 		<script src="javascripts/cookie.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function() {
-      $('.row').on('click', '.trash', function(evt) {
-        evt.preventDefault();
-				bootbox.confirm({
-					message: "Are you sure you want to delete this class and all associated contents?",
-					backdrop: true,
-					callback: function(result) {
-						if (result) {  
-							$(evt.target).parent().parent().parent().parent().remove();  
+			$.removeCookie("class");
+			$.removeCookie("lecture");
+
+
+	      $('.row').on('click', '.trash', function(evt) {
+	        evt.preventDefault();
+					bootbox.confirm({
+						message: "Are you sure you want to delete this class and all associated contents?",
+						backdrop: true,
+						callback: function(result) {
+							if (result) {  
+								$(evt.target).parent().parent().parent().parent().remove();  
+							}
 						}
-					}
-				});
-	    });
-      $('.row').on('click', '.edit', function(evt) {
-        evt.preventDefault();
-				bootbox.prompt({
-					title: "What would you like to call the class?",
-					backdrop: true,
-					callback: function(result) {
-						if (result !== null && result.trim().length > 0) {
-							console.log(result.length)
-							$(evt.target).parent().parent().children()[2].innerText = result;
-	    			}
-					}	
-				});
-	    });
+					});
+		    });
+	      $('.row').on('click', '.edit', function(evt) {
+	        evt.preventDefault();
+					bootbox.prompt({
+						title: "What would you like to call the class?",
+						backdrop: true,
+						callback: function(result) {
+							if (result !== null && result.trim().length > 0) {
+								console.log(result.length)
+								$(evt.target).parent().parent().children()[2].innerText = result;
+		    			}
+						}	
+					});
+		    });
 
-	    $("#add").click(function(evt) {
-				bootbox.prompt({
-					title: "What is the name of the new class?",
-					backdrop: true,
-					callback: function(result) {
-						if (result !== null && result.trim().length > 0) {
-	    				$('.row').prepend("<div class='col-sm-6 className'><a href='lectures.ejs' style='text-decoration:none'><div class='well'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p><h2 class='className'>"+result+"</h2></div></a></div>");
-	    			}
-	    		}
-				});
-	    });
+		    $("#add").click(function(evt) {
+					bootbox.prompt({
+						title: "What is the name of the new class?",
+						backdrop: true,
+						callback: function(result) {
+							if (result !== null && result.trim().length > 0) {
+		    				$('.row').prepend("<div class='col-sm-6 className'><a href='lectures.ejs' style='text-decoration:none'><div class='well'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p><h2 class='className'>"+result+"</h2></div></a></div>");
+		    			}
+		    		}
+					});
+		    });
 
-	    $(".well").click(function(evt) {
-	    		var class = $(evt.target).children().context.innerText;
-				setCookie("class", class)
+		    $(".well").click(function(evt) {
+		    		var currentClass = $(evt.target).children().context.innerText;
+					$.cookie("class", currentClass);
+		    });
+
 	    });
-    });
 		</script>
 	</head>
 	<body>
