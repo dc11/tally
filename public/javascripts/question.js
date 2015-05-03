@@ -1,3 +1,6 @@
+var editAnswers;
+var editQ;
+var editSelected = false;
 
 var loadQuestion = function(template, data) {
 	data = data || {};
@@ -164,13 +167,14 @@ $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
+	console.log(contents.length);
 	var q = $('.addQuestion').find('#question')[0].value;
 	if (q == '') {
 		$('.alert').remove();
 		questionError('questionError');
 		$('#question').focus();
 	}
-	else if (contents.length < 2) {
+	else if (contents.length <= 2) {
 		$('.alert').remove();
 		questionError('answerError');
 		$('#question').focus();
@@ -188,30 +192,26 @@ $(document).on('click', '#save', function (e) {
 				addAnswers('addAnswers', { content : [ contents[i], contents[i + 1] ] }, 'saved-answer-tr', id, i);
 			}
 		}
-		// if (contents.length > 3) {
-		// 	addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
-		// }
 	}
 });
 
 $(document).on('click', '.edit', function (e) {
+	editSelected = true;
 	var parent = $(this).parent();
 	var question = $(parent).find('.question-content')[0].textContent;
 	var answers = $(parent).find('.answer-content');
+	editQ = question;
 	var ans = [];
 	for (i = 0; i < answers.length; i++) {
 		ans.push(answers[i].innerText);
 	}
+	editAnswers = ans;
 	var q = question.substring(1);
-	if (ans.length < 4) {
-		ans[3] = '';
+	if (ans.length % 2 == 1) {
+		ans.push('');
 	}
-	if (ans.length < 3) {
-		ans[2] = '';
-	}
-	if (ans.length < 2) {
-		ans[1] = '';
-	} 
+	console.log(q);
+	console.log(ans);
 	editQuestion('editQuestion', q, { content : ans });
 	$('#question').focus();
 	$(parent).remove();
@@ -219,6 +219,8 @@ $(document).on('click', '.edit', function (e) {
 
 $(document).on('click', '#send', function (e) {
 	e.preventDefault();
+	editSelected = false;
+	editSelected = false;
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
 	var q = $('.addQuestion').find('#question')[0].value;
@@ -227,7 +229,7 @@ $(document).on('click', '#send', function (e) {
 		questionError('questionError');
 		$('#question').focus();
 	}
-	else if (contents.length < 2) {
+	else if (contents.length <= 2) {
 		$('.alert').remove();
 		questionError('answerError');
 		$('#question').focus();
@@ -250,6 +252,7 @@ $(document).on('click', '#send', function (e) {
 // });
 
 $(document).on('click', '#send-all', function (e) {
+	editSelected = false;
 	var questions = [];
 	var ids = []
 	var answers = [];
@@ -344,8 +347,25 @@ $(document).on('click', '.trash', function (e) {
 });
 
 $(document).on('click', '#cancel', function (e) {
-	var parent = $(this).parent().parent();
-	$(parent).remove();
+	if (editSelected) {
+		var id = Math.floor(Math.random() * 100000000000);
+		createTable('createTable', id);
+		addQuestionContent('questionContent', { content : editQ }, id);
+		console.log(editAnswers);
+		for (i = 0; i < editAnswers.length; i = i + 2) {
+			insertRowInTable('insertAnswersToTable', id, i);
+			if ((i + 1) > editAnswers.length) {
+				addAnswers('addAnswers', { content : [ editAnswers[i], '' ] }, 'saved-answer-tr', id, i);
+			}
+			else {
+				addAnswers('addAnswers', { content : [ editAnswers[i], editAnswers[i + 1] ] }, 'saved-answer-tr', id, i);
+			}
+		}
+	}
+	else {
+		var parent = $(this).parent().parent();
+		$(parent).remove();
+	}
 });
 
 $(document).on('click', '.sendButton', function (e) {
@@ -368,6 +388,7 @@ $(document).on('click', '.glyphicon-plus', function (e) {
 
 $(document).on('click', '.glyphicon-minus', function (e) {
 	$('.answer-textbox').last().remove();
+	console.log($('.answer-textbox'));
 });
 
 Handlebars.registerHelper("countEven", function(index_count, block) {
@@ -398,14 +419,9 @@ var grabContents = function(elements) {
 }
 
 var grabAnswers = function(elem, id) {
-	$('.saved-answer-' + id)
-	var fa = '.saved-answer-tr-1-' + id;
-	var sa = '.saved-answer-tr-2-' + id;
 	var answersCur = [];
-	var parent = $(elem).parent();
 	var answers = $(elem).find('.answer-content');
 	for (i = 0; i < answers.length; i++) {
-		console.log(answers[i].innerText);
 		answersCur.push(answers[i].innerText);
 	}
 	// var firstAnswers = $(elem).find(fa).children('.answer-content');
