@@ -38,6 +38,7 @@ var addAnswer = function(template, data) {
 
 var questionError = function(template, data) {
 	data = data || {};
+	$('.save-send').css('height', '108px');
 	$('.save-send').prepend(Handlebars.templates[template](data));
 }
 
@@ -157,6 +158,7 @@ $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
+	console.log(contents.length);
 	var q = $('.addQuestion').find('#question')[0].value;
 	if (q == '') {
 		$('.alert').remove();
@@ -342,7 +344,6 @@ $(document).on('click', '.glyphicon-plus', function (e) {
 });
 
 $(document).on('click', '.glyphicon-minus', function (e) {
-	// console.log($('.add-question:last-child'));
 	$('.answer-textbox').last().remove();
 });
 
@@ -363,10 +364,8 @@ Handlebars.registerHelper("countOdd", function(index_count, block) {
 });
 
 var grabContents = function(elements) {
-	var question = $(elements).find('#question');
-	var answers = $(elements).find('.answer-form');
 	var question = [];
-	for (i = 0; i < 5; i++) {
+	for (i = 0; i < elements.length; i++) {
 		var element = elements[i];
 		if (element.value != '') {
 			question.push(element.value);
