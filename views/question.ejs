@@ -17,7 +17,6 @@
         $(document).ready(function() {
             $('#currentClass').text($.cookie("class"));
             $('#currentLecture').text($.cookie("lecture"));
-            console.log($.cookie("class")+', '+$.cookie("lecture"))
 
           $('.row').on('click', '#delete-sent', function(evt) {
             evt.preventDefault();
