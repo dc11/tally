@@ -31,6 +31,11 @@ var addAnswers = function(template, data, element, id) {
 	$(selector).html(Handlebars.templates[template](data));
 }
 
+var addAnswer = function(template, data) {
+	data = data || {};
+	$('.add-question').append(Handlebars.templates[template](data));
+}
+
 var questionError = function(template, data) {
 	data = data || {};
 	$('.save-send').prepend(Handlebars.templates[template](data));
@@ -330,7 +335,16 @@ $(document).on('click', '.sendButton', function (e) {
 	var ID = $(top).find('.saved-question-tr')[0].id;
 	sendQuestion('sendQuestion', ID, q, { content : ans });
 	$(top).remove();
-})
+});
+
+$(document).on('click', '.glyphicon-plus', function (e) {
+	addAnswer('addAnswer');
+});
+
+$(document).on('click', '.glyphicon-minus', function (e) {
+	// console.log($('.add-question:last-child'));
+	$('.answer-textbox').last().remove();
+});
 
 Handlebars.registerHelper("countEven", function(index_count, block) {
   if(parseInt(index_count)%2=== 0){
