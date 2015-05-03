@@ -89,6 +89,14 @@ h2{
 	text-align: center;
 }
 
+.addNew{
+	color: #3385D6;
+}
+
+.addNew:hover{
+	color: navy;
+}
+
 .className{
 	text-align: center;
 	padding-top: 7px;
