@@ -160,7 +160,7 @@ $(document).on('click', '#save', function (e) {
 	}
 	else if (contents.length < 2) {
 		$('.alert').remove();
-		questionError('questionError');
+		questionError('answerError');
 		$('#question').focus();
 	}
 	else {
@@ -209,7 +209,7 @@ $(document).on('click', '#send', function (e) {
 	}
 	else if (contents.length < 2) {
 		$('.alert').remove();
-		questionError('questionError');
+		questionError('answerError');
 		$('#question').focus();
 	}
 	else {
