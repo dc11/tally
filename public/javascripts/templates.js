@@ -45,17 +45,21 @@ templates['answerError'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
   },"useData":true});
 templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<p class='edit'>\n		<span class=\"glyphicon glyphicon-edit sent-icon\" ></span>\n	</p>\n	<p class='trash'>\n		<span class=\"glyphicon glyphicon-trash sent-icon\" ></span>\n	</p>\n	<table class='table table-condensed' style=\"table-layout:fixed\">\n		<tr class='saved-question-tr' id='"
+  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<p class='edit'>\n		<span class=\"glyphicon glyphicon-edit sent-icon\" ></span>\n	</p>\n	<p class='trash'>\n		<span class=\"glyphicon glyphicon-trash sent-icon\" ></span>\n	</p>\n	<table class='table table-condensed "
     + escapeExpression(lambda(depth0, depth0))
-    + "'>\n		</tr>\n		<tr class='saved-answer-tr-1-"
+    + "' style=\"table-layout:fixed\">\n		<tr class='saved-question-tr' id='"
     + escapeExpression(lambda(depth0, depth0))
-    + "'>\n		</tr>\n		<tr class='saved-answer-tr-2-"
-    + escapeExpression(lambda(depth0, depth0))
-    + "'>\n		</tr>\n		<tr class='answer-single-send' style=\"padding-top:20px\">\n			<td class='answer-td-save' colspan=\"2\">\n				<div class=\"sendButton\">\n					<button class='btn btn-default'><span class=\"glyphicon glyphicon-send\" style=\"margin-top:3px;padding-right:2px;\"></span> Share</button>\n				</div>\n			</td>\n		</tr>\n	</table>\n\n\n</div>\n\n";
+    + "'>\n		</tr>\n		\n	</table>\n	<div class='answer-single-send' style=\"padding-top:20px\">\n		<div class='answer-td-save' colspan=\"2\">\n			<div class=\"sendButton\">\n				<button class='btn btn-default'><span class=\"glyphicon glyphicon-send\" style=\"margin-top:3px;padding-right:2px;\"></span> Share</button>\n			</div>\n		</div>\n	</div>\n\n\n</div>\n\n";
 },"useData":true});
 templates['editQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  \n	</div>\n	<div class='save-send'>\n	    <br>\n		<button class='btn btn-default' id='save' style=\"margin-right:15%\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n		<button class='btn btn-default' id='send'><span class=\"glyphicon glyphicon-send\" style=\"padding-right:2px;\"></span> Share</button>\n	</div>\n</div>";
   },"useData":true});
+templates['insertAnswersToTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "<tr class='saved-answer-tr-"
+    + escapeExpression(lambda(depth0, depth0))
+    + "'>\n</tr>";
+},"useData":true});
 templates['question'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "<div class=\"col-lg-12\" style=\"padding-top:15px\">\n	<div class=\"input-group mid well\" style=\"padding-top:10px;padding-bottom:10px;height:40px\">\n		<input id=\"question\" type=\"text\" class=\"form-control\" aria-label=\"...\" value=\""

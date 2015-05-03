@@ -19,16 +19,22 @@ var createTable = function(template, data) {
 	$('#current-question-drafts').empty();
 }
 
+var insertRowInTable = function(template, id, counter) {
+	var data = '' + counter + '-' + id;
+	$('.' + id).append(Handlebars.templates[template](data));
+}
+
 var addQuestionContent = function(template, data, id) {
 	data = data || {};
 	var selector = "#" + id + "";
 	$(selector).html(Handlebars.templates[template](data));
 }
 
-var addAnswers = function(template, data, element, id) {
+var addAnswers = function(template, data, element, id, index) {
 	data = data || {};
-	var selector = "." + element + "-" + id;
-	$(selector).html(Handlebars.templates[template](data));
+	// var selector = "." + element + "-" + id;
+	var selector = ".saved-answer-tr-" + index + "-" + id;
+	$(selector).append(Handlebars.templates[template](data));
 }
 
 var addAnswer = function(template, data) {
@@ -158,7 +164,6 @@ $(document).on('click', '#save', function (e) {
 	e.preventDefault();
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
-	console.log(contents.length);
 	var q = $('.addQuestion').find('#question')[0].value;
 	if (q == '') {
 		$('.alert').remove();
@@ -174,10 +179,18 @@ $(document).on('click', '#save', function (e) {
 		var id = Math.floor(Math.random() * 100000000000);
 		createTable('createTable', id);
 		addQuestionContent('questionContent', { content : contents[0] }, id);
-		addAnswers('addAnswers', { content : [ contents[1], contents[2] ] }, 'saved-answer-tr-1', id);
-		if (contents.length > 3) {
-			addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
+		for (i = 1; i < contents.length; i = i + 2) {
+			insertRowInTable('insertAnswersToTable', id, i);
+			if ((i + 1) > contents.length) {
+				addAnswers('addAnswers', { content : [ contents[i], '' ] }, 'saved-answer-tr', id, i);
+			}
+			else {
+				addAnswers('addAnswers', { content : [ contents[i], contents[i + 1] ] }, 'saved-answer-tr', id, i);
+			}
 		}
+		// if (contents.length > 3) {
+		// 	addAnswers('addAnswers', { content : [ contents[3], contents[4] ] }, 'saved-answer-tr-2', id);
+		// }
 	}
 });
 
@@ -268,22 +281,21 @@ $(document).on('click', '#hide-all', function (e) {
 		}
 		answers.push(curAnswers);
 	});
+	console.log(questions.length);
 	for (i = 0; i < questions.length; i++) {
+		console.log(questions[i]);
 		var id = Math.floor(Math.random() * 100000000000);
 		createTable('createTable', id);
 		addQuestionContent('questionContent', { content : questions[i] }, id);
 		var curAns = answers[i];
-		if (curAns.length > 1) {
-			addAnswers('addAnswers', { content : [ curAns[0] , curAns[1] ], index : [1, 2] }, 'saved-answer-tr-1', id);
-		}
-		else {
-			addAnswers('addAnswers', { content : [ curAns[0] , '' ], index : [1, 2] }, 'saved-answer-tr-1', id);
-		}
-		if (curAns.length > 3) {
-			addAnswers('addAnswers', { content : [ curAns[2] , curAns[3] ], index : [1, 2] }, 'saved-answer-tr-2', id);
-		}
-		else if (answers.length == 4) {
-			addAnswers('addAnswers', { content : [ curAns[2] , '' ], index : [1, 2] }, 'saved-answer-tr-2', id);
+		for (i = 0; i < curAns.length; i = i + 2) {
+			insertRowInTable('insertAnswersToTable', id, i);
+			if ((i + 1) > curAns.length) {
+				addAnswers('addAnswers', { content : [ curAns[i], '' ] }, 'saved-answer-tr', id, i);
+			}
+			else {
+				addAnswers('addAnswers', { content : [ curAns[i], curAns[i + 1] ] }, 'saved-answer-tr', id, i);
+			}
 		}
 	}
 	$('#sent-container').empty();
@@ -300,18 +312,27 @@ $(document).on('click', '.hide-eye', function (e) {
 	var id = Math.floor(Math.random() * 100000000000);
 	createTable('createTable', id);
 	addQuestionContent('questionContent', { content : q }, id);
-	if (answers.length > 1) {
-		addAnswers('addAnswers', { content : [ answers[0] , answers[1] ] }, 'saved-answer-tr-1', id);
+	for (i = 0; i < answers.length; i = i + 2) {
+		insertRowInTable('insertAnswersToTable', id, i);
+		if ((i + 1) > answers.length) {
+			addAnswers('addAnswers', { content : [ answers[i], '' ] }, 'saved-answer-tr', id, i);
+		}
+		else {
+			addAnswers('addAnswers', { content : [ answers[i], answers[i + 1] ] }, 'saved-answer-tr', id, i);
+		}
 	}
-	else {
-		addAnswers('addAnswers', { content : [ answers[0] , ' ' ] }, 'saved-answer-tr-1', id);
-	}
-	if (answers.length > 3) {
-		addAnswers('addAnswers', { content : [ answers[2] , answers[3] ] }, 'saved-answer-tr-2', id);
-	}
-	else if (answers.length == 4) {
-		addAnswers('addAnswers', { content : [ answers[2] , ' ' ] }, 'saved-answer-tr-2', id);
-	}
+	// if (answers.length > 1) {
+	// 	addAnswers('addAnswers', { content : [ answers[0] , answers[1] ] }, 'saved-answer-tr-1', id);
+	// }
+	// else {
+	// 	addAnswers('addAnswers', { content : [ answers[0] , ' ' ] }, 'saved-answer-tr-1', id);
+	// }
+	// if (answers.length > 3) {
+	// 	addAnswers('addAnswers', { content : [ answers[2] , answers[3] ] }, 'saved-answer-tr-2', id);
+	// }
+	// else if (answers.length == 4) {
+	// 	addAnswers('addAnswers', { content : [ answers[2] , ' ' ] }, 'saved-answer-tr-2', id);
+	// }
 	$(parent).remove();
 });
 
@@ -375,6 +396,7 @@ var grabContents = function(elements) {
 }
 
 var grabAnswers = function(elem, id) {
+	$('.saved-answer-' + id)
 	var fa = '.saved-answer-tr-1-' + id;
 	var sa = '.saved-answer-tr-2-' + id;
 	var answersCur = [];
