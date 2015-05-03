@@ -12,8 +12,13 @@
         <script src="javascripts/question.js"></script>
         <script src="http://code.highcharts.com/highcharts.js"></script>
         <script src="/bootstrap/js/bootbox.min.js"></script>
+        <script src="javascripts/cookie.js"></script>
         <script type="text/javascript">
         $(document).ready(function() {
+            $('#currentClass').text($.cookie("class"));
+            $('#currentLecture').text($.cookie("lecture"));
+            console.log($.cookie("class")+', '+$.cookie("lecture"))
+
           $('.row').on('click', '#delete-sent', function(evt) {
             evt.preventDefault();
             bootbox.confirm({
@@ -53,8 +58,8 @@
                         <ol class="breadcrumb">
                             <li></li>
                             <li><a href="classes.ejs">Classes</a></li>
-                            <li><a href="lectures.ejs">Lectures</a></li>
-                            <li class="active">Questions</li>
+                            <li><a id="currentClass" href="lectures.ejs">Lectures</a></li>
+                            <li id="currentLecture" class="active">Questions</li>
                         </ol>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
