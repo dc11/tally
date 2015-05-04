@@ -99,6 +99,12 @@ $(document).on('click', '#view', function (e) {
 	});
 
 	var arr = finAns[0];
+
+	for (var j = 0; j < arr.length; j++) {
+		if (arr[j].length > 22) {
+			arr[j] = arr[j].slice(0,22) + "...";
+		}
+	}
 	var hold = [7, 8, 4, 5, 2, 3, 5, 7, 1, 3, 4, 5, 2, 5, 1, 4, 7, 8, 3, 4, 5, 7, 8, 2, 1, 3].slice(0,arr.length);
 	
 	$(function () {
@@ -130,11 +136,9 @@ $(document).on('click', '#view', function (e) {
 	    });
 	});
 
-	console.log(this)
 	var y = parent.offset().top;
 	var x = $("#sent-container").offset().top;
 	var offset = $("#sent-container").scrollTop();
-	console.log(y, x, offset, y-x+offset)
 	$("#sent-container").scrollTop(y-x+offset);
 });
 
