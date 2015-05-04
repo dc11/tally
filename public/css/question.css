@@ -184,7 +184,7 @@ body{
 	position: relative;
 	float: left;
 	color: #3385D6;
-	padding-left: 5px;
+	/*padding-left: 5px;*/
 }
 
 .edit:hover {
@@ -207,20 +207,22 @@ body{
 	cursor: hand;
 }
 
-.glyphicon-plus {
+.plus {
 	color: #3385D6;
 }
 
-.glyphicon-plus:hover {
+.plus:hover {
 	cursor: pointer;
+	color: navy;
 }
 
-.glyphicon-minus {
+.minus {
 	color: #3385D6;
 }
 
-.glyphicon-minus:hover {
+.minus:hover {
 	cursor: pointer;
+	color: navy;
 }
 
 .add-remove-answer {
