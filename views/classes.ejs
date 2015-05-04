@@ -60,10 +60,13 @@
 					});
 		    });
 
-		    $(".well").click(function(evt) {
-		    	var currentClass = $(evt.target).children().context.innerText;
-					$.cookie("class", currentClass);
+		    $(".row").on('click', '.well', function(evt) {
+          var content = $(this).find('.className')[0];
+          if (typeof content !== 'undefined') {
+            $.cookie("class", content.textContent);
+          }
 		    });
+
 	    });
 		</script>
 	</head>
