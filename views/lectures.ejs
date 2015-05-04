@@ -8,8 +8,11 @@
     <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
     <link rel="stylesheet" type="text/css" href="/css/mainLayout.css" />
     <link type="text/css" href="/css/navbar.css" rel="stylesheet"/>
+    <script src="javascripts/handlebars.runtime.js"></script>
+    <script src="javascripts/templates.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/bootstrap/js/bootbox.min.js"></script>
+    <script src="javascripts/classLec.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
       $('.row').on('click', '.trash', function(evt) {
@@ -24,19 +27,19 @@
           }
         });
       });
-      $('.row').on('click', '.edit', function(evt) {
-        evt.preventDefault();
-        bootbox.prompt({
-          title: "What would you like to call the lecture?",
-          backdrop: true,
-          callback: function(result) {
-            if (result !== null && result.trim().length > 0) {
-              console.log(result.length)
-              $(evt.target).parent().parent().children()[2].innerText = result;
-            }
-          } 
-        });
-      });
+      // $('.row').on('click', '.edit', function(evt) {
+      //   evt.preventDefault();
+      //   bootbox.prompt({
+      //     title: "What would you like to call the lecture?",
+      //     backdrop: true,
+      //     callback: function(result) {
+      //       if (result !== null && result.trim().length > 0) {
+      //         console.log(result.length)
+      //         $(evt.target).parent().parent().children()[2].innerText = result;
+      //       }
+      //     } 
+      //   });
+      // });
 
       $("#add").click(function(evt) {
         bootbox.prompt({
@@ -44,7 +47,7 @@
           backdrop: true,
           callback: function(result) {
             if (result !== null && result.trim().length > 0) {
-              $('.row').prepend("<div class='col-sm-6'><a href='question.ejs' style='text-decoration:none'><div class='well'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='edit'><span class='glyphicon glyphicon-edit'></span></p><h2 class='className'>"+result+"</h2></div></a></div>");
+              $('.row').prepend("<div class='col-sm-6'><a href='question.ejs' style='text-decoration:none'><div class='well nonEdit'><p class='trash'><span class='glyphicon glyphicon-trash'></span></p><p class='editLec'><span class='glyphicon glyphicon-edit'></span></p><h2 class='className'>"+result+"</h2></div></a></div>");
             }
           }
         });
@@ -77,13 +80,13 @@
     <div style="padding-top:75px; text-align:center">
       <button type='button' class='btn btn-default btn-lg addNew' id='add'><span class="glyphicon glyphicon-plus"></span> Add Lecture</button>
     </div>
-    
+
     <div class='row' style="padding-top:45px">
       <div class="col-sm-6">
         <a href="question.ejs" style="text-decoration:none">
-          <div class="well">
+          <div class="well nonEdit">
             <p class="trash"><span class="glyphicon glyphicon-trash"></span></p>
-            <p class="edit"><span class="glyphicon glyphicon-edit"></span></p>
+            <p class="editLec"><span class="glyphicon glyphicon-edit"></span></p>
             <h2 class="className">Lecture 1</h2>
           </div>
         </a>

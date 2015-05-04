@@ -1,4 +1,3 @@
-
 var loadQuestion = function(template, data) {
 	data = data || {};
 	$('#current-question-drafts').html(Handlebars.templates[template](data));
