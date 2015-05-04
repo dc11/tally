@@ -50,7 +50,7 @@ h2{
 	overflow-y: hidden;
 }
 
-.well:hover {
+.nonEdit:hover {
 	box-shadow: 5px 5px 5px #3385D6;
 	cursor: pointer;
 	cursor: hand;
@@ -78,6 +78,20 @@ h2{
 }
 
 .edit:hover{
+	color: navy;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.editLec{
+	font-size: 20px;
+	position: relative;
+	float: left;
+	margin-right: 8px;
+	color: #3385D6;
+}
+
+.editLec:hover{
 	color: navy;
 	cursor: pointer;
 	cursor: hand;

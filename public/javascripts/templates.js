@@ -43,6 +43,20 @@ templates['answer'] = template({"1":function(depth0,helpers,partials,data) {
 templates['answerError'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   return "<div class='alert alert-danger' role='alert' style='display:inline-block;margin-bottom:10px;margin-top:15px;'>\n	<span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n	<span class=\"sr-only\">Error:</span>\n	Please enter more than one answer.\n</div>";
   },"useData":true});
+templates['classCard'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "<a href=\"lectures.ejs\" style=\"text-decoration:none\">\n	<div class=\"well nonEdit\">\n		<p class=\"trash\"><span class=\"glyphicon glyphicon-trash\"></span></p>\n		<p class=\"edit\"><span class=\"glyphicon glyphicon-edit\"></span></p>\n		<h2 class=\"className\">"
+    + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
+    + "</h2>\n	</div>\n</a>";
+},"useData":true});
+templates['classEdit'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "<div class=\"well\">\n	<input type=\"hidden\" class=\"hiddenName\" value=\""
+    + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
+    + "\">\n	<input type=\"text\" class=\"form-control answer-form focusQuestion\" onfocus=\"this.value = this.value;\" value=\""
+    + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
+    + "\"\" aria-label=\"...\">\n	<button type='button' class='btn btn-default addNew save' style=\"margin-top:10px\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n    <button type='button' class='btn btn-default addNew cancel' style=\"float:right; margin-top:10px\"><span class=\"glyphicon glyphicon-remove\" style=\"float:left;padding-right:4px; padding-top:2px\"></span> Cancel</button>\n</div>";
+},"useData":true});
 templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<p class='edit'>\n		<span class=\"glyphicon glyphicon-edit sent-icon\" ></span>\n	</p>\n	<p class='trash'>\n		<span class=\"glyphicon glyphicon-trash sent-icon\" ></span>\n	</p>\n	<table class='table table-condensed "
@@ -59,6 +73,20 @@ templates['insertAnswersToTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"
   return "<tr class='saved-answer-tr-"
     + escapeExpression(lambda(depth0, depth0))
     + " saved-answer-tr'>\n</tr>";
+},"useData":true});
+templates['lecEdit'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "<div class=\"well\">\n	<input type=\"hidden\" class=\"hiddenName\" value=\""
+    + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
+    + "\">\n	<input type=\"text\" class=\"form-control answer-form focusQuestion\" onfocus=\"this.value = this.value;\" value=\""
+    + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
+    + "\"\" aria-label=\"...\">\n	<button type='button' class='btn btn-default addNew saveLec' style=\"margin-top:10px\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n    <button type='button' class='btn btn-default addNew cancelLec' style=\"float:right; margin-top:10px\"><span class=\"glyphicon glyphicon-remove\" style=\"float:left;padding-right:4px; padding-top:2px\"></span> Cancel</button>\n</div>";
+},"useData":true});
+templates['lectureCard'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "<a href=\"question.ejs\" style=\"text-decoration:none\">\n	<div class=\"well nonEdit\">\n		<p class=\"trash\"><span class=\"glyphicon glyphicon-trash\"></span></p>\n		<p class=\"editLec\"><span class=\"glyphicon glyphicon-edit\"></span></p>\n		<h2 class=\"className\">"
+    + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
+    + "</h2>\n	</div>\n</a>";
 },"useData":true});
 templates['question'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
