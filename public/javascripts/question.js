@@ -67,6 +67,7 @@ var editQuestion = function(template, question, answers) {
 
 $(document).on('click', '#add', function (e) {
 	e.preventDefault();
+	$('#add').prop('disabled', true);
 	editSelected = false;
 	var newQuestion = '';
 	loadQuestion('addQuestion');
@@ -384,6 +385,7 @@ $(document).on('click', '#cancel', function (e) {
 		var parent = $(this).parent().parent();
 		$(parent).remove();
 	}
+	$('#current-question-drafts').empty();
 });
 
 $(document).on('click', '.sendButton', function (e) {
