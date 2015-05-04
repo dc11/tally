@@ -39,11 +39,11 @@ templates['answerError'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":fun
 templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<p class='edit'>\n		<span class=\"glyphicon glyphicon-edit sent-icon\" ></span>\n	</p>\n	<p class='trash'>\n		<span class=\"glyphicon glyphicon-trash sent-icon\" ></span>\n	</p>\n	<table class='table table-condensed "
+  return "<div class='addQuestion quest saved-question' style='background-color:white;padding-bottom:0px;'>\n	<p class='sendButton'>\n		<span class=\"glyphicon glyphicon-send sent-icon\" ></span>\n	</p>\n	<p class='edit'>\n		<span class=\"glyphicon glyphicon-edit sent-icon\" ></span>\n	</p>\n	<p class='trash'>\n		<span class=\"glyphicon glyphicon-trash sent-icon\" ></span>\n	</p>\n	<table class='table table-condensed "
     + alias2(alias1(depth0, depth0))
     + "' style=\"table-layout:fixed\">\n		<tr class='saved-question-tr' id='"
     + alias2(alias1(depth0, depth0))
-    + "'>\n		</tr>\n		\n	</table>\n	<div class='answer-single-send' style=\"padding-top:20px\">\n		<div class='answer-td-save' colspan=\"2\">\n			<div class=\"sendButton\">\n				<button class='btn btn-default'><span class=\"glyphicon glyphicon-send\" style=\"margin-top:3px;padding-right:2px;\"></span> Share</button>\n			</div>\n		</div>\n	</div>\n\n\n</div>\n\n";
+    + "'>\n		</tr>\n		\n	</table>\n\n</div>\n\n";
 },"useData":true});
 templates['editQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  \n	</div>\n	<div class='save-send' style=\"height:55px;\">\n	    <br>\n		<button class='btn btn-default' id='save' style=\"margin-left:12px;float:left;vertical-align:top;\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n		<button class='btn btn-default' id='send' style=\"margin-left:5px;float:left;vertical-align:top;\"><span class=\"glyphicon glyphicon-send\" style=\"padding-right:2px;\"></span> Share</button><button class='btn btn-default' id='cancel' style=\"margin-right:12px;float:right;vertical-align:top;\"><span class=\"glyphicon glyphicon-remove\" style=\"padding-right:2px;\"></span> Cancel</button>\n	</div>\n</div>";
