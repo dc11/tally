@@ -22,7 +22,7 @@ templates['addAnswers'] = template({"1":function(depth0,helpers,partials,data) {
   return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.content : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
 templates['addQuestion'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  <div class=\"col-lg-12\" style=\"padding-top:15px\">\n	    <div class=\"input-group mid well\" style=\"padding-top:10px;padding-bottom:10px;height:40px\">\n	      <input id=\"question\" type=\"text\" placeholder=\"Enter Question...\" class=\"form-control\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class='add-remove-answer'>\n		<span class=\"glyphicon glyphicon-plus\" style=\"float:left;\"></span><span class=\"glyphicon glyphicon-minus\" style=\"float:left;margin-left:5px;\"></span>\n	  </div>\n	  <div class=\"col-lg-12 answer-textbox\">\n	    <div class=\"input-group mid\">\n	     \n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12 answer-textbox\">\n	    <div class=\"input-group mid\">\n	      \n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12 answer-textbox\">\n	    <div class=\"input-group mid\">\n	      \n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12 answer-textbox\">\n	    <div class=\"input-group mid\">\n	      \n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	</div>\n	<div class='save-send' style=\"height:55px;\">\n	    <br><button class='btn btn-default' id='save' style=\"margin-left:12px;float:left;vertical-align:top;\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n		<button class='btn btn-default' id='send' style=\"margin-left:5px;float:left;vertical-align:top;\"><span class=\"glyphicon glyphicon-send\" style=\"padding-right:2px;\"></span> Share</button><button class='btn btn-default' id='cancel' style=\"margin-right:12px;float:right;vertical-align:top;\"><span class=\"glyphicon glyphicon-remove\" style=\"padding-right:2px;\"></span> Cancel</button>\n	</div>\n</div>";
+    return "<div class='addQuestion quest' style=\"background-color:white\">\n	<div class=\"row add-question\">\n	  <div class=\"col-lg-12\" style=\"padding-top:15px\">\n	    <div class=\"input-group mid well\" style=\"padding-top:10px;padding-bottom:10px;height:40px\">\n	      <input id=\"question\" type=\"text\" placeholder=\"Enter Question...\" class=\"form-control\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class='add-remove-answer'>\n		<span class=\"glyphicon glyphicon-plus plus\" style=\"float:left;\"></span><span class=\"glyphicon glyphicon-minus minus\" style=\"float:left;margin-left:5px;\"></span>\n	  </div>\n	  <div class=\"col-lg-12 answer-textbox\">\n	    <div class=\"input-group mid\">\n	     \n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12 answer-textbox\">\n	    <div class=\"input-group mid\">\n	      \n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12 answer-textbox\">\n	    <div class=\"input-group mid\">\n	      \n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	  <div class=\"col-lg-12 answer-textbox\">\n	    <div class=\"input-group mid\">\n	      \n	      <input type=\"text\" class=\"form-control answer-form\" placeholder=\"Answer...\" aria-label=\"...\">\n	    </div>\n	  </div>\n	</div>\n	<div class='save-send' style=\"height:55px;\">\n	    <br><button class='btn btn-default' id='save' style=\"margin-left:12px;float:left;vertical-align:top;\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n		<button class='btn btn-default' id='send' style=\"margin-left:5px;float:left;vertical-align:top;\"><span class=\"glyphicon glyphicon-send\" style=\"padding-right:2px;\"></span> Share</button><button class='btn btn-default' id='cancel' style=\"margin-right:12px;float:right;vertical-align:top;\"><span class=\"glyphicon glyphicon-remove\" style=\"padding-right:2px;\"></span> Cancel</button>\n	</div>\n</div>";
 },"useData":true});
 templates['answer'] = template({"1":function(depth0,helpers,partials,data) {
     return "	<div class=\"col-lg-12 answer-textbox\">\n		<div class=\"input-group mid\">\n			<input type=\"text\" class=\"form-control answer-form\" aria-label=\"...\" value=\""
@@ -35,6 +35,22 @@ templates['answer'] = template({"1":function(depth0,helpers,partials,data) {
 },"useData":true});
 templates['answerError'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class='alert alert-danger' role='alert' style='display:inline-block;margin-bottom:10px;margin-top:15px;'>\n	<span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n	<span class=\"sr-only\">Error:</span>\n	Please enter more than one answer.\n</div>";
+},"useData":true});
+templates['classCard'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<a href=\"lectures.ejs\" style=\"text-decoration:none\">\n	<div class=\"well nonEdit\">\n		<p class=\"trash\"><span class=\"glyphicon glyphicon-trash\"></span></p>\n		<p class=\"edit\"><span class=\"glyphicon glyphicon-edit\"></span></p>\n		<h2 class=\"className\">"
+    + this.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "</h2>\n	</div>\n</a>";
+},"useData":true});
+templates['classEdit'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"well\">\n	<input type=\"hidden\" class=\"hiddenName\" value=\""
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\">\n	<input type=\"text\" class=\"form-control answer-form focusQuestion\" onfocus=\"this.value = this.value;\" value=\""
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\"\" aria-label=\"...\">\n	<button type='button' class='btn btn-default addNew save' style=\"margin-top:10px\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n    <button type='button' class='btn btn-default addNew cancel' style=\"float:right; margin-top:10px\"><span class=\"glyphicon glyphicon-remove\" style=\"float:left;padding-right:4px; padding-top:2px\"></span> Cancel</button>\n</div>";
 },"useData":true});
 templates['createTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
@@ -53,10 +69,26 @@ templates['insertAnswersToTable'] = template({"compiler":[6,">= 2.0.0-beta.1"],"
     + this.escapeExpression(this.lambda(depth0, depth0))
     + " saved-answer-tr'>\n</tr>";
 },"useData":true});
+templates['lecEdit'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"well\">\n	<input type=\"hidden\" class=\"hiddenName\" value=\""
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\">\n	<input type=\"text\" class=\"form-control answer-form focusQuestion\" onfocus=\"this.value = this.value;\" value=\""
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\"\" aria-label=\"...\">\n	<button type='button' class='btn btn-default addNew saveLec' style=\"margin-top:10px\"><span class=\"glyphicon glyphicon-floppy-disk\" style=\"padding-right:2px;\"></span> Save</button>\n    <button type='button' class='btn btn-default addNew cancelLec' style=\"float:right; margin-top:10px\"><span class=\"glyphicon glyphicon-remove\" style=\"float:left;padding-right:4px; padding-top:2px\"></span> Cancel</button>\n</div>";
+},"useData":true});
+templates['lectureCard'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<a href=\"question.ejs\" style=\"text-decoration:none\">\n	<div class=\"well nonEdit\">\n		<p class=\"trash\"><span class=\"glyphicon glyphicon-trash\"></span></p>\n		<p class=\"editLec\"><span class=\"glyphicon glyphicon-edit\"></span></p>\n		<h2 class=\"className\">"
+    + this.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "</h2>\n	</div>\n</a>";
+},"useData":true});
 templates['question'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"col-lg-12\" style=\"padding-top:15px\">\n	<div class=\"input-group mid well\" style=\"padding-top:10px;padding-bottom:10px;height:40px\">\n		<input id=\"question\" type=\"text\" class=\"form-control\" aria-label=\"...\" value=\""
     + this.escapeExpression(this.lambda(depth0, depth0))
-    + "\">\n	</div>\n	<div class='add-remove-answer'>\n		<span class=\"glyphicon glyphicon-plus\" style=\"float:left;\"></span><span class=\"glyphicon glyphicon-minus\" style=\"float:left;margin-left:5px;\"></span>\n	</div>\n</div>";
+    + "\">\n	</div>\n	<div class='add-remove-answer'>\n		<span class=\"glyphicon glyphicon-plus plus\" style=\"float:left;\"></span><span class=\"glyphicon glyphicon-minus minus\" style=\"float:left;margin-left:5px;\"></span>\n	</div>\n</div>";
 },"useData":true});
 templates['questionContent'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
