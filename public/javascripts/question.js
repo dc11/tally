@@ -67,6 +67,7 @@ var editQuestion = function(template, question, answers) {
 
 $(document).on('click', '#add', function (e) {
 	e.preventDefault();
+	editSelected = false;
 	var newQuestion = '';
 	loadQuestion('addQuestion');
 	$('#question').focus();
