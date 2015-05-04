@@ -73,7 +73,7 @@ body{
 	height: auto;
 	background-color: #3385D6;
 	border-radius: 10px;
-	margin: 20px;
+	/*margin: 20px;*/
 	margin-top: 10px;
 	height: calc(100vh - 95px);
 }
