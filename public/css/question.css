@@ -21,9 +21,13 @@ body{
 	overflow-y: hidden;
 }
 
+#main-container{
+	padding-top: 60px;
+}
+
 .scrollable{
 	overflow: scroll;
-    height: calc(100% - 162px);
+    height: calc(100% - 150px);
     border-radius: 5px;
     /*border: solid 2px white;*/
     padding: 10px;
@@ -64,13 +68,14 @@ body{
 }
 
 .section{
+	padding: 8px;
 	padding-bottom: 0px;
 	height: auto;
 	background-color: #3385D6;
 	border-radius: 10px;
 	margin: 20px;
 	margin-top: 10px;
-	height: calc(100vh - 100px);
+	height: calc(100vh - 95px);
 }
 
 @media (min-width: 992px){
@@ -179,7 +184,7 @@ body{
 	cursor: hand;
 }
 
-.edit {
+.edit, .sendButton {
 	font-size: 20px;
 	position: relative;
 	float: left;
@@ -187,7 +192,7 @@ body{
 	/*padding-left: 5px;*/
 }
 
-.edit:hover {
+.edit:hover, .sendButton:hover {
 	color: navy;
 	cursor: pointer;
 	cursor: hand;
