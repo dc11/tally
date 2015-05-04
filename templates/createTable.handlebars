@@ -5,21 +5,18 @@
 	<p class='trash'>
 		<span class="glyphicon glyphicon-trash sent-icon" ></span>
 	</p>
-	<table class='table table-condensed' style="table-layout:fixed">
+	<table class='table table-condensed {{ this }}' style="table-layout:fixed">
 		<tr class='saved-question-tr' id='{{ this }}'>
 		</tr>
-		<tr class='saved-answer-tr-1-{{ this }}'>
-		</tr>
-		<tr class='saved-answer-tr-2-{{ this }}'>
-		</tr>
-		<tr class='answer-single-send' style="padding-top:20px">
-			<td class='answer-td-save' colspan="2">
-				<div class="sendButton">
-					<button class='btn btn-default'><span class="glyphicon glyphicon-send" style="margin-top:3px;padding-right:2px;"></span> Share</button>
-				</div>
-			</td>
-		</tr>
+		
 	</table>
+	<div class='answer-single-send' style="padding-top:20px">
+		<div class='answer-td-save' colspan="2">
+			<div class="sendButton">
+				<button class='btn btn-default'><span class="glyphicon glyphicon-send" style="margin-top:3px;padding-right:2px;"></span> Share</button>
+			</div>
+		</div>
+	</div>
 
 
 </div>

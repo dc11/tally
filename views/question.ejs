@@ -11,12 +11,45 @@
         <script src="javascripts/templates.js"></script>
         <script src="javascripts/question.js"></script>
         <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="/bootstrap/js/bootbox.min.js"></script>
+        <script src="javascripts/cookie.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('#currentClass').text($.cookie("class"));
+            $('#currentLecture').text($.cookie("lecture"));
+
+          $('.row').on('click', '#delete-sent', function(evt) {
+            evt.preventDefault();
+            bootbox.confirm({
+              message: "Are you sure you want to delete all shared questions?",
+              backdrop: true,
+              callback: function(result) {
+                if (result) {  
+                  $('#sent-container').empty();  
+                }
+              }
+            });
+          });
+           $('.row').on('click', '#delete-drafts', function(evt) {
+            evt.preventDefault();
+            bootbox.confirm({
+              message: "Are you sure you want to delete all hidden questions?",
+              backdrop: true,
+              callback: function(result) {
+                if (result) {  
+                  $('#all-questions-drafts').empty(); 
+                }
+              }
+            });
+          });
+        });
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header page-scroll">
-                    <a class="navbar-brand page-scroll" href="#page-top"><font face="Brush Script MT"><font size="6">Tally</font></font></a>
+                    <a class="navbar-brand page-scroll"><font face="Brush Script MT"><font size="6">Tally</font></font></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -24,8 +57,8 @@
                         <ol class="breadcrumb">
                             <li></li>
                             <li><a href="classes.ejs">Classes</a></li>
-                            <li><a href="lectures.ejs">Lectures</a></li>
-                            <li class="active">Questions</li>
+                            <li><a id="currentClass" href="lectures.ejs">Lectures</a></li>
+                            <li id="currentLecture" class="active">Questions</li>
                         </ol>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -47,7 +80,7 @@
                                 <button type='button' class='btn btn-default' id='delete-drafts'><span class="glyphicon glyphicon-trash" style="float:left;padding-right:4px; padding-top:2px"></span> Delete All</button>
                             </div>
                         </div>
-                        <div id='drafts-container'>
+                        <div id='drafts-container' class='scrollable'>
                             <div id='current-question-drafts'></div>
                             <div id='all-questions-drafts'></div>
                         </div>
@@ -60,7 +93,7 @@
                                 <button type='button' class='btn btn-default' id='delete-sent'><span class="glyphicon glyphicon-trash" style="float:left;padding-right:4px; padding-top:2px"></span> Delete All</button>
                             </div>
                         </div>
-                        <div id='sent-container'>
+                        <div id='sent-container' class='scrollable'>
                             <!-- <div id="container2" style="height: 300px"></div> -->
 
                         </div>
