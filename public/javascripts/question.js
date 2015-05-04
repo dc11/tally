@@ -176,22 +176,26 @@ $(document).on('click', '#closeResults', function (e) {
 
 $(document).on('click', '#save', function (e) {
 	e.preventDefault();
-	$('.edit').prop('disabled', false);
-	$('#add').prop('disabled', false);
+	// $('.edit').prop('disabled', false);
+	// $('#add').prop('disabled', false);
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
 	var q = $('.addQuestion').find('#question')[0].value;
 	if (q == '') {
+		console.log('catch');
 		$('.alert').remove();
 		questionError('questionError');
 		$('#question').focus();
 	}
 	else if (contents.length <= 2) {
+		console.log('catch two');
 		$('.alert').remove();
 		questionError('answerError');
 		$('#question').focus();
 	}
 	else {
+		$('.edit').prop('disabled', false);
+		$('#add').prop('disabled', false);
 		var id = Math.floor(Math.random() * 100000000000);
 		createTable('createTable', id);
 		addQuestionContent('questionContent', { content : contents[0] }, id);
@@ -204,8 +208,8 @@ $(document).on('click', '#save', function (e) {
 				addAnswers('addAnswers', { content : [ contents[i], contents[i + 1] ] }, 'saved-answer-tr', id, i);
 			}
 		}
+		$('#current-question-drafts').empty();
 	}
-	$('#current-question-drafts').empty();
 });
 
 $(document).on('click', '.edit', function (e) {
@@ -235,8 +239,8 @@ $(document).on('click', '.edit', function (e) {
 $(document).on('click', '#send', function (e) {
 	e.preventDefault();
 	editSelected = false;
-	$('#add').prop('disabled', false);
-	$('.edit').prop('disabled', false);
+	// $('#add').prop('disabled', false);
+	// $('.edit').prop('disabled', false);
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
 	var q = $('.addQuestion').find('#question')[0].value;
@@ -251,6 +255,8 @@ $(document).on('click', '#send', function (e) {
 		$('#question').focus();
 	}
 	else {
+		$('.edit').prop('disabled', false);
+		$('#add').prop('disabled', false);
 		var id = Math.floor(Math.random() * 100000000000)
 		sendQuestion('sendQuestion', id, contents[0], { content : contents.splice(1,contents.length) });
 		$('#current-question-drafts').empty();
