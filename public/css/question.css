@@ -209,6 +209,7 @@ body{
 
 .plus {
 	color: #3385D6;
+	z-index: 20;
 }
 
 .plus:hover {
@@ -218,6 +219,7 @@ body{
 
 .minus {
 	color: #3385D6;
+	z-index: 20;
 }
 
 .minus:hover {
