@@ -166,6 +166,7 @@ $(document).on('click', '#closeResults', function (e) {
 
 $(document).on('click', '#save', function (e) {
 	e.preventDefault();
+	$('#add').prop('disabled', false);
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
 	console.log(contents.length);
@@ -198,6 +199,7 @@ $(document).on('click', '#save', function (e) {
 
 $(document).on('click', '.edit', function (e) {
 	editSelected = true;
+	$('#add').prop('disabled', true);
 	var parent = $(this).parent();
 	var question = $(parent).find('.question-content')[0].textContent;
 	var answers = $(parent).find('.answer-content');
@@ -221,7 +223,7 @@ $(document).on('click', '.edit', function (e) {
 $(document).on('click', '#send', function (e) {
 	e.preventDefault();
 	editSelected = false;
-	editSelected = false;
+	$('#add').prop('disabled', false);
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
 	var q = $('.addQuestion').find('#question')[0].value;
@@ -254,6 +256,7 @@ $(document).on('click', '#send', function (e) {
 
 $(document).on('click', '#send-all', function (e) {
 	editSelected = false;
+	$('#add').prop('disabled', false);
 	var questions = [];
 	var ids = []
 	var answers = [];
@@ -348,6 +351,7 @@ $(document).on('click', '.trash', function (e) {
 });
 
 $(document).on('click', '#cancel', function (e) {
+	$('#add').prop('disabled', false);
 	if (editSelected) {
 		var id = Math.floor(Math.random() * 100000000000);
 		createTable('createTable', id);
@@ -370,6 +374,7 @@ $(document).on('click', '#cancel', function (e) {
 });
 
 $(document).on('click', '.sendButton', function (e) {
+	$('#add').prop('disabled', false);
 	var top = $(this).closest('.saved-question');
 	var q = $(top).find('.question-content')[0].innerText;
 	var answers = $(top).find('.answer-content');
