@@ -383,11 +383,11 @@ $(document).on('click', '.sendButton', function (e) {
 	$(top).remove();
 });
 
-$(document).on('click', '.glyphicon-plus', function (e) {
+$(document).on('click', '.plus', function (e) {
 	addAnswer('addAnswer');
 });
 
-$(document).on('click', '.glyphicon-minus', function (e) {
+$(document).on('click', '.minus', function (e) {
 	$('.answer-textbox').last().remove();
 	console.log($('.answer-textbox'));
 });
