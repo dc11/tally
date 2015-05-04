@@ -212,8 +212,9 @@ body{
 	cursor: hand;
 }
 
-.plus {
+/*.plus {
 	color: #3385D6;
+	z-index: 20;
 }
 
 .plus:hover {
@@ -223,12 +224,13 @@ body{
 
 .minus {
 	color: #3385D6;
+	z-index: 20;
 }
 
 .minus:hover {
 	cursor: pointer;
 	color: navy;
-}
+}*/
 
 .add-remove-answer {
 	float: left;
