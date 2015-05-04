@@ -236,3 +236,10 @@ body{
 	margin-left: 30px;
 }
 
+.modal {
+	outline: none;
+	position: absolute;
+	margin-top: 0;
+	top: 20%;
+	overflow: visible;
+}
