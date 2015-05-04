@@ -60,9 +60,11 @@
         });
       });
 
-       $(".well").click(function(evt) {
-          var currentLecture = $(evt.target).children().context.innerText;
-        $.cookie("lecture", currentLecture);
+      $(".row").on('click', '.well', function(evt) {
+        var content = $(this).find('.className')[0];
+        if (typeof content !== 'undefined') {
+          $.cookie("lecture", content.textContent);
+        }
       });
 
     });
