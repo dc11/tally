@@ -19,7 +19,7 @@ var sendQuestion = function(template, data, question, answers) {
 var createTable = function(template, data) {
 	data = data || {};
 	$('#all-questions-drafts').prepend(Handlebars.templates[template](data));
-	$('#current-question-drafts').empty();
+	// $('#current-question-drafts').empty();
 }
 
 var insertRowInTable = function(template, id, counter) {
@@ -67,6 +67,7 @@ var editQuestion = function(template, question, answers) {
 
 $(document).on('click', '#add', function (e) {
 	e.preventDefault();
+	$('#add').prop('disabled', true);
 	editSelected = false;
 	var newQuestion = '';
 	loadQuestion('addQuestion');
@@ -179,6 +180,7 @@ $(document).on('click', '#closeResults', function (e) {
 
 $(document).on('click', '#save', function (e) {
 	e.preventDefault();
+	$('.edit').prop('disabled', false);
 	$('#add').prop('disabled', false);
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
@@ -207,10 +209,12 @@ $(document).on('click', '#save', function (e) {
 			}
 		}
 	}
+	$('#current-question-drafts').empty();
 });
 
 $(document).on('click', '.edit', function (e) {
 	editSelected = true;
+	$('.edit').prop('disabled', true);
 	$('#add').prop('disabled', true);
 	var parent = $(this).parent();
 	var question = $(parent).find('.question-content')[0].textContent;
@@ -236,6 +240,7 @@ $(document).on('click', '#send', function (e) {
 	e.preventDefault();
 	editSelected = false;
 	$('#add').prop('disabled', false);
+	$('.edit').prop('disabled', false);
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
 	var q = $('.addQuestion').find('#question')[0].value;
@@ -269,6 +274,7 @@ $(document).on('click', '#send', function (e) {
 $(document).on('click', '#send-all', function (e) {
 	editSelected = false;
 	$('#add').prop('disabled', false);
+	$('.edit').prop('disabled', false);
 	var questions = [];
 	var ids = []
 	var answers = [];
@@ -363,6 +369,7 @@ $(document).on('click', '.trash', function (e) {
 
 $(document).on('click', '#cancel', function (e) {
 	$('#add').prop('disabled', false);
+	$('.edit').prop('disabled', false);
 	if (editSelected) {
 		var id = Math.floor(Math.random() * 100000000000);
 		createTable('createTable', id);
@@ -382,10 +389,12 @@ $(document).on('click', '#cancel', function (e) {
 		var parent = $(this).parent().parent();
 		$(parent).remove();
 	}
+	$('#current-question-drafts').empty();
 });
 
 $(document).on('click', '.sendButton', function (e) {
 	$('#add').prop('disabled', false);
+	$('.edit').prop('disabled', false);
 	var top = $(this).closest('.saved-question');
 	var q = $(top).find('.question-content')[0].innerText;
 	var answers = $(top).find('.answer-content');
