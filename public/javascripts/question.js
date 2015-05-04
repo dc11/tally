@@ -76,6 +76,8 @@ $(document).on('click', '#add', function (e) {
 $(document).on('click', '#view', function (e) {
 	e.preventDefault();
 	var id = $(this).parent()[0].id;
+	var qSelector = '.question-tr-sent-' + id;
+	var parent = $(qSelector).parent().parent().parent();
 	viewResults('results', {id: id}, id);
 
 	var answers = [];
@@ -96,7 +98,7 @@ $(document).on('click', '#view', function (e) {
 	});
 
 	var arr = finAns[0];
-	var hold = [7, 8, 4, 5].slice(0,arr.length);
+	var hold = [7, 8, 4, 5, 2, 3, 5, 7, 1, 3, 4, 5, 2, 5, 1, 4, 7, 8, 3, 4, 5, 7, 8, 2, 1, 3].slice(0,arr.length);
 	
 	$(function () {
 	    $('#container-' + id).highcharts({
@@ -126,6 +128,13 @@ $(document).on('click', '#view', function (e) {
 	        }
 	    });
 	});
+
+	console.log(this)
+	var y = parent.offset().top;
+	var x = $("#sent-container").offset().top;
+	var offset = $("#sent-container").scrollTop();
+	console.log(y, x, offset, y-x+offset)
+	$("#sent-container").scrollTop(y-x+offset);
 });
 
 $(document).on('click', '#closeResults', function (e) {
@@ -170,7 +179,6 @@ $(document).on('click', '#save', function (e) {
 	$('#add').prop('disabled', false);
 	var t = $('.addQuestion').find('input[type=text]');
 	var contents = grabContents(t);
-	console.log(contents.length);
 	var q = $('.addQuestion').find('#question')[0].value;
 	if (q == '') {
 		$('.alert').remove();
@@ -266,7 +274,6 @@ $(document).on('click', '#send-all', function (e) {
 	var ids = []
 	var answers = [];
 	$('.saved-question').each( function (index) {
-		console.log(this);
 		var q = $(this).find('.question-content')[0];
 		var question = q.textContent;
 		var ID = $(this).find('.saved-question-tr')[0].id;
