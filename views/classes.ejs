@@ -22,8 +22,10 @@
 
 	      $('.row').on('click', '.trash', function(evt) {
 	        evt.preventDefault();
+          var parent = $(this).parent().parent().parent();
+          var content = $(parent).find('.className')[0].textContent;
 					bootbox.confirm({
-						message: "Are you sure you want to delete this class and all associated contents?",
+						message: "Are you sure you want to delete " + content + " and all associated contents?",
 						backdrop: true,
 						callback: function(result) {
 							if (result) {  
